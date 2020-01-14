@@ -10,7 +10,7 @@ Genau gesagt bedeutet 1-zu-1, dass während des Spiels keine Mauseingaben verwor
 
 ### WIE BENUTZT MAN ES?
 
-* Tool unter **[Releases](https://github.com/MinersWin/TGF-MOUSE-TUNING-PACK-2.0/releases) **herunterladen.
+* Tool unter [Releases](https://github.com/MinersWin/TGF-MOUSE-TUNING-PACK-2.0/releases) herunterladen.
 * Zip-Archiv entpacken
 * MouseFix.exe ausführen
 * Einstellungen treffen, bzw. auf Express klicken
