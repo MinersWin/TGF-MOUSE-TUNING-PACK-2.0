@@ -240,7 +240,7 @@ Add-Member -InputObject $FormMousePack -Name RadioButton175 -Value $RadioButton1
 Add-Member -InputObject $FormMousePack -Name RadioButton150 -Value $RadioButton150 -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name RadioButton125 -Value $RadioButton125 -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name LabelScale -Value $LabelScale -MemberType NoteProperty
-Add-Member -InputObject $FormMousePack -Name CheckBoxAcceleration Fix -Value $CheckBoxAcceleration_Fix -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name CheckBoxAcceleration_Fix -Value $CheckBoxAcceleration_Fix -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name PictureBox1 -Value $PictureBox1 -MemberType NoteProperty
 }
 . InitializeComponent
