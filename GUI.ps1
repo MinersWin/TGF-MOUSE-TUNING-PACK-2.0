@@ -1,3 +1,5 @@
+$FormMousePack_Load = {
+}
 $Label2_Click = {
 }
 Add-Type -AssemblyName System.Windows.Forms
