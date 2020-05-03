@@ -14,6 +14,7 @@ Genau gesagt bedeutet 1-zu-1, dass während des Spiels keine Mauseingaben verwor
 * Zip-Archiv entpacken
 * MouseFix.exe ausführen
 * Einstellungen treffen, bzw. auf Express klicken
+* Fix anwenden
 * Windows Neu-Starten
 
 - Die 1:1 Reaktion der Maus genießen
@@ -30,6 +31,8 @@ Wenn in diesen Spielen die Funktion aufgerufen wird (alle Bewegungen müssen bes
 Wenn die Option "Zeigergenauigkeit verbessern" aktiviert ist, wird der Zeiger durch langsamere Mausbewegungen besonders langsam und durch schnellere Mausbewegungen besonders schnell. Es ist nicht linear und nicht geradlinig.
 
 Das ist ärgerlich, denn wo man hinzielt, hängt davon ab, wie weit die Maus bewegt wird und wie schnell ie Maus zum Zielen bewegt wird.
+
+![](https://intranet.minerswin.de/serveimage.png)
 
 ### WIE FUNKTIONIERT DER FIX?
 
