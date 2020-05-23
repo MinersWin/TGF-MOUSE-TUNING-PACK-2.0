@@ -13,26 +13,36 @@ $FormMousePack = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.RadioButton]$RadioButton150 = $null
 [System.Windows.Forms.RadioButton]$RadioButton125 = $null
 [System.Windows.Forms.Label]$LabelScale = $null
-[System.Windows.Forms.CheckBox]$CheckBoxAcceleration_Fix = $null
+[System.Windows.Forms.CheckBox]$CheckBoxAcceleration Fix = $null
 [System.Windows.Forms.PictureBox]$PictureBox1 = $null
+[System.Windows.Forms.Button]$Button1 = $null
+[System.Windows.Forms.CheckBox]$CheckBox1 = $null
+[System.Windows.Forms.CheckBox]$CheckBox2 = $null
+[System.Windows.Forms.CheckBox]$CheckBox3 = $null
+[System.Windows.Forms.CheckBox]$CheckBox4 = $null
 function InitializeComponent
 {
 $RadioButton100 = (New-Object -TypeName System.Windows.Forms.RadioButton)
 $LabelMain = (New-Object -TypeName System.Windows.Forms.Label)
 $LabelCreator = (New-Object -TypeName System.Windows.Forms.Label)
 $PanelScale = (New-Object -TypeName System.Windows.Forms.Panel)
+$ButtonDetect = (New-Object -TypeName System.Windows.Forms.Button)
+$RadioButton350 = (New-Object -TypeName System.Windows.Forms.RadioButton)
+$RadioButton300 = (New-Object -TypeName System.Windows.Forms.RadioButton)
+$RadioButton250 = (New-Object -TypeName System.Windows.Forms.RadioButton)
+$RadioButton225 = (New-Object -TypeName System.Windows.Forms.RadioButton)
+$RadioButton200 = (New-Object -TypeName System.Windows.Forms.RadioButton)
 $RadioButton175 = (New-Object -TypeName System.Windows.Forms.RadioButton)
 $RadioButton150 = (New-Object -TypeName System.Windows.Forms.RadioButton)
 $RadioButton125 = (New-Object -TypeName System.Windows.Forms.RadioButton)
 $LabelScale = (New-Object -TypeName System.Windows.Forms.Label)
-$RadioButton200 = (New-Object -TypeName System.Windows.Forms.RadioButton)
-$RadioButton225 = (New-Object -TypeName System.Windows.Forms.RadioButton)
-$RadioButton250 = (New-Object -TypeName System.Windows.Forms.RadioButton)
-$RadioButton300 = (New-Object -TypeName System.Windows.Forms.RadioButton)
-$RadioButton350 = (New-Object -TypeName System.Windows.Forms.RadioButton)
-$ButtonDetect = (New-Object -TypeName System.Windows.Forms.Button)
-$CheckBoxAcceleration_Fix = (New-Object -TypeName System.Windows.Forms.CheckBox)
+$CheckBoxAcceleration Fix = (New-Object -TypeName System.Windows.Forms.CheckBox)
 $PictureBox1 = (New-Object -TypeName System.Windows.Forms.PictureBox)
+$Button1 = (New-Object -TypeName System.Windows.Forms.Button)
+$CheckBox1 = (New-Object -TypeName System.Windows.Forms.CheckBox)
+$CheckBox2 = (New-Object -TypeName System.Windows.Forms.CheckBox)
+$CheckBox3 = (New-Object -TypeName System.Windows.Forms.CheckBox)
+$CheckBox4 = (New-Object -TypeName System.Windows.Forms.CheckBox)
 $PanelScale.SuspendLayout()
 ([System.ComponentModel.ISupportInitialize]$PictureBox1).BeginInit()
 $FormMousePack.SuspendLayout()
@@ -86,6 +96,71 @@ $PanelScale.Name = [System.String]'PanelScale'
 $PanelScale.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]137,[System.Int32]332))
 $PanelScale.TabIndex = [System.Int32]3
 #
+#ButtonDetect
+#
+$ButtonDetect.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]296))
+$ButtonDetect.Name = [System.String]'ButtonDetect'
+$ButtonDetect.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]126,[System.Int32]23))
+$ButtonDetect.TabIndex = [System.Int32]10
+$ButtonDetect.Text = [System.String]'Detect'
+$ButtonDetect.UseCompatibleTextRendering = $true
+$ButtonDetect.UseVisualStyleBackColor = $true
+#
+#RadioButton350
+#
+$RadioButton350.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]266))
+$RadioButton350.Name = [System.String]'RadioButton350'
+$RadioButton350.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]104,[System.Int32]24))
+$RadioButton350.TabIndex = [System.Int32]9
+$RadioButton350.TabStop = $true
+$RadioButton350.Text = [System.String]'350%'
+$RadioButton350.UseCompatibleTextRendering = $true
+$RadioButton350.UseVisualStyleBackColor = $true
+#
+#RadioButton300
+#
+$RadioButton300.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]236))
+$RadioButton300.Name = [System.String]'RadioButton300'
+$RadioButton300.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]104,[System.Int32]24))
+$RadioButton300.TabIndex = [System.Int32]8
+$RadioButton300.TabStop = $true
+$RadioButton300.Text = [System.String]'300%'
+$RadioButton300.UseCompatibleTextRendering = $true
+$RadioButton300.UseVisualStyleBackColor = $true
+#
+#RadioButton250
+#
+$RadioButton250.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]206))
+$RadioButton250.Name = [System.String]'RadioButton250'
+$RadioButton250.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]126,[System.Int32]24))
+$RadioButton250.TabIndex = [System.Int32]7
+$RadioButton250.TabStop = $true
+$RadioButton250.Text = [System.String]'250%'
+$RadioButton250.UseCompatibleTextRendering = $true
+$RadioButton250.UseVisualStyleBackColor = $true
+#
+#RadioButton225
+#
+$RadioButton225.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]176))
+$RadioButton225.Name = [System.String]'RadioButton225'
+$RadioButton225.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]126,[System.Int32]24))
+$RadioButton225.TabIndex = [System.Int32]6
+$RadioButton225.TabStop = $true
+$RadioButton225.Text = [System.String]'225%'
+$RadioButton225.UseCompatibleTextRendering = $true
+$RadioButton225.UseVisualStyleBackColor = $true
+#
+#RadioButton200
+#
+$RadioButton200.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]146))
+$RadioButton200.Name = [System.String]'RadioButton200'
+$RadioButton200.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]126,[System.Int32]24))
+$RadioButton200.TabIndex = [System.Int32]5
+$RadioButton200.TabStop = $true
+$RadioButton200.Text = [System.String]'200%'
+$RadioButton200.UseCompatibleTextRendering = $true
+$RadioButton200.UseVisualStyleBackColor = $true
+#
 #RadioButton175
 #
 $RadioButton175.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]116))
@@ -129,80 +204,15 @@ $LabelScale.Text = [System.String]'Monitor Scale'
 $LabelScale.UseCompatibleTextRendering = $true
 $LabelScale.add_Click($Label2_Click)
 #
-#RadioButton200
-#
-$RadioButton200.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]146))
-$RadioButton200.Name = [System.String]'RadioButton200'
-$RadioButton200.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]126,[System.Int32]24))
-$RadioButton200.TabIndex = [System.Int32]5
-$RadioButton200.TabStop = $true
-$RadioButton200.Text = [System.String]'200%'
-$RadioButton200.UseCompatibleTextRendering = $true
-$RadioButton200.UseVisualStyleBackColor = $true
-#
-#RadioButton225
-#
-$RadioButton225.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]176))
-$RadioButton225.Name = [System.String]'RadioButton225'
-$RadioButton225.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]126,[System.Int32]24))
-$RadioButton225.TabIndex = [System.Int32]6
-$RadioButton225.TabStop = $true
-$RadioButton225.Text = [System.String]'225%'
-$RadioButton225.UseCompatibleTextRendering = $true
-$RadioButton225.UseVisualStyleBackColor = $true
-#
-#RadioButton250
-#
-$RadioButton250.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]206))
-$RadioButton250.Name = [System.String]'RadioButton250'
-$RadioButton250.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]126,[System.Int32]24))
-$RadioButton250.TabIndex = [System.Int32]7
-$RadioButton250.TabStop = $true
-$RadioButton250.Text = [System.String]'250%'
-$RadioButton250.UseCompatibleTextRendering = $true
-$RadioButton250.UseVisualStyleBackColor = $true
-#
-#RadioButton300
-#
-$RadioButton300.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]236))
-$RadioButton300.Name = [System.String]'RadioButton300'
-$RadioButton300.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]104,[System.Int32]24))
-$RadioButton300.TabIndex = [System.Int32]8
-$RadioButton300.TabStop = $true
-$RadioButton300.Text = [System.String]'300%'
-$RadioButton300.UseCompatibleTextRendering = $true
-$RadioButton300.UseVisualStyleBackColor = $true
-#
-#RadioButton350
-#
-$RadioButton350.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]266))
-$RadioButton350.Name = [System.String]'RadioButton350'
-$RadioButton350.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]104,[System.Int32]24))
-$RadioButton350.TabIndex = [System.Int32]9
-$RadioButton350.TabStop = $true
-$RadioButton350.Text = [System.String]'350%'
-$RadioButton350.UseCompatibleTextRendering = $true
-$RadioButton350.UseVisualStyleBackColor = $true
-#
-#ButtonDetect
-#
-$ButtonDetect.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]296))
-$ButtonDetect.Name = [System.String]'ButtonDetect'
-$ButtonDetect.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]126,[System.Int32]23))
-$ButtonDetect.TabIndex = [System.Int32]10
-$ButtonDetect.Text = [System.String]'Detect'
-$ButtonDetect.UseCompatibleTextRendering = $true
-$ButtonDetect.UseVisualStyleBackColor = $true
-#
 #CheckBoxAcceleration Fix
 #
-$CheckBoxAcceleration_Fix.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]82))
-$CheckBoxAcceleration_Fix.Name = [System.String]'CheckBoxAcceleration Fix'
-$CheckBoxAcceleration_Fix.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]519,[System.Int32]24))
-$CheckBoxAcceleration_Fix.TabIndex = [System.Int32]4
-$CheckBoxAcceleration_Fix.Text = [System.String]'Mouse Acceleration Fix'
-$CheckBoxAcceleration_Fix.UseCompatibleTextRendering = $true
-$CheckBoxAcceleration_Fix.UseVisualStyleBackColor = $true
+$CheckBoxAcceleration Fix.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]82))
+$CheckBoxAcceleration Fix.Name = [System.String]'CheckBoxAcceleration Fix'
+$CheckBoxAcceleration Fix.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]519,[System.Int32]24))
+$CheckBoxAcceleration Fix.TabIndex = [System.Int32]4
+$CheckBoxAcceleration Fix.Text = [System.String]'Mouse Acceleration Fix'
+$CheckBoxAcceleration Fix.UseCompatibleTextRendering = $true
+$CheckBoxAcceleration Fix.UseVisualStyleBackColor = $true
 #
 #PictureBox1
 #
@@ -212,11 +222,66 @@ $PictureBox1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([S
 $PictureBox1.TabIndex = [System.Int32]5
 $PictureBox1.TabStop = $false
 #
+#Button1
+#
+$Button1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]537,[System.Int32]491))
+$Button1.Name = [System.String]'Button1'
+$Button1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]137,[System.Int32]23))
+$Button1.TabIndex = [System.Int32]6
+$Button1.Text = [System.String]'Button1'
+$Button1.UseCompatibleTextRendering = $true
+$Button1.UseVisualStyleBackColor = $true
+#
+#CheckBox1
+#
+$CheckBox1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]540,[System.Int32]425))
+$CheckBox1.Name = [System.String]'CheckBox1'
+$CheckBox1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]134,[System.Int32]24))
+$CheckBox1.TabIndex = [System.Int32]7
+$CheckBox1.Text = [System.String]'CheckBox1'
+$CheckBox1.UseCompatibleTextRendering = $true
+$CheckBox1.UseVisualStyleBackColor = $true
+#
+#CheckBox2
+#
+$CheckBox2.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]540,[System.Int32]455))
+$CheckBox2.Name = [System.String]'CheckBox2'
+$CheckBox2.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]134,[System.Int32]24))
+$CheckBox2.TabIndex = [System.Int32]8
+$CheckBox2.Text = [System.String]'CheckBox2'
+$CheckBox2.UseCompatibleTextRendering = $true
+$CheckBox2.UseVisualStyleBackColor = $true
+#
+#CheckBox3
+#
+$CheckBox3.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]112))
+$CheckBox3.Name = [System.String]'CheckBox3'
+$CheckBox3.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]383,[System.Int32]24))
+$CheckBox3.TabIndex = [System.Int32]9
+$CheckBox3.Text = [System.String]'CheckBox3'
+$CheckBox3.UseCompatibleTextRendering = $true
+$CheckBox3.UseVisualStyleBackColor = $true
+#
+#CheckBox4
+#
+$CheckBox4.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]142))
+$CheckBox4.Name = [System.String]'CheckBox4'
+$CheckBox4.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]383,[System.Int32]24))
+$CheckBox4.TabIndex = [System.Int32]10
+$CheckBox4.Text = [System.String]'CheckBox4'
+$CheckBox4.UseCompatibleTextRendering = $true
+$CheckBox4.UseVisualStyleBackColor = $true
+#
 #FormMousePack
 #
 $FormMousePack.ClientSize = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]682,[System.Int32]526))
+$FormMousePack.Controls.Add($CheckBox4)
+$FormMousePack.Controls.Add($CheckBox3)
+$FormMousePack.Controls.Add($CheckBox2)
+$FormMousePack.Controls.Add($CheckBox1)
+$FormMousePack.Controls.Add($Button1)
 $FormMousePack.Controls.Add($PictureBox1)
-$FormMousePack.Controls.Add($CheckBoxAcceleration_Fix)
+$FormMousePack.Controls.Add($CheckBoxAcceleration Fix)
 $FormMousePack.Controls.Add($PanelScale)
 $FormMousePack.Controls.Add($LabelCreator)
 $FormMousePack.Controls.Add($LabelMain)
@@ -240,7 +305,12 @@ Add-Member -InputObject $FormMousePack -Name RadioButton175 -Value $RadioButton1
 Add-Member -InputObject $FormMousePack -Name RadioButton150 -Value $RadioButton150 -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name RadioButton125 -Value $RadioButton125 -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name LabelScale -Value $LabelScale -MemberType NoteProperty
-Add-Member -InputObject $FormMousePack -Name CheckBoxAcceleration_Fix -Value $CheckBoxAcceleration_Fix -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name CheckBoxAcceleration Fix -Value $CheckBoxAcceleration Fix -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name PictureBox1 -Value $PictureBox1 -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name Button1 -Value $Button1 -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name CheckBox1 -Value $CheckBox1 -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name CheckBox2 -Value $CheckBox2 -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name CheckBox3 -Value $CheckBox3 -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name CheckBox4 -Value $CheckBox4 -MemberType NoteProperty
 }
 . InitializeComponent
