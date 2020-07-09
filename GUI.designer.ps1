@@ -13,7 +13,7 @@ $FormMousePack = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.RadioButton]$RadioButton150 = $null
 [System.Windows.Forms.RadioButton]$RadioButton125 = $null
 [System.Windows.Forms.Label]$LabelScale = $null
-[System.Windows.Forms.CheckBox]$CheckBoxAcceleration Fix = $null
+[System.Windows.Forms.CheckBox]$CheckBoxAccelerationFix = $null
 [System.Windows.Forms.PictureBox]$PictureBox1 = $null
 [System.Windows.Forms.Button]$Button1 = $null
 [System.Windows.Forms.CheckBox]$CheckBox1 = $null
@@ -36,7 +36,7 @@ $RadioButton175 = (New-Object -TypeName System.Windows.Forms.RadioButton)
 $RadioButton150 = (New-Object -TypeName System.Windows.Forms.RadioButton)
 $RadioButton125 = (New-Object -TypeName System.Windows.Forms.RadioButton)
 $LabelScale = (New-Object -TypeName System.Windows.Forms.Label)
-$CheckBoxAcceleration Fix = (New-Object -TypeName System.Windows.Forms.CheckBox)
+$CheckBoxAccelerationFix = (New-Object -TypeName System.Windows.Forms.CheckBox)
 $PictureBox1 = (New-Object -TypeName System.Windows.Forms.PictureBox)
 $Button1 = (New-Object -TypeName System.Windows.Forms.Button)
 $CheckBox1 = (New-Object -TypeName System.Windows.Forms.CheckBox)
@@ -206,13 +206,13 @@ $LabelScale.add_Click($Label2_Click)
 #
 #CheckBoxAcceleration Fix
 #
-$CheckBoxAcceleration Fix.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]82))
-$CheckBoxAcceleration Fix.Name = [System.String]'CheckBoxAcceleration Fix'
-$CheckBoxAcceleration Fix.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]519,[System.Int32]24))
-$CheckBoxAcceleration Fix.TabIndex = [System.Int32]4
-$CheckBoxAcceleration Fix.Text = [System.String]'Mouse Acceleration Fix'
-$CheckBoxAcceleration Fix.UseCompatibleTextRendering = $true
-$CheckBoxAcceleration Fix.UseVisualStyleBackColor = $true
+$CheckBoxAccelerationFix.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]82))
+$CheckBoxAccelerationFix.Name = [System.String]'CheckBoxAcceleration Fix'
+$CheckBoxAccelerationFix.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]519,[System.Int32]24))
+$CheckBoxAccelerationFix.TabIndex = [System.Int32]4
+$CheckBoxAccelerationFix.Text = [System.String]'Mouse Acceleration Fix'
+$CheckBoxAccelerationFix.UseCompatibleTextRendering = $true
+$CheckBoxAccelerationFix.UseVisualStyleBackColor = $true
 #
 #PictureBox1
 #
@@ -281,7 +281,7 @@ $FormMousePack.Controls.Add($CheckBox2)
 $FormMousePack.Controls.Add($CheckBox1)
 $FormMousePack.Controls.Add($Button1)
 $FormMousePack.Controls.Add($PictureBox1)
-$FormMousePack.Controls.Add($CheckBoxAcceleration Fix)
+$FormMousePack.Controls.Add($CheckBoxAccelerationFix)
 $FormMousePack.Controls.Add($PanelScale)
 $FormMousePack.Controls.Add($LabelCreator)
 $FormMousePack.Controls.Add($LabelMain)
@@ -305,7 +305,7 @@ Add-Member -InputObject $FormMousePack -Name RadioButton175 -Value $RadioButton1
 Add-Member -InputObject $FormMousePack -Name RadioButton150 -Value $RadioButton150 -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name RadioButton125 -Value $RadioButton125 -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name LabelScale -Value $LabelScale -MemberType NoteProperty
-Add-Member -InputObject $FormMousePack -Name CheckBoxAcceleration Fix -Value $CheckBoxAcceleration Fix -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name CheckBoxAccelerationFix -Value $CheckBoxAccelerationFix -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name PictureBox1 -Value $PictureBox1 -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name Button1 -Value $Button1 -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name CheckBox1 -Value $CheckBox1 -MemberType NoteProperty
