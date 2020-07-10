@@ -1,5 +1,7 @@
 # TGF MOUSE TUNING PACK 2.0
 
+## Release: August 2020
+
 ### WAS IST ES?
 
 DAS TGF MOUSE TUNING PACK ist ein Tool, welches die die Mauszeigerbeschleunigung von Windows 7, 8, 8.1 oder 10 entfernt.
