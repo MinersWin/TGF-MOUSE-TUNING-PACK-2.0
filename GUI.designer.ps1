@@ -14,13 +14,11 @@ $FormMousePack = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.RadioButton]$RadioButton150 = $null
 [System.Windows.Forms.RadioButton]$RadioButton125 = $null
 [System.Windows.Forms.Label]$LabelScale = $null
-[System.Windows.Forms.CheckBox]$CheckBoxAccelerationFix = $null
 [System.Windows.Forms.PictureBox]$PictureBox1 = $null
-[System.Windows.Forms.Button]$Button1 = $null
+[System.Windows.Forms.Button]$ButtonExit = $null
 [System.Windows.Forms.CheckBox]$CheckBox1 = $null
 [System.Windows.Forms.CheckBox]$CheckBox2 = $null
-[System.Windows.Forms.CheckBox]$CheckBox3 = $null
-[System.Windows.Forms.CheckBox]$CheckBox4 = $null
+[System.Windows.Forms.Button]$ButtonMouseAccelerationFix = $null
 function InitializeComponent
 {
 $RadioButton100 = (New-Object -TypeName System.Windows.Forms.RadioButton)
@@ -37,14 +35,12 @@ $RadioButton175 = (New-Object -TypeName System.Windows.Forms.RadioButton)
 $RadioButton150 = (New-Object -TypeName System.Windows.Forms.RadioButton)
 $RadioButton125 = (New-Object -TypeName System.Windows.Forms.RadioButton)
 $LabelScale = (New-Object -TypeName System.Windows.Forms.Label)
-$CheckBoxAccelerationFix = (New-Object -TypeName System.Windows.Forms.CheckBox)
 $PictureBox1 = (New-Object -TypeName System.Windows.Forms.PictureBox)
-$Button1 = (New-Object -TypeName System.Windows.Forms.Button)
+$ButtonExit = (New-Object -TypeName System.Windows.Forms.Button)
 $CheckBox1 = (New-Object -TypeName System.Windows.Forms.CheckBox)
 $CheckBox2 = (New-Object -TypeName System.Windows.Forms.CheckBox)
-$CheckBox3 = (New-Object -TypeName System.Windows.Forms.CheckBox)
-$CheckBox4 = (New-Object -TypeName System.Windows.Forms.CheckBox)
 $Button? = (New-Object -TypeName System.Windows.Forms.Button)
+$ButtonMouseAccelerationFix = (New-Object -TypeName System.Windows.Forms.Button)
 $PanelScale.SuspendLayout()
 ([System.ComponentModel.ISupportInitialize]$PictureBox1).BeginInit()
 $FormMousePack.SuspendLayout()
@@ -207,16 +203,6 @@ $LabelScale.Text = [System.String]'Monitor Scale'
 $LabelScale.UseCompatibleTextRendering = $true
 $LabelScale.add_Click($Label2_Click)
 #
-#CheckBoxAccelerationFix
-#
-$CheckBoxAccelerationFix.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]82))
-$CheckBoxAccelerationFix.Name = [System.String]'CheckBoxAcceleration Fix'
-$CheckBoxAccelerationFix.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]519,[System.Int32]24))
-$CheckBoxAccelerationFix.TabIndex = [System.Int32]4
-$CheckBoxAccelerationFix.Text = [System.String]'Mouse Acceleration Fix'
-$CheckBoxAccelerationFix.UseCompatibleTextRendering = $true
-$CheckBoxAccelerationFix.UseVisualStyleBackColor = $true
-#
 #PictureBox1
 #
 $PictureBox1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]396,[System.Int32]9))
@@ -225,15 +211,15 @@ $PictureBox1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([S
 $PictureBox1.TabIndex = [System.Int32]5
 $PictureBox1.TabStop = $false
 #
-#Button1
+#ButtonExit
 #
-$Button1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]537,[System.Int32]491))
-$Button1.Name = [System.String]'Button1'
-$Button1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]137,[System.Int32]23))
-$Button1.TabIndex = [System.Int32]6
-$Button1.Text = [System.String]'Button1'
-$Button1.UseCompatibleTextRendering = $true
-$Button1.UseVisualStyleBackColor = $true
+$ButtonExit.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]537,[System.Int32]491))
+$ButtonExit.Name = [System.String]'ButtonExit'
+$ButtonExit.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]137,[System.Int32]23))
+$ButtonExit.TabIndex = [System.Int32]6
+$ButtonExit.Text = [System.String]'Exit'
+$ButtonExit.UseCompatibleTextRendering = $true
+$ButtonExit.UseVisualStyleBackColor = $true
 #
 #CheckBox1
 #
@@ -255,26 +241,6 @@ $CheckBox2.Text = [System.String]'CheckBox2'
 $CheckBox2.UseCompatibleTextRendering = $true
 $CheckBox2.UseVisualStyleBackColor = $true
 #
-#CheckBox3
-#
-$CheckBox3.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]112))
-$CheckBox3.Name = [System.String]'CheckBox3'
-$CheckBox3.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]383,[System.Int32]24))
-$CheckBox3.TabIndex = [System.Int32]9
-$CheckBox3.Text = [System.String]'CheckBox3'
-$CheckBox3.UseCompatibleTextRendering = $true
-$CheckBox3.UseVisualStyleBackColor = $true
-#
-#CheckBox4
-#
-$CheckBox4.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]142))
-$CheckBox4.Name = [System.String]'CheckBox4'
-$CheckBox4.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]383,[System.Int32]24))
-$CheckBox4.TabIndex = [System.Int32]10
-$CheckBox4.Text = [System.String]'CheckBox4'
-$CheckBox4.UseCompatibleTextRendering = $true
-$CheckBox4.UseVisualStyleBackColor = $true
-#
 #Button?
 #
 $Button?.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]104,[System.Int32]4))
@@ -285,16 +251,24 @@ $Button?.Text = [System.String]'?'
 $Button?.UseCompatibleTextRendering = $true
 $Button?.UseVisualStyleBackColor = $true
 #
+#ButtonMouseAccelerationFix
+#
+$ButtonMouseAccelerationFix.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]92))
+$ButtonMouseAccelerationFix.Name = [System.String]'ButtonMouseAccelerationFix'
+$ButtonMouseAccelerationFix.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]169,[System.Int32]23))
+$ButtonMouseAccelerationFix.TabIndex = [System.Int32]9
+$ButtonMouseAccelerationFix.Text = [System.String]'Mausbeschleunigungs Fix'
+$ButtonMouseAccelerationFix.UseCompatibleTextRendering = $true
+$ButtonMouseAccelerationFix.UseVisualStyleBackColor = $true
+#
 #FormMousePack
 #
 $FormMousePack.ClientSize = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]682,[System.Int32]526))
-$FormMousePack.Controls.Add($CheckBox4)
-$FormMousePack.Controls.Add($CheckBox3)
+$FormMousePack.Controls.Add($ButtonMouseAccelerationFix)
 $FormMousePack.Controls.Add($CheckBox2)
 $FormMousePack.Controls.Add($CheckBox1)
-$FormMousePack.Controls.Add($Button1)
+$FormMousePack.Controls.Add($ButtonExit)
 $FormMousePack.Controls.Add($PictureBox1)
-$FormMousePack.Controls.Add($CheckBoxAccelerationFix)
 $FormMousePack.Controls.Add($PanelScale)
 $FormMousePack.Controls.Add($LabelCreator)
 $FormMousePack.Controls.Add($LabelMain)
@@ -319,12 +293,10 @@ Add-Member -InputObject $FormMousePack -Name RadioButton175 -Value $RadioButton1
 Add-Member -InputObject $FormMousePack -Name RadioButton150 -Value $RadioButton150 -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name RadioButton125 -Value $RadioButton125 -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name LabelScale -Value $LabelScale -MemberType NoteProperty
-Add-Member -InputObject $FormMousePack -Name CheckBoxAccelerationFix -Value $CheckBoxAccelerationFix -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name PictureBox1 -Value $PictureBox1 -MemberType NoteProperty
-Add-Member -InputObject $FormMousePack -Name Button1 -Value $Button1 -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name ButtonExit -Value $ButtonExit -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name CheckBox1 -Value $CheckBox1 -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name CheckBox2 -Value $CheckBox2 -MemberType NoteProperty
-Add-Member -InputObject $FormMousePack -Name CheckBox3 -Value $CheckBox3 -MemberType NoteProperty
-Add-Member -InputObject $FormMousePack -Name CheckBox4 -Value $CheckBox4 -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name ButtonMouseAccelerationFix -Value $ButtonMouseAccelerationFix -MemberType NoteProperty
 }
 . InitializeComponent

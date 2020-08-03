@@ -22,4 +22,7 @@ $PictureBox1.BackgroundImage = $img
 $PictureBox1.BackgroundImageLayout = "Stretch"
 $PictureBox1.Add_Click({About})
 
+#CloseButton
+$ButtonExit.Add_Click{($FormMousePack.Close())}
+
 $FormMousePack.ShowDialog()
