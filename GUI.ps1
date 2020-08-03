@@ -22,6 +22,10 @@ $PictureBox1.BackgroundImage = $img
 $PictureBox1.BackgroundImageLayout = "Stretch"
 $PictureBox1.Add_Click({About})
 
+
+#Add Mouse Acceleration Fix
+$ButtonMouseAccelerationFix.Add_Click{(.\MouseFix\MouseAccelerationFix.ps1)}
+
 #CloseButton
 $ButtonExit.Add_Click{($FormMousePack.Close())}
 
