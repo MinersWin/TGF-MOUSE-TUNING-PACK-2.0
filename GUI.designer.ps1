@@ -3,6 +3,7 @@ $FormMousePack = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.Label]$LabelMain = $null
 [System.Windows.Forms.Label]$LabelCreator = $null
 [System.Windows.Forms.Panel]$PanelScale = $null
+[System.Windows.Forms.Button]$Button? = $null
 [System.Windows.Forms.Button]$ButtonDetect = $null
 [System.Windows.Forms.RadioButton]$RadioButton350 = $null
 [System.Windows.Forms.RadioButton]$RadioButton300 = $null
@@ -43,6 +44,7 @@ $CheckBox1 = (New-Object -TypeName System.Windows.Forms.CheckBox)
 $CheckBox2 = (New-Object -TypeName System.Windows.Forms.CheckBox)
 $CheckBox3 = (New-Object -TypeName System.Windows.Forms.CheckBox)
 $CheckBox4 = (New-Object -TypeName System.Windows.Forms.CheckBox)
+$Button? = (New-Object -TypeName System.Windows.Forms.Button)
 $PanelScale.SuspendLayout()
 ([System.ComponentModel.ISupportInitialize]$PictureBox1).BeginInit()
 $FormMousePack.SuspendLayout()
@@ -80,6 +82,7 @@ $LabelCreator.UseCompatibleTextRendering = $true
 #PanelScale
 #
 $PanelScale.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
+$PanelScale.Controls.Add($Button?)
 $PanelScale.Controls.Add($ButtonDetect)
 $PanelScale.Controls.Add($RadioButton350)
 $PanelScale.Controls.Add($RadioButton300)
@@ -204,7 +207,7 @@ $LabelScale.Text = [System.String]'Monitor Scale'
 $LabelScale.UseCompatibleTextRendering = $true
 $LabelScale.add_Click($Label2_Click)
 #
-#CheckBoxAcceleration Fix
+#CheckBoxAccelerationFix
 #
 $CheckBoxAccelerationFix.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]82))
 $CheckBoxAccelerationFix.Name = [System.String]'CheckBoxAcceleration Fix'
@@ -272,6 +275,16 @@ $CheckBox4.Text = [System.String]'CheckBox4'
 $CheckBox4.UseCompatibleTextRendering = $true
 $CheckBox4.UseVisualStyleBackColor = $true
 #
+#Button?
+#
+$Button?.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]104,[System.Int32]4))
+$Button?.Name = [System.String]'Button?'
+$Button?.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]25,[System.Int32]25))
+$Button?.TabIndex = [System.Int32]11
+$Button?.Text = [System.String]'?'
+$Button?.UseCompatibleTextRendering = $true
+$Button?.UseVisualStyleBackColor = $true
+#
 #FormMousePack
 #
 $FormMousePack.ClientSize = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]682,[System.Int32]526))
@@ -295,6 +308,7 @@ Add-Member -InputObject $FormMousePack -Name RadioButton100 -Value $RadioButton1
 Add-Member -InputObject $FormMousePack -Name LabelMain -Value $LabelMain -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name LabelCreator -Value $LabelCreator -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name PanelScale -Value $PanelScale -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name Button? -Value $Button? -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name ButtonDetect -Value $ButtonDetect -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name RadioButton350 -Value $RadioButton350 -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name RadioButton300 -Value $RadioButton300 -MemberType NoteProperty
