@@ -15,4 +15,11 @@ $ButtonDetect.Add_Click{(.\Detect_Scale.ps1)}
   default {reg import '.\Windows 10 + 8 Standard.reg'}
 #>
 
+#Add Logo to PictureBox
+$Picture = ".\Images\Logo_v1.png"
+$img = [System.Drawing.Image]::Fromfile($Picture)
+$PictureBox1.BackgroundImage = $img
+$PictureBox1.BackgroundImageLayout = "Stretch"
+$PictureBox1.Add_Click({About})
+
 $FormMousePack.ShowDialog()
