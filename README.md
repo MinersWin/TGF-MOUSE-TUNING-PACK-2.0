@@ -1,5 +1,8 @@
 # TGF MOUSE TUNING PACK 2.0
 
+Hier wird entwickelt: [TGF Git](https://git.minerswin.de/thegeekfreaks1/tuningpack/TGF-MOUSE-TUNING-PACK-2-0)
+Link zu GitHub: [GitHub](https://github.com/MinersWin/TGF-MOUSE-TUNING-PACK-2.0)
+
 ## Release: August 2020
 
 ### WAS IST ES?
