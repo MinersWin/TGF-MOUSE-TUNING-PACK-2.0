@@ -43,7 +43,7 @@ function About {
   $aboutForm.ControlBox    = $false
   $aboutForm.ShowInTaskBar = $false
   $aboutForm.StartPosition = "CenterParent"
-  $aboutForm.Text          = "The Geek Freaks Mouse Tuning Pack 2.0"
+  $aboutForm.Text          = "Mouse Tuning Pack 2.0"
   $aboutForm.Add_Load($aboutForm_Load)
   # About PictureBox
   $icon = [System.Drawing.Bitmap]::FromFile('.\Images\favicon.ico')
@@ -56,7 +56,7 @@ function About {
   $aboutFormNameLabel.Font     = New-Object Drawing.Font("Microsoft Sans Serif", 9, [System.Drawing.FontStyle]::Bold)
   $aboutFormNameLabel.Location = "110, 20"
   $aboutFormNameLabel.Size     = "200, 18"
-  $aboutFormNameLabel.Text     = "The Geek Freaks Mouse Tuning Pack 2.0"
+  $aboutFormNameLabel.Text     = "Mouse Tuning Pack 2.0"
   $aboutForm.Controls.Add($aboutFormNameLabel)
   # About Text Label
   $aboutFormText.Location = "100, 40"
