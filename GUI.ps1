@@ -1,7 +1,7 @@
 Add-Type -AssemblyName System.Windows.Forms
 . (Join-Path $PSScriptRoot 'GUI.designer.ps1')
 .\Detect_Scale.ps1
-$ButtonDetect.Add_Click{(.\Detect_Scale.ps1)}
+
 <#
 100 {reg import '.\Windows 10 + 8 TGFMOUSEFIX 100%.reg'}
   125 {reg import '.\Windows 10 + 8 TGFMOUSEFIX 125%.reg'}
@@ -24,5 +24,8 @@ $PictureBox1.Add_Click({About})
 
 #CloseButton
 $ButtonExit.Add_Click{($FormMousePack.Close())}
+
+#Detect Scale
+$ButtonDetect.Add_Click{(.\Detect_Scale.ps1)}
 
 $FormMousePack.ShowDialog()
