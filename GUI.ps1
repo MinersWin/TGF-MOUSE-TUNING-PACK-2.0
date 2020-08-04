@@ -6,6 +6,15 @@ Add-Type -AssemblyName System.Windows.Forms
 . (Join-Path $PSScriptRoot 'GUI.designer.ps1')
 .\Detect_Scale.ps1
 
+###################################################################################
+#Images
+
+#Favicon
+$bitmap = [System.Drawing.Bitmap]::FromFile(".\Images\favicon.ico")
+$bitmap.MakeTransparent()
+$hicon = $bitmap.GetHicon()
+$FormMousePack.Icon = [system.drawing.icon]::FromHandle($hicon)
+
 #Add Logo to PictureBox
 $Picture = ".\Images\Logo_v1.png"
 $img = [System.Drawing.Image]::Fromfile($Picture)
@@ -13,6 +22,7 @@ $PictureBox1.BackgroundImage = $img
 $PictureBox1.BackgroundImageLayout = "Stretch"
 $PictureBox1.Add_Click({About})
 
+###################################################################################
 
 #Add Mouse Acceleration Fix
 $ButtonMouseAccelerationFix.Add_Click{(.\MouseFix\MouseAccelerationFix.ps1)}
