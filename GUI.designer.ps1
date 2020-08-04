@@ -16,8 +16,8 @@ $FormMousePack = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.Label]$LabelScale = $null
 [System.Windows.Forms.PictureBox]$PictureBox1 = $null
 [System.Windows.Forms.Button]$ButtonExit = $null
-[System.Windows.Forms.CheckBox]$CheckBox1 = $null
-[System.Windows.Forms.CheckBox]$CheckBox2 = $null
+[System.Windows.Forms.CheckBox]$CheckBoxRestorePoint = $null
+[System.Windows.Forms.CheckBox]$CheckBoxRegBackup = $null
 [System.Windows.Forms.Button]$ButtonMouseAccelerationFix = $null
 function InitializeComponent
 {
@@ -25,6 +25,7 @@ $RadioButton100 = (New-Object -TypeName System.Windows.Forms.RadioButton)
 $LabelMain = (New-Object -TypeName System.Windows.Forms.Label)
 $LabelCreator = (New-Object -TypeName System.Windows.Forms.Label)
 $PanelScale = (New-Object -TypeName System.Windows.Forms.Panel)
+$Button? = (New-Object -TypeName System.Windows.Forms.Button)
 $ButtonDetect = (New-Object -TypeName System.Windows.Forms.Button)
 $RadioButton350 = (New-Object -TypeName System.Windows.Forms.RadioButton)
 $RadioButton300 = (New-Object -TypeName System.Windows.Forms.RadioButton)
@@ -37,9 +38,8 @@ $RadioButton125 = (New-Object -TypeName System.Windows.Forms.RadioButton)
 $LabelScale = (New-Object -TypeName System.Windows.Forms.Label)
 $PictureBox1 = (New-Object -TypeName System.Windows.Forms.PictureBox)
 $ButtonExit = (New-Object -TypeName System.Windows.Forms.Button)
-$CheckBox1 = (New-Object -TypeName System.Windows.Forms.CheckBox)
-$CheckBox2 = (New-Object -TypeName System.Windows.Forms.CheckBox)
-$Button? = (New-Object -TypeName System.Windows.Forms.Button)
+$CheckBoxRestorePoint = (New-Object -TypeName System.Windows.Forms.CheckBox)
+$CheckBoxRegBackup = (New-Object -TypeName System.Windows.Forms.CheckBox)
 $ButtonMouseAccelerationFix = (New-Object -TypeName System.Windows.Forms.Button)
 $PanelScale.SuspendLayout()
 ([System.ComponentModel.ISupportInitialize]$PictureBox1).BeginInit()
@@ -94,6 +94,16 @@ $PanelScale.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList 
 $PanelScale.Name = [System.String]'PanelScale'
 $PanelScale.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]137,[System.Int32]332))
 $PanelScale.TabIndex = [System.Int32]3
+#
+#Button?
+#
+$Button?.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]104,[System.Int32]4))
+$Button?.Name = [System.String]'Button?'
+$Button?.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]25,[System.Int32]25))
+$Button?.TabIndex = [System.Int32]11
+$Button?.Text = [System.String]'?'
+$Button?.UseCompatibleTextRendering = $true
+$Button?.UseVisualStyleBackColor = $true
 #
 #ButtonDetect
 #
@@ -221,35 +231,31 @@ $ButtonExit.Text = [System.String]'Exit'
 $ButtonExit.UseCompatibleTextRendering = $true
 $ButtonExit.UseVisualStyleBackColor = $true
 #
-#CheckBox1
+#CheckBoxRestorePoint
 #
-$CheckBox1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]540,[System.Int32]425))
-$CheckBox1.Name = [System.String]'CheckBox1'
-$CheckBox1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]134,[System.Int32]24))
-$CheckBox1.TabIndex = [System.Int32]7
-$CheckBox1.Text = [System.String]'CheckBox1'
-$CheckBox1.UseCompatibleTextRendering = $true
-$CheckBox1.UseVisualStyleBackColor = $true
+$CheckBoxRestorePoint.Anchor = ([System.Windows.Forms.AnchorStyles][System.Windows.Forms.AnchorStyles]::Bottom -bor [System.Windows.Forms.AnchorStyles]::Right)
+$CheckBoxRestorePoint.CheckAlign = [System.Drawing.ContentAlignment]::MiddleRight
+$CheckBoxRestorePoint.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]522,[System.Int32]425))
+$CheckBoxRestorePoint.Name = [System.String]'CheckBoxRestorePoint'
+$CheckBoxRestorePoint.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]152,[System.Int32]24))
+$CheckBoxRestorePoint.TabIndex = [System.Int32]7
+$CheckBoxRestorePoint.Text = [System.String]'Wiederherstellungspunkt'
+$CheckBoxRestorePoint.TextAlign = [System.Drawing.ContentAlignment]::MiddleRight
+$CheckBoxRestorePoint.UseCompatibleTextRendering = $true
+$CheckBoxRestorePoint.UseVisualStyleBackColor = $true
 #
-#CheckBox2
+#CheckBoxRegBackup
 #
-$CheckBox2.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]540,[System.Int32]455))
-$CheckBox2.Name = [System.String]'CheckBox2'
-$CheckBox2.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]134,[System.Int32]24))
-$CheckBox2.TabIndex = [System.Int32]8
-$CheckBox2.Text = [System.String]'CheckBox2'
-$CheckBox2.UseCompatibleTextRendering = $true
-$CheckBox2.UseVisualStyleBackColor = $true
-#
-#Button?
-#
-$Button?.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]104,[System.Int32]4))
-$Button?.Name = [System.String]'Button?'
-$Button?.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]25,[System.Int32]25))
-$Button?.TabIndex = [System.Int32]11
-$Button?.Text = [System.String]'?'
-$Button?.UseCompatibleTextRendering = $true
-$Button?.UseVisualStyleBackColor = $true
+$CheckBoxRegBackup.Anchor = ([System.Windows.Forms.AnchorStyles][System.Windows.Forms.AnchorStyles]::Bottom -bor [System.Windows.Forms.AnchorStyles]::Right)
+$CheckBoxRegBackup.CheckAlign = [System.Drawing.ContentAlignment]::MiddleRight
+$CheckBoxRegBackup.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]522,[System.Int32]455))
+$CheckBoxRegBackup.Name = [System.String]'CheckBoxRegBackup'
+$CheckBoxRegBackup.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]152,[System.Int32]24))
+$CheckBoxRegBackup.TabIndex = [System.Int32]8
+$CheckBoxRegBackup.Text = [System.String]'Registry Backup'
+$CheckBoxRegBackup.TextAlign = [System.Drawing.ContentAlignment]::MiddleRight
+$CheckBoxRegBackup.UseCompatibleTextRendering = $true
+$CheckBoxRegBackup.UseVisualStyleBackColor = $true
 #
 #ButtonMouseAccelerationFix
 #
@@ -265,8 +271,8 @@ $ButtonMouseAccelerationFix.UseVisualStyleBackColor = $true
 #
 $FormMousePack.ClientSize = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]682,[System.Int32]526))
 $FormMousePack.Controls.Add($ButtonMouseAccelerationFix)
-$FormMousePack.Controls.Add($CheckBox2)
-$FormMousePack.Controls.Add($CheckBox1)
+$FormMousePack.Controls.Add($CheckBoxRegBackup)
+$FormMousePack.Controls.Add($CheckBoxRestorePoint)
 $FormMousePack.Controls.Add($ButtonExit)
 $FormMousePack.Controls.Add($PictureBox1)
 $FormMousePack.Controls.Add($PanelScale)
@@ -295,8 +301,8 @@ Add-Member -InputObject $FormMousePack -Name RadioButton125 -Value $RadioButton1
 Add-Member -InputObject $FormMousePack -Name LabelScale -Value $LabelScale -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name PictureBox1 -Value $PictureBox1 -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name ButtonExit -Value $ButtonExit -MemberType NoteProperty
-Add-Member -InputObject $FormMousePack -Name CheckBox1 -Value $CheckBox1 -MemberType NoteProperty
-Add-Member -InputObject $FormMousePack -Name CheckBox2 -Value $CheckBox2 -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name CheckBoxRestorePoint -Value $CheckBoxRestorePoint -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name CheckBoxRegBackup -Value $CheckBoxRegBackup -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name ButtonMouseAccelerationFix -Value $ButtonMouseAccelerationFix -MemberType NoteProperty
 }
 . InitializeComponent
