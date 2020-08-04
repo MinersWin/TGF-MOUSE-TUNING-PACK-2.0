@@ -7,6 +7,12 @@ Add-Type -AssemblyName System.Windows.Forms
 .\Detect_Scale.ps1
 
 ###################################################################################
+#Set Global Variables
+$LabelMain.Text = "TGF Mouse Tuning Pack 2.0"
+$LabelCreator.Text = "by MinersWin"
+$FormMousePack.Text = "TGF Mouse Tuning Pack 2.0"
+
+###################################################################################
 #Images
 
 #Favicon
@@ -75,5 +81,7 @@ function About {
   $aboutForm.Controls.Add($aboutFormExit)
   [void]$aboutForm.ShowDialog()
 } # End About
+
+################################################################################################
 
 $FormMousePack.ShowDialog()
