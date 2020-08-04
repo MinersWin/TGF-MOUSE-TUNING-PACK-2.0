@@ -19,6 +19,8 @@ $FormMousePack = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.CheckBox]$CheckBoxRestorePoint = $null
 [System.Windows.Forms.CheckBox]$CheckBoxRegBackup = $null
 [System.Windows.Forms.Button]$ButtonMouseAccelerationFix = $null
+[System.Windows.Forms.Button]$ButtonGerman = $null
+[System.Windows.Forms.Button]$ButtonEnglish = $null
 function InitializeComponent
 {
 $RadioButton100 = (New-Object -TypeName System.Windows.Forms.RadioButton)
@@ -41,6 +43,8 @@ $ButtonExit = (New-Object -TypeName System.Windows.Forms.Button)
 $CheckBoxRestorePoint = (New-Object -TypeName System.Windows.Forms.CheckBox)
 $CheckBoxRegBackup = (New-Object -TypeName System.Windows.Forms.CheckBox)
 $ButtonMouseAccelerationFix = (New-Object -TypeName System.Windows.Forms.Button)
+$ButtonGerman = (New-Object -TypeName System.Windows.Forms.Button)
+$ButtonEnglish = (New-Object -TypeName System.Windows.Forms.Button)
 $PanelScale.SuspendLayout()
 ([System.ComponentModel.ISupportInitialize]$PictureBox1).BeginInit()
 $FormMousePack.SuspendLayout()
@@ -267,9 +271,31 @@ $ButtonMouseAccelerationFix.Text = [System.String]'Mausbeschleunigungs Fix'
 $ButtonMouseAccelerationFix.UseCompatibleTextRendering = $true
 $ButtonMouseAccelerationFix.UseVisualStyleBackColor = $true
 #
+#ButtonGerman
+#
+$ButtonGerman.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]491))
+$ButtonGerman.Name = [System.String]'ButtonGerman'
+$ButtonGerman.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]75,[System.Int32]23))
+$ButtonGerman.TabIndex = [System.Int32]10
+$ButtonGerman.Text = [System.String]'Deutsch'
+$ButtonGerman.UseCompatibleTextRendering = $true
+$ButtonGerman.UseVisualStyleBackColor = $true
+#
+#ButtonEnglish
+#
+$ButtonEnglish.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]93,[System.Int32]491))
+$ButtonEnglish.Name = [System.String]'ButtonEnglish'
+$ButtonEnglish.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]75,[System.Int32]23))
+$ButtonEnglish.TabIndex = [System.Int32]11
+$ButtonEnglish.Text = [System.String]'English'
+$ButtonEnglish.UseCompatibleTextRendering = $true
+$ButtonEnglish.UseVisualStyleBackColor = $true
+#
 #FormMousePack
 #
 $FormMousePack.ClientSize = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]682,[System.Int32]526))
+$FormMousePack.Controls.Add($ButtonEnglish)
+$FormMousePack.Controls.Add($ButtonGerman)
 $FormMousePack.Controls.Add($ButtonMouseAccelerationFix)
 $FormMousePack.Controls.Add($CheckBoxRegBackup)
 $FormMousePack.Controls.Add($CheckBoxRestorePoint)
@@ -304,5 +330,7 @@ Add-Member -InputObject $FormMousePack -Name ButtonExit -Value $ButtonExit -Memb
 Add-Member -InputObject $FormMousePack -Name CheckBoxRestorePoint -Value $CheckBoxRestorePoint -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name CheckBoxRegBackup -Value $CheckBoxRegBackup -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name ButtonMouseAccelerationFix -Value $ButtonMouseAccelerationFix -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name ButtonGerman -Value $ButtonGerman -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name ButtonEnglish -Value $ButtonEnglish -MemberType NoteProperty
 }
 . InitializeComponent
