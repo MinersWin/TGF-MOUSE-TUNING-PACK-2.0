@@ -29,6 +29,7 @@ $PictureBox1.BackgroundImageLayout = "Stretch"
 $PictureBox1.Add_Click({About})
 
 ###################################################################################
+#Buttons
 
 #Add Mouse Acceleration Fix
 $ButtonMouseAccelerationFix.Add_Click{(.\MouseFix\MouseAccelerationFix.ps1)}
@@ -38,6 +39,10 @@ $ButtonExit.Add_Click{($FormMousePack.Close())}
 
 #Detect Scale
 $ButtonDetect.Add_Click{(.\Detect_Scale.ps1)}
+
+#Language Buttons
+$ButtonGerman.Add_Click{(German)}
+$ButtonEnglish.Add_Click{(English)}
 
 #About Button
 function About {
@@ -83,5 +88,34 @@ function About {
 } # End About
 
 ################################################################################################
+#Languages
+
+#German
+function German{
+  $LabelMain.Text = "TGF Maus Tuning Pack 2.0"
+  $LabelCreator.Text = "von Minerswin"
+
+  $ButtonMouseAccelerationFix.Text = "Mausbeschleunigungs Fix"
+  $ButtonExit.Text = "Beenden"
+  $ButtonDetect.Text = "Erkennen"
+
+  $CheckBoxRestorePoint.Text = "Wiederherstellungspunkt"
+  $CheckBoxRegBackup.Text = "Registry Backup"
+  [System.Windows.Forms.MessageBox]::Show("Deutsches Sprachpacket ausgewält.","TGF Maus Tuning Pack 2.0","OK","Info")
+}
+
+#English
+function English{
+  $LabelMain.Text = "TGF Mouse Tuning Pack 2.0"
+  $LabelCreator.Text = "by MinersWin"
+
+  $ButtonMouseAccelerationFix.Text = "Mouse Acceleration Fix"
+  $ButtonExit.Text = "Exit"
+  $ButtonDetect.Text = "Detect"
+
+  $CheckBoxRestorePoint.Text = "System Restore Point"
+  $CheckBoxRegBackup.Text = "Registry Backup"
+  [System.Windows.Forms.MessageBox]::Show("English Languagepack has been applied.","TGF Mouse Tuning Pack 2.0","OK","Info")
+}
 
 $FormMousePack.ShowDialog()
