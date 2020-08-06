@@ -34,6 +34,24 @@ $LabelMain.Text = "TGF Mouse Tuning Pack 2.0"
 $LabelCreator.Text = "by MinersWin"
 $FormMousePack.Text = "TGF Mouse Tuning Pack 2.0"
 
+#Detect Monitor Scale
+function Detect_Scale{
+  $Scale = [Math]::round([DPI]::scaling(), 2) * 100
+  Write-Output "Scale: $($Scale)"
+  switch($Scale){
+    100 {$RadioButton100.Checked = $true}
+    125 {$RadioButton125.Checked = $true}
+    150 {$RadioButton150.Checked = $true}
+    175 {$RadioButton175.Checked = $true}
+    200 {$RadioButton200.Checked = $true}
+    225 {$RadioButton225.Checked = $true}
+    250 {$RadioButton250.Checked = $true}
+    300 {$RadioButton300.Checked = $true}
+    350 {$RadioButton350.Checked = $true}
+    default {$RadioButton100.Checked = $true}
+  }
+}
+
 ###################################################################################
 #Images
 
