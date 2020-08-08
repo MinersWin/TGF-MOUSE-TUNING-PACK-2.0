@@ -5,6 +5,7 @@
 Add-Type -AssemblyName System.Windows.Forms
 . (Join-Path $PSScriptRoot 'GUI.designer.ps1')
 
+function DetectScaleAddType{
 Add-Type @'
   using System; 
   using System.Runtime.InteropServices;
@@ -25,6 +26,7 @@ Add-Type @'
     }
   }
 '@ -ReferencedAssemblies 'System.Drawing.dll'
+}
 
 .\Detect_Scale.ps1
 
