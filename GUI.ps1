@@ -160,4 +160,5 @@ function English{
   [System.Windows.Forms.MessageBox]::Show("English Languagepack has been applied.","TGF Mouse Tuning Pack 2.0","OK","Info")
 }
 
+DetectScaleAddType
 $FormMousePack.ShowDialog()
