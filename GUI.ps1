@@ -74,7 +74,22 @@ $PictureBox1.Add_Click({About})
 #Buttons
 
 #Add Mouse Acceleration Fix
-$ButtonMouseAccelerationFix.Add_Click{(.\MouseFix\MouseAccelerationFix.ps1)}
+$ButtonMouseAccelerationFix.Add_Click{
+  $Scale = [Math]::round([DPI]::scaling(), 2) * 100
+  Write-Output "Scale: $($Scale)"
+  switch($Scale){
+    100 {reg import '.\Windows 10 + 8 TGFMOUSEFIX 100%.reg'}
+    125 {reg import '.\Windows 10 + 8 TGFMOUSEFIX 125%.reg'}
+    150 {reg import '.\Windows 10 + 8 TGFMOUSEFIX 150%.reg'}
+    175 {reg import '.\Windows 10 + 8 TGFMOUSEFIX 175%.reg'}
+    200 {reg import '.\Windows 10 + 8 TGFMOUSEFIX 200%.reg'}
+    225 {reg import '.\Windows 10 + 8 TGFMOUSEFIX 225%.reg'}
+    250 {reg import '.\Windows 10 + 8 TGFMOUSEFIX 250%.reg'}
+    300 {reg import '.\Windows 10 + 8 TGFMOUSEFIX 300%.reg'}
+    350 {reg import '.\Windows 10 + 8 TGFMOUSEFIX 350%.reg'}
+    default {reg import '.\Windows 10 + 8 Standard.reg'}
+  }
+}
 
 #CloseButton
 $ButtonExit.Add_Click{($FormMousePack.Close())}
