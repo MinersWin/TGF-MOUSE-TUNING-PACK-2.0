@@ -23,6 +23,7 @@ $FormMousePack = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.Button]$ButtonEnglish = $null
 function InitializeComponent
 {
+$resources = . (Join-Path $PSScriptRoot 'GUI.resources.ps1')
 $RadioButton100 = (New-Object -TypeName System.Windows.Forms.RadioButton)
 $LabelMain = (New-Object -TypeName System.Windows.Forms.Label)
 $LabelCreator = (New-Object -TypeName System.Windows.Forms.Label)
@@ -304,6 +305,7 @@ $FormMousePack.Controls.Add($PictureBox1)
 $FormMousePack.Controls.Add($PanelScale)
 $FormMousePack.Controls.Add($LabelCreator)
 $FormMousePack.Controls.Add($LabelMain)
+$FormMousePack.Icon = ([System.Drawing.Icon]$resources.'$this.Icon')
 $FormMousePack.Text = [System.String]'TGF Mouse Tuning Pack 2.0'
 $FormMousePack.add_Load($FormMousePack_Load)
 $PanelScale.ResumeLayout($false)
