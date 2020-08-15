@@ -70,16 +70,16 @@ $ButtonMouseAccelerationFix.Add_Click{
   $Scale = [Math]::round([DPI]::scaling(), 2) * 100
   Write-Output "Scale: $($Scale)"
   switch($Scale){
-    100 {100Acceleration}
-    125 {125Acceleration}
-    150 {150Acceleration}
-    175 {175Acceleration}
-    200 {200Acceleration}
-    225 {225Acceleration}
-    250 {250Acceleration}
-    300 {300Acceleration}
-    350 {350Acceleration}
-    default {DefaultAcceleration}
+    100 {Acceleration_100}
+    125 {Acceleration_125}
+    150 {Acceleration_150}
+    175 {Acceleration_175}
+    200 {Acceleration_200}
+    225 {Acceleration_225}
+    250 {Acceleration_250}
+    300 {Acceleration_300}
+    350 {Acceleration_350}
+    default {Acceleration_Default}
   }
 }
 
