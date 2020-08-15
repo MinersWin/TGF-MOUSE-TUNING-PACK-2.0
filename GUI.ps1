@@ -55,11 +55,12 @@ function Detect_Scale{
 ###################################################################################
 #Images
 
-#Favicon
+<#Favicon
 $bitmap = [System.Drawing.Bitmap]::FromFile(".\Images\favicon.ico")
 $bitmap.MakeTransparent()
 $hicon = $bitmap.GetHicon()
 $FormMousePack.Icon = [system.drawing.icon]::FromHandle($hicon)
+#>
 
 #Add Logo to PictureBox
 $Picture = ".\Images\Logo_v1.png"
