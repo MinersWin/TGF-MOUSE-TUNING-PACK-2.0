@@ -76,16 +76,16 @@ $ButtonMouseAccelerationFix.Add_Click{
   $Scale = [Math]::round([DPI]::scaling(), 2) * 100
   Write-Output "Scale: $($Scale)"
   switch($Scale){
-    100 {reg import '.\MouseFix\Windows 10 + 8 TGFMOUSEFIX 100%.reg'}
-    125 {reg import '.\MouseFix\Windows 10 + 8 TGFMOUSEFIX 125%.reg'}
-    150 {reg import '.\MouseFix\Windows 10 + 8 TGFMOUSEFIX 150%.reg'}
-    175 {reg import '.\MouseFix\Windows 10 + 8 TGFMOUSEFIX 175%.reg'}
-    200 {reg import '.\MouseFix\Windows 10 + 8 TGFMOUSEFIX 200%.reg'}
-    225 {reg import '.\MouseFix\Windows 10 + 8 TGFMOUSEFIX 225%.reg'}
-    250 {reg import '.\MouseFix\Windows 10 + 8 TGFMOUSEFIX 250%.reg'}
-    300 {reg import '.\MouseFix\Windows 10 + 8 TGFMOUSEFIX 300%.reg'}
-    350 {reg import '.\MouseFix\Windows 10 + 8 TGFMOUSEFIX 350%.reg'}
-    default {reg import '.\MouseFix\Windows 10 + 8 Standard.reg'}
+    100 {100Acceleration}
+    125 {125Acceleration}
+    150 {150Acceleration}
+    175 {175Acceleration}
+    200 {200Acceleration}
+    225 {225Acceleration}
+    250 {250Acceleration}
+    300 {300Acceleration}
+    350 {350Acceleration}
+    default {DefaultAcceleration}
   }
 }
 
