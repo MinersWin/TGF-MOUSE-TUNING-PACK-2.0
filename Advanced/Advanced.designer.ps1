@@ -155,7 +155,6 @@ $FormAdvanced.ClientSize = (New-Object -TypeName System.Drawing.Size -ArgumentLi
 $FormAdvanced.Controls.Add($Panel1)
 $FormAdvanced.HelpButton = $true
 $FormAdvanced.Icon = ([System.Drawing.Icon]$resources.'$this.Icon')
-$FormAdvanced.ShowIcon = $false
 $FormAdvanced.Text = [System.String]'Advanced Settings - TGF Mouse Tuning Pack 2.0'
 $Panel1.ResumeLayout($false)
 $Panel1.PerformLayout()
