@@ -306,6 +306,7 @@ $FormMousePack.Controls.Add($PanelScale)
 $FormMousePack.Controls.Add($LabelCreator)
 $FormMousePack.Controls.Add($LabelMain)
 $FormMousePack.Icon = ([System.Drawing.Icon]$resources.'$this.Icon')
+$FormMousePack.ShowIcon = $false
 $FormMousePack.Text = [System.String]'TGF Mouse Tuning Pack 2.0'
 $FormMousePack.add_Load($FormMousePack_Load)
 $PanelScale.ResumeLayout($false)
