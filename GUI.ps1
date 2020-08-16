@@ -93,6 +93,13 @@ $ButtonDetect.Add_Click{(.\Detect_Scale.ps1)}
 $ButtonGerman.Add_Click{(German)}
 $ButtonEnglish.Add_Click{(English)}
 
+$LabelMain.Add_Click{
+  $AdvancedYoN = [System.Windows.Forms.MessageBox]::Show("Go to Advanced Settings?","TGF Mouse Tuning Pack 2.0","YesNO")
+  if ($AdvancedYoN -eq "Yes"){
+    
+  }
+}
+
 #About Button
 function About {
   # About Form Objects
