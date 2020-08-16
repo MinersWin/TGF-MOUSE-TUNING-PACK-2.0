@@ -4,6 +4,7 @@ $Form1 = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.Label]$LabelAdvancedDoubleClickHeigh = $null
 function InitializeComponent
 {
+$resources = . (Join-Path $PSScriptRoot 'Advanced.resources.ps1')
 $LabelAdvancedBeep = (New-Object -TypeName System.Windows.Forms.Label)
 $ComboBox1 = (New-Object -TypeName System.Windows.Forms.ComboBox)
 $LabelAdvancedDoubleClickHeigh = (New-Object -TypeName System.Windows.Forms.Label)
@@ -41,6 +42,8 @@ $Form1.ClientSize = (New-Object -TypeName System.Drawing.Size -ArgumentList @([S
 $Form1.Controls.Add($LabelAdvancedDoubleClickHeigh)
 $Form1.Controls.Add($ComboBox1)
 $Form1.Controls.Add($LabelAdvancedBeep)
+$Form1.HelpButton = $true
+$Form1.Icon = ([System.Drawing.Icon]$resources.'$this.Icon')
 $Form1.Text = [System.String]'Form1'
 $Form1.ResumeLayout($false)
 Add-Member -InputObject $Form1 -Name base -Value $base -MemberType NoteProperty
