@@ -6,6 +6,8 @@ $FormAdvanced = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.Label]$LabelAdvancedDoubleClickSpeed = $null
 [System.Windows.Forms.TextBox]$TextBoxAdvancedDoubleClickSpeed = $null
 [System.Windows.Forms.Panel]$Panel1 = $null
+[System.Windows.Forms.TextBox]$TextBoxAdvancedMouseHoverTime = $null
+[System.Windows.Forms.Label]$LabelAdvancedMouseHoverTime = $null
 [System.Windows.Forms.TextBox]$TextBoxAdvancedMouseHoverHeight = $null
 [System.Windows.Forms.Label]$LabelAdvancedMouseHoverHeight = $null
 [System.Windows.Forms.TextBox]$TextBoxAdvancedExtendedSounds = $null
@@ -28,6 +30,8 @@ $TextBoxAdvancedExtendedSounds = (New-Object -TypeName System.Windows.Forms.Text
 $LabelAdvancedExtendedSounds = (New-Object -TypeName System.Windows.Forms.Label)
 $TextBoxAdvancedDoubleClickWidth = (New-Object -TypeName System.Windows.Forms.TextBox)
 $LabelAdvancedDoubleClickWidth = (New-Object -TypeName System.Windows.Forms.Label)
+$LabelAdvancedMouseHoverTime = (New-Object -TypeName System.Windows.Forms.Label)
+$TextBoxAdvancedMouseHoverTime = (New-Object -TypeName System.Windows.Forms.TextBox)
 $Panel1.SuspendLayout()
 $FormAdvanced.SuspendLayout()
 #
@@ -84,6 +88,8 @@ $TextBoxAdvancedDoubleClickSpeed.TabIndex = [System.Int32]5
 #
 $Panel1.AutoScroll = $true
 $Panel1.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
+$Panel1.Controls.Add($TextBoxAdvancedMouseHoverTime)
+$Panel1.Controls.Add($LabelAdvancedMouseHoverTime)
 $Panel1.Controls.Add($TextBoxAdvancedMouseHoverHeight)
 $Panel1.Controls.Add($LabelAdvancedMouseHoverHeight)
 $Panel1.Controls.Add($TextBoxAdvancedExtendedSounds)
@@ -149,6 +155,22 @@ $LabelAdvancedDoubleClickWidth.TabIndex = [System.Int32]6
 $LabelAdvancedDoubleClickWidth.Text = [System.String]'DoubleClickWidth'
 $LabelAdvancedDoubleClickWidth.UseCompatibleTextRendering = $true
 #
+#LabelAdvancedMouseHoverTime
+#
+$LabelAdvancedMouseHoverTime.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]265))
+$LabelAdvancedMouseHoverTime.Name = [System.String]'LabelAdvancedMouseHoverTime'
+$LabelAdvancedMouseHoverTime.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]100,[System.Int32]16))
+$LabelAdvancedMouseHoverTime.TabIndex = [System.Int32]12
+$LabelAdvancedMouseHoverTime.Text = [System.String]'MouseHoverTime'
+$LabelAdvancedMouseHoverTime.UseCompatibleTextRendering = $true
+#
+#TextBoxAdvancedMouseHoverTime
+#
+$TextBoxAdvancedMouseHoverTime.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]284))
+$TextBoxAdvancedMouseHoverTime.Name = [System.String]'TextBoxAdvancedMouseHoverTime'
+$TextBoxAdvancedMouseHoverTime.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]195,[System.Int32]21))
+$TextBoxAdvancedMouseHoverTime.TabIndex = [System.Int32]13
+#
 #FormAdvanced
 #
 $FormAdvanced.ClientSize = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]235,[System.Int32]481))
@@ -167,6 +189,8 @@ Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedDoubleClickHeight -Va
 Add-Member -InputObject $FormAdvanced -Name LabelAdvancedDoubleClickSpeed -Value $LabelAdvancedDoubleClickSpeed -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedDoubleClickSpeed -Value $TextBoxAdvancedDoubleClickSpeed -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name Panel1 -Value $Panel1 -MemberType NoteProperty
+Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedMouseHoverTime -Value $TextBoxAdvancedMouseHoverTime -MemberType NoteProperty
+Add-Member -InputObject $FormAdvanced -Name LabelAdvancedMouseHoverTime -Value $LabelAdvancedMouseHoverTime -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedMouseHoverHeight -Value $TextBoxAdvancedMouseHoverHeight -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name LabelAdvancedMouseHoverHeight -Value $LabelAdvancedMouseHoverHeight -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedExtendedSounds -Value $TextBoxAdvancedExtendedSounds -MemberType NoteProperty
