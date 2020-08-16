@@ -6,6 +6,8 @@ $FormAdvanced = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.Label]$LabelAdvancedDoubleClickSpeed = $null
 [System.Windows.Forms.TextBox]$TextBoxAdvancedDoubleClickSpeed = $null
 [System.Windows.Forms.Panel]$Panel1 = $null
+[System.Windows.Forms.TextBox]$TextBoxAdvancedMouseSensitivity = $null
+[System.Windows.Forms.Label]$LabelAdvancedMouseSensitivity = $null
 [System.Windows.Forms.TextBox]$TextBoxAdvancedMouseHoverWidth = $null
 [System.Windows.Forms.Label]$LabelAdvancedMouseHoverWidth = $null
 [System.Windows.Forms.TextBox]$TextBoxAdvancedMouseHoverTime = $null
@@ -36,6 +38,8 @@ $LabelAdvancedMouseHoverTime = (New-Object -TypeName System.Windows.Forms.Label)
 $TextBoxAdvancedMouseHoverTime = (New-Object -TypeName System.Windows.Forms.TextBox)
 $LabelAdvancedMouseHoverWidth = (New-Object -TypeName System.Windows.Forms.Label)
 $TextBoxAdvancedMouseHoverWidth = (New-Object -TypeName System.Windows.Forms.TextBox)
+$LabelAdvancedMouseSensitivity = (New-Object -TypeName System.Windows.Forms.Label)
+$TextBoxAdvancedMouseSensitivity = (New-Object -TypeName System.Windows.Forms.TextBox)
 $Panel1.SuspendLayout()
 $FormAdvanced.SuspendLayout()
 #
@@ -92,6 +96,8 @@ $TextBoxAdvancedDoubleClickSpeed.TabIndex = [System.Int32]5
 #
 $Panel1.AutoScroll = $true
 $Panel1.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
+$Panel1.Controls.Add($TextBoxAdvancedMouseSensitivity)
+$Panel1.Controls.Add($LabelAdvancedMouseSensitivity)
 $Panel1.Controls.Add($TextBoxAdvancedMouseHoverWidth)
 $Panel1.Controls.Add($LabelAdvancedMouseHoverWidth)
 $Panel1.Controls.Add($TextBoxAdvancedMouseHoverTime)
@@ -193,6 +199,22 @@ $TextBoxAdvancedMouseHoverWidth.Name = [System.String]'TextBoxAdvancedMouseHover
 $TextBoxAdvancedMouseHoverWidth.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]195,[System.Int32]21))
 $TextBoxAdvancedMouseHoverWidth.TabIndex = [System.Int32]15
 #
+#LabelAdvancedMouseSensitivity
+#
+$LabelAdvancedMouseSensitivity.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]350))
+$LabelAdvancedMouseSensitivity.Name = [System.String]'LabelAdvancedMouseSensitivity'
+$LabelAdvancedMouseSensitivity.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]100,[System.Int32]14))
+$LabelAdvancedMouseSensitivity.TabIndex = [System.Int32]16
+$LabelAdvancedMouseSensitivity.Text = [System.String]'MouseSensitivity'
+$LabelAdvancedMouseSensitivity.UseCompatibleTextRendering = $true
+#
+#TextBoxAdvancedMouseSensitivity
+#
+$TextBoxAdvancedMouseSensitivity.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]367))
+$TextBoxAdvancedMouseSensitivity.Name = [System.String]'TextBoxAdvancedMouseSensitivity'
+$TextBoxAdvancedMouseSensitivity.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]195,[System.Int32]21))
+$TextBoxAdvancedMouseSensitivity.TabIndex = [System.Int32]17
+#
 #FormAdvanced
 #
 $FormAdvanced.ClientSize = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]235,[System.Int32]481))
@@ -211,6 +233,8 @@ Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedDoubleClickHeight -Va
 Add-Member -InputObject $FormAdvanced -Name LabelAdvancedDoubleClickSpeed -Value $LabelAdvancedDoubleClickSpeed -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedDoubleClickSpeed -Value $TextBoxAdvancedDoubleClickSpeed -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name Panel1 -Value $Panel1 -MemberType NoteProperty
+Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedMouseSensitivity -Value $TextBoxAdvancedMouseSensitivity -MemberType NoteProperty
+Add-Member -InputObject $FormAdvanced -Name LabelAdvancedMouseSensitivity -Value $LabelAdvancedMouseSensitivity -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedMouseHoverWidth -Value $TextBoxAdvancedMouseHoverWidth -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name LabelAdvancedMouseHoverWidth -Value $LabelAdvancedMouseHoverWidth -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedMouseHoverTime -Value $TextBoxAdvancedMouseHoverTime -MemberType NoteProperty
