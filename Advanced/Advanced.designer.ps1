@@ -6,6 +6,8 @@ $FormAdvanced = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.Label]$LabelAdvancedDoubleClickSpeed = $null
 [System.Windows.Forms.TextBox]$TextBoxAdvancedDoubleClickSpeed = $null
 [System.Windows.Forms.Panel]$Panel1 = $null
+[System.Windows.Forms.TextBox]$TextBoxAdvancedDoubleClickWidth = $null
+[System.Windows.Forms.Label]$LabelAdvancedDoubleClickWidth = $null
 function InitializeComponent
 {
 $resources = . (Join-Path $PSScriptRoot 'Advanced.resources.ps1')
@@ -16,6 +18,8 @@ $TextBoxAdvancedDoubleClickHeight = (New-Object -TypeName System.Windows.Forms.T
 $LabelAdvancedDoubleClickSpeed = (New-Object -TypeName System.Windows.Forms.Label)
 $TextBoxAdvancedDoubleClickSpeed = (New-Object -TypeName System.Windows.Forms.TextBox)
 $Panel1 = (New-Object -TypeName System.Windows.Forms.Panel)
+$LabelAdvancedDoubleClickWidth = (New-Object -TypeName System.Windows.Forms.Label)
+$TextBoxAdvancedDoubleClickWidth = (New-Object -TypeName System.Windows.Forms.TextBox)
 $Panel1.SuspendLayout()
 $FormAdvanced.SuspendLayout()
 #
@@ -72,6 +76,8 @@ $TextBoxAdvancedDoubleClickSpeed.TabIndex = [System.Int32]5
 #
 $Panel1.AutoScroll = $true
 $Panel1.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
+$Panel1.Controls.Add($TextBoxAdvancedDoubleClickWidth)
+$Panel1.Controls.Add($LabelAdvancedDoubleClickWidth)
 $Panel1.Controls.Add($LabelAdvancedBeep)
 $Panel1.Controls.Add($TextBoxAdvancedDoubleClickSpeed)
 $Panel1.Controls.Add($ComboBoxAdvancedBeep)
@@ -82,6 +88,22 @@ $Panel1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([S
 $Panel1.Name = [System.String]'Panel1'
 $Panel1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]208,[System.Int32]457))
 $Panel1.TabIndex = [System.Int32]6
+#
+#LabelAdvancedDoubleClickWidth
+#
+$LabelAdvancedDoubleClickWidth.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]134))
+$LabelAdvancedDoubleClickWidth.Name = [System.String]'LabelAdvancedDoubleClickWidth'
+$LabelAdvancedDoubleClickWidth.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]100,[System.Int32]19))
+$LabelAdvancedDoubleClickWidth.TabIndex = [System.Int32]6
+$LabelAdvancedDoubleClickWidth.Text = [System.String]'DoubleClickWidth'
+$LabelAdvancedDoubleClickWidth.UseCompatibleTextRendering = $true
+#
+#TextBoxAdvancedDoubleClickWidth
+#
+$TextBoxAdvancedDoubleClickWidth.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]156))
+$TextBoxAdvancedDoubleClickWidth.Name = [System.String]'TextBoxAdvancedDoubleClickWidth'
+$TextBoxAdvancedDoubleClickWidth.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]195,[System.Int32]21))
+$TextBoxAdvancedDoubleClickWidth.TabIndex = [System.Int32]7
 #
 #FormAdvanced
 #
@@ -102,5 +124,7 @@ Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedDoubleClickHeight -Va
 Add-Member -InputObject $FormAdvanced -Name LabelAdvancedDoubleClickSpeed -Value $LabelAdvancedDoubleClickSpeed -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedDoubleClickSpeed -Value $TextBoxAdvancedDoubleClickSpeed -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name Panel1 -Value $Panel1 -MemberType NoteProperty
+Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedDoubleClickWidth -Value $TextBoxAdvancedDoubleClickWidth -MemberType NoteProperty
+Add-Member -InputObject $FormAdvanced -Name LabelAdvancedDoubleClickWidth -Value $LabelAdvancedDoubleClickWidth -MemberType NoteProperty
 }
 . InitializeComponent
