@@ -96,7 +96,7 @@ $ButtonEnglish.Add_Click{(English)}
 $LabelMain.Add_Click{
   $AdvancedYoN = [System.Windows.Forms.MessageBox]::Show("Go to Advanced Settings?","TGF Mouse Tuning Pack 2.0","YesNO")
   if ($AdvancedYoN -eq "Yes"){
-    
+    ./Advanced/Advanced.ps1
   }
 }
 
