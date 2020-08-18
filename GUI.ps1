@@ -1,7 +1,7 @@
 #Created by MinersWin
 #TGF Mouse Tuning Pack 2.0
 #https://tuning-pack.de
-#10.08.2020
+#18.08.2020
 Add-Type -AssemblyName System.Windows.Forms
 . (Join-Path $PSScriptRoot 'GUI.designer.ps1')
 
