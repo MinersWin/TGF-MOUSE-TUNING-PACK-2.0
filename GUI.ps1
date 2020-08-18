@@ -52,6 +52,9 @@ function Detect_Scale{
   }
 }
 
+$MouseSpeed = Get-ItemProperty -Path "HKCU:\Control Panel\Mouse" -Name MouseSensitivity
+$TrackBarMouseSensitivity.Value = $MouseSpeed.MouseSensitivity
+
 ###################################################################################
 #Images
 
@@ -64,24 +67,6 @@ $PictureBox1.Add_Click({About})
 
 ###################################################################################
 #Buttons
-
-#Add Mouse Acceleration Fix
-$ButtonMouseAccelerationFix.Add_Click{
-  $Scale = [Math]::round([DPI]::scaling(), 2) * 100
-  Write-Output "Scale: $($Scale)"
-  switch($Scale){
-    100 {Acceleration_100}
-    125 {Acceleration_125}
-    150 {Acceleration_150}
-    175 {Acceleration_175}
-    200 {Acceleration_200}
-    225 {Acceleration_225}
-    250 {Acceleration_250}
-    300 {Acceleration_300}
-    350 {Acceleration_350}
-    default {Acceleration_Default}
-  }
-}
 
 #CloseButton
 $ButtonExit.Add_Click{($FormMousePack.Close())}
@@ -99,6 +84,36 @@ $LabelMain.Add_Click{
     ./Advanced/Advanced.ps1
   }
 }
+
+#Make Tweaks
+$ButtonLetsGo.Add_Click{
+  if ($CheckBoxMouseAccelerationFix.Checked){
+
+    if ($RadioButton100.Checked){$Scale = 100}elseif($RadioButton125.Checked){$Scale = 125}elseif($RadioButton150.Checked){$Scale = 150}elseif($RadioButton175.Checked){$Scale = 175}elseif($RadioButton200.Checked){$Scale = 200}elseif($RadioButton225.Checked){$Scale = 225}elseif($RadioButton250.Checked){$Scale = 250}elseif($RadioButton300.Checked){$Scale = 300}elseif($RadioButton350.Checked){$Scale = 350}else{$Scale = 100}
+
+    switch($Scale){
+      100 {Acceleration_100}
+      125 {Acceleration_125}
+      150 {Acceleration_150}
+      175 {Acceleration_175}
+      200 {Acceleration_200}
+      225 {Acceleration_225}
+      250 {Acceleration_250}
+      300 {Acceleration_300}
+      350 {Acceleration_350}
+      default {Acceleration_Default}
+    }
+  }
+  [int]$Speed=$TrackBarMouseSensitivity.Value
+  $MethodDefinition = @"
+    [DllImport("user32.dll", EntryPoint = "SystemParametersInfo")]
+    public static extern bool SystemParametersInfo(uint uiAction, uint uiParam, uint pvParam, uint fWinIni);
+"@
+  $User32Set = Add-Type -MemberDefinition $MethodDefinition -Name "User32Set" -Namespace Win32Functions -PassThru
+  $User32Set::SystemParametersInfo(0x0071,0,$Speed,0) | Out-Null
+  Set-ItemProperty -Path "HKCU:\Control Panel\Mouse" -Name MouseSensitivity -Value $Speed
+}
+
 
 #About Button
 function About {
@@ -210,8 +225,8 @@ function Acceleration_150{
 }
 function Acceleration_175{
   Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "MouseSensitivity" -Value 10 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "SmoothMouseXCurve" 00,00,00,00,00,00,00,00,60,66,16,00,00,00,00,00,C0,CC,2C,00,00,00,00,00,20,33,43,00,00,00,00,00,80,99,59,00,00,00,00,00 -Value -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "SmoothMouseYCurve" 00,00,00,00,00,00,00,00,00,00,38,00,00,00,00,00,00,00,70,00,00,00,00,00,00,00,A8,00,00,00,00,00,00,00,E0,00,00,00,00,00 -Value -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "SmoothMouseXCurve" -Value 00,00,00,00,00,00,00,00,60,66,16,00,00,00,00,00,C0,CC,2C,00,00,00,00,00,20,33,43,00,00,00,00,00,80,99,59,00,00,00,00,00 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "SmoothMouseYCurve" -Value 00,00,00,00,00,00,00,00,00,00,38,00,00,00,00,00,00,00,70,00,00,00,00,00,00,00,A8,00,00,00,00,00,00,00,E0,00,00,00,00,00 -ErrorAction SilentlyContinue
   Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseSpeed" -Value 0 -ErrorAction SilentlyContinue
   Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseThreshold1" -Value 0 -ErrorAction SilentlyContinue
   Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseThreshold2" -Value 0 -ErrorAction SilentlyContinue
@@ -219,8 +234,8 @@ function Acceleration_175{
 }
 function Acceleration_200{
   Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "MouseSensitivity" -Value 10 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "SmoothMouseXCurve" 00,00,00,00,00,00,00,00,90,99,19,00,00,00,00,00,20,33,33,00,00,00,00,00,B0,CC,4C,00,00,00,00,00,40,66,66,00,00,00,00,00 -Value -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "SmoothMouseYCurve" 00,00,00,00,00,00,00,00,00,00,38,00,00,00,00,00,00,00,70,00,00,00,00,00,00,00,A8,00,00,00,00,00,00,00,E0,00,00,00,00,00 -Value -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "SmoothMouseXCurve" -Value 00,00,00,00,00,00,00,00,90,99,19,00,00,00,00,00,20,33,33,00,00,00,00,00,B0,CC,4C,00,00,00,00,00,40,66,66,00,00,00,00,00 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "SmoothMouseYCurve" -Value 00,00,00,00,00,00,00,00,00,00,38,00,00,00,00,00,00,00,70,00,00,00,00,00,00,00,A8,00,00,00,00,00,00,00,E0,00,00,00,00,00 -ErrorAction SilentlyContinue
   Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseSpeed" -Value 0 -ErrorAction SilentlyContinue
   Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseThreshold1" -Value 0 -ErrorAction SilentlyContinue
   Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseThreshold2" -Value 0 -ErrorAction SilentlyContinue

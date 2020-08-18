@@ -18,20 +18,18 @@ $FormMousePack = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.Button]$ButtonExit = $null
 [System.Windows.Forms.CheckBox]$CheckBoxRestorePoint = $null
 [System.Windows.Forms.CheckBox]$CheckBoxRegBackup = $null
-[System.Windows.Forms.Button]$ButtonMouseAccelerationFix = $null
+[System.Windows.Forms.Button]$ButtonLetsGo = $null
 [System.Windows.Forms.Button]$ButtonGerman = $null
 [System.Windows.Forms.Button]$ButtonEnglish = $null
-[System.Windows.Forms.TrackBar]$TrackBar1 = $null
-[System.Windows.Forms.ContextMenuStrip]$ContextMenuStrip1 = $null
-[System.ComponentModel.IContainer]$components = $null
-[System.Windows.Forms.ToolStripMenuItem]$ToolStripMenuItem1 = $null
-[System.Windows.Forms.ToolStripMenuItem]$ToolStripMenuItem2 = $null
-[System.Windows.Forms.ToolStripMenuItem]$ToolStripMenuItem3 = $null
-[System.Windows.Forms.ToolStripMenuItem]$ToolStripMenuItem4 = $null
+[System.Windows.Forms.TrackBar]$TrackBarMouseSensitivity = $null
+[System.Windows.Forms.CheckBox]$CheckBoxMouseAccelerationFix = $null
+[System.Windows.Forms.Panel]$PanelMouseSpeed = $null
+[System.Windows.Forms.Label]$Label2 = $null
+[System.Windows.Forms.Label]$Label1 = $null
+[System.Windows.Forms.Label]$LabelMouseSpeed = $null
 function InitializeComponent
 {
 $resources = . (Join-Path $PSScriptRoot 'GUI.resources.ps1')
-$components = (New-Object -TypeName System.ComponentModel.Container)
 $RadioButton100 = (New-Object -TypeName System.Windows.Forms.RadioButton)
 $LabelMain = (New-Object -TypeName System.Windows.Forms.Label)
 $LabelCreator = (New-Object -TypeName System.Windows.Forms.Label)
@@ -51,19 +49,19 @@ $PictureBox1 = (New-Object -TypeName System.Windows.Forms.PictureBox)
 $ButtonExit = (New-Object -TypeName System.Windows.Forms.Button)
 $CheckBoxRestorePoint = (New-Object -TypeName System.Windows.Forms.CheckBox)
 $CheckBoxRegBackup = (New-Object -TypeName System.Windows.Forms.CheckBox)
-$ButtonMouseAccelerationFix = (New-Object -TypeName System.Windows.Forms.Button)
+$ButtonLetsGo = (New-Object -TypeName System.Windows.Forms.Button)
 $ButtonGerman = (New-Object -TypeName System.Windows.Forms.Button)
 $ButtonEnglish = (New-Object -TypeName System.Windows.Forms.Button)
-$TrackBar1 = (New-Object -TypeName System.Windows.Forms.TrackBar)
-$ContextMenuStrip1 = (New-Object -TypeName System.Windows.Forms.ContextMenuStrip -ArgumentList @($components))
-$ToolStripMenuItem1 = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
-$ToolStripMenuItem2 = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
-$ToolStripMenuItem3 = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
-$ToolStripMenuItem4 = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$TrackBarMouseSensitivity = (New-Object -TypeName System.Windows.Forms.TrackBar)
+$CheckBoxMouseAccelerationFix = (New-Object -TypeName System.Windows.Forms.CheckBox)
+$PanelMouseSpeed = (New-Object -TypeName System.Windows.Forms.Panel)
+$LabelMouseSpeed = (New-Object -TypeName System.Windows.Forms.Label)
+$Label1 = (New-Object -TypeName System.Windows.Forms.Label)
+$Label2 = (New-Object -TypeName System.Windows.Forms.Label)
 $PanelScale.SuspendLayout()
 ([System.ComponentModel.ISupportInitialize]$PictureBox1).BeginInit()
-([System.ComponentModel.ISupportInitialize]$TrackBar1).BeginInit()
-$ContextMenuStrip1.SuspendLayout()
+([System.ComponentModel.ISupportInitialize]$TrackBarMouseSensitivity).BeginInit()
+$PanelMouseSpeed.SuspendLayout()
 $FormMousePack.SuspendLayout()
 #
 #RadioButton100
@@ -236,6 +234,7 @@ $LabelScale.add_Click($Label2_Click)
 #
 #PictureBox1
 #
+$PictureBox1.Image = ([System.Drawing.Image]$resources.'PictureBox1.Image')
 $PictureBox1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]396,[System.Int32]9))
 $PictureBox1.Name = [System.String]'PictureBox1'
 $PictureBox1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]278,[System.Int32]72))
@@ -278,15 +277,21 @@ $CheckBoxRegBackup.TextAlign = [System.Drawing.ContentAlignment]::MiddleRight
 $CheckBoxRegBackup.UseCompatibleTextRendering = $true
 $CheckBoxRegBackup.UseVisualStyleBackColor = $true
 #
-#ButtonMouseAccelerationFix
+#ButtonLetsGo
 #
-$ButtonMouseAccelerationFix.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]92))
-$ButtonMouseAccelerationFix.Name = [System.String]'ButtonMouseAccelerationFix'
-$ButtonMouseAccelerationFix.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]169,[System.Int32]23))
-$ButtonMouseAccelerationFix.TabIndex = [System.Int32]9
-$ButtonMouseAccelerationFix.Text = [System.String]'Mausbeschleunigungs Fix'
-$ButtonMouseAccelerationFix.UseCompatibleTextRendering = $true
-$ButtonMouseAccelerationFix.UseVisualStyleBackColor = $true
+$ButtonLetsGo.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]11.25,[System.Drawing.FontStyle]::Regular,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
+$ButtonLetsGo.ForeColor = [System.Drawing.Color]::FromArgb(([System.Int32]([System.Byte][System.Byte]0)),([System.Int32]([System.Byte][System.Byte]192)),([System.Int32]([System.Byte][System.Byte]0)))
+
+$ButtonLetsGo.Image = ([System.Drawing.Image]$resources.'ButtonLetsGo.Image')
+$ButtonLetsGo.ImageAlign = [System.Drawing.ContentAlignment]::MiddleLeft
+$ButtonLetsGo.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]438,[System.Int32]491))
+$ButtonLetsGo.Name = [System.String]'ButtonLetsGo'
+$ButtonLetsGo.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]83,[System.Int32]23))
+$ButtonLetsGo.TabIndex = [System.Int32]9
+$ButtonLetsGo.Text = [System.String]'Lets Go'
+$ButtonLetsGo.TextAlign = [System.Drawing.ContentAlignment]::MiddleRight
+$ButtonLetsGo.UseCompatibleTextRendering = $true
+$ButtonLetsGo.UseVisualStyleBackColor = $true
 #
 #ButtonGerman
 #
@@ -308,52 +313,76 @@ $ButtonEnglish.Text = [System.String]'English'
 $ButtonEnglish.UseCompatibleTextRendering = $true
 $ButtonEnglish.UseVisualStyleBackColor = $true
 #
-#TrackBar1
+#TrackBarMouseSensitivity
 #
-$TrackBar1.ContextMenuStrip = $ContextMenuStrip1
-$TrackBar1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]123))
-$TrackBar1.Maximum = [System.Int32]20
-$TrackBar1.Name = [System.String]'TrackBar1'
-$TrackBar1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]519,[System.Int32]45))
-$TrackBar1.TabIndex = [System.Int32]12
+$TrackBarMouseSensitivity.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]4,[System.Int32]44))
+$TrackBarMouseSensitivity.Maximum = [System.Int32]20
+$TrackBarMouseSensitivity.Name = [System.String]'TrackBarMouseSensitivity'
+$TrackBarMouseSensitivity.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]513,[System.Int32]45))
+$TrackBarMouseSensitivity.TabIndex = [System.Int32]12
 #
-#ContextMenuStrip1
+#CheckBoxMouseAccelerationFix
 #
-$ContextMenuStrip1.Items.AddRange([System.Windows.Forms.ToolStripItem[]]@($ToolStripMenuItem1,$ToolStripMenuItem2,$ToolStripMenuItem3,$ToolStripMenuItem4))
-$ContextMenuStrip1.Name = [System.String]'ContextMenuStrip1'
-$ContextMenuStrip1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]182,[System.Int32]70))
+$CheckBoxMouseAccelerationFix.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]11.25,[System.Drawing.FontStyle]::Regular,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
+$CheckBoxMouseAccelerationFix.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]68))
+$CheckBoxMouseAccelerationFix.Name = [System.String]'CheckBoxMouseAccelerationFix'
+$CheckBoxMouseAccelerationFix.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]218,[System.Int32]24))
+$CheckBoxMouseAccelerationFix.TabIndex = [System.Int32]13
+$CheckBoxMouseAccelerationFix.Text = [System.String]'Mausbeschleunigungs Fix'
+$CheckBoxMouseAccelerationFix.UseCompatibleTextRendering = $true
+$CheckBoxMouseAccelerationFix.UseVisualStyleBackColor = $true
 #
-#ToolStripMenuItem1
+#PanelMouseSpeed
 #
-$ToolStripMenuItem1.Name = [System.String]'ToolStripMenuItem1'
-$ToolStripMenuItem1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]181,[System.Int32]22))
-$ToolStripMenuItem1.Text = [System.String]'ToolStripMenuItem1'
+$PanelMouseSpeed.BorderStyle = [System.Windows.Forms.BorderStyle]::Fixed3D
+$PanelMouseSpeed.Controls.Add($Label2)
+$PanelMouseSpeed.Controls.Add($Label1)
+$PanelMouseSpeed.Controls.Add($LabelMouseSpeed)
+$PanelMouseSpeed.Controls.Add($TrackBarMouseSensitivity)
+$PanelMouseSpeed.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]98))
+$PanelMouseSpeed.Name = [System.String]'PanelMouseSpeed'
+$PanelMouseSpeed.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]519,[System.Int32]84))
+$PanelMouseSpeed.TabIndex = [System.Int32]14
 #
-#ToolStripMenuItem2
+#LabelMouseSpeed
 #
-$ToolStripMenuItem2.Name = [System.String]'ToolStripMenuItem2'
-$ToolStripMenuItem2.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]181,[System.Int32]22))
-$ToolStripMenuItem2.Text = [System.String]'ToolStripMenuItem2'
+$LabelMouseSpeed.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]11.25,[System.Drawing.FontStyle]::Regular,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
+$LabelMouseSpeed.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]4))
+$LabelMouseSpeed.Name = [System.String]'LabelMouseSpeed'
+$LabelMouseSpeed.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]100,[System.Int32]23))
+$LabelMouseSpeed.TabIndex = [System.Int32]13
+$LabelMouseSpeed.Text = [System.String]'Mouse Speed'
+$LabelMouseSpeed.UseCompatibleTextRendering = $true
+$LabelMouseSpeed.add_Click($Label1_Click)
 #
-#ToolStripMenuItem3
+#Label1
 #
-$ToolStripMenuItem3.Name = [System.String]'ToolStripMenuItem3'
-$ToolStripMenuItem3.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]181,[System.Int32]22))
-$ToolStripMenuItem3.Text = [System.String]'ToolStripMenuItem3'
+$Label1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]13,[System.Int32]27))
+$Label1.Name = [System.String]'Label1'
+$Label1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]100,[System.Int32]23))
+$Label1.TabIndex = [System.Int32]14
+$Label1.Text = [System.String]'1 (Slow)'
+$Label1.UseCompatibleTextRendering = $true
+$Label1.add_Click($Label1_Click)
 #
-#ToolStripMenuItem4
+#Label2
 #
-$ToolStripMenuItem4.Name = [System.String]'ToolStripMenuItem4'
-$ToolStripMenuItem4.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]32,[System.Int32]19))
-$ToolStripMenuItem4.Text = [System.String]'ToolStripMenuItem4'
+$Label2.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]407,[System.Int32]27))
+$Label2.Name = [System.String]'Label2'
+$Label2.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]100,[System.Int32]23))
+$Label2.TabIndex = [System.Int32]15
+$Label2.Text = [System.String]'(Fast) 20'
+$Label2.TextAlign = [System.Drawing.ContentAlignment]::MiddleRight
+$Label2.UseCompatibleTextRendering = $true
 #
 #FormMousePack
 #
 $FormMousePack.ClientSize = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]682,[System.Int32]526))
-$FormMousePack.Controls.Add($TrackBar1)
+$FormMousePack.Controls.Add($PanelMouseSpeed)
+$FormMousePack.Controls.Add($CheckBoxMouseAccelerationFix)
 $FormMousePack.Controls.Add($ButtonEnglish)
 $FormMousePack.Controls.Add($ButtonGerman)
-$FormMousePack.Controls.Add($ButtonMouseAccelerationFix)
+$FormMousePack.Controls.Add($ButtonLetsGo)
 $FormMousePack.Controls.Add($CheckBoxRegBackup)
 $FormMousePack.Controls.Add($CheckBoxRestorePoint)
 $FormMousePack.Controls.Add($ButtonExit)
@@ -366,10 +395,10 @@ $FormMousePack.Text = [System.String]'TGF Mouse Tuning Pack 2.0'
 $FormMousePack.add_Load($FormMousePack_Load)
 $PanelScale.ResumeLayout($false)
 ([System.ComponentModel.ISupportInitialize]$PictureBox1).EndInit()
-([System.ComponentModel.ISupportInitialize]$TrackBar1).EndInit()
-$ContextMenuStrip1.ResumeLayout($false)
+([System.ComponentModel.ISupportInitialize]$TrackBarMouseSensitivity).EndInit()
+$PanelMouseSpeed.ResumeLayout($false)
+$PanelMouseSpeed.PerformLayout()
 $FormMousePack.ResumeLayout($false)
-$FormMousePack.PerformLayout()
 Add-Member -InputObject $FormMousePack -Name base -Value $base -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name RadioButton100 -Value $RadioButton100 -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name LabelMain -Value $LabelMain -MemberType NoteProperty
@@ -390,15 +419,14 @@ Add-Member -InputObject $FormMousePack -Name PictureBox1 -Value $PictureBox1 -Me
 Add-Member -InputObject $FormMousePack -Name ButtonExit -Value $ButtonExit -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name CheckBoxRestorePoint -Value $CheckBoxRestorePoint -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name CheckBoxRegBackup -Value $CheckBoxRegBackup -MemberType NoteProperty
-Add-Member -InputObject $FormMousePack -Name ButtonMouseAccelerationFix -Value $ButtonMouseAccelerationFix -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name ButtonLetsGo -Value $ButtonLetsGo -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name ButtonGerman -Value $ButtonGerman -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name ButtonEnglish -Value $ButtonEnglish -MemberType NoteProperty
-Add-Member -InputObject $FormMousePack -Name TrackBar1 -Value $TrackBar1 -MemberType NoteProperty
-Add-Member -InputObject $FormMousePack -Name ContextMenuStrip1 -Value $ContextMenuStrip1 -MemberType NoteProperty
-Add-Member -InputObject $FormMousePack -Name components -Value $components -MemberType NoteProperty
-Add-Member -InputObject $FormMousePack -Name ToolStripMenuItem1 -Value $ToolStripMenuItem1 -MemberType NoteProperty
-Add-Member -InputObject $FormMousePack -Name ToolStripMenuItem2 -Value $ToolStripMenuItem2 -MemberType NoteProperty
-Add-Member -InputObject $FormMousePack -Name ToolStripMenuItem3 -Value $ToolStripMenuItem3 -MemberType NoteProperty
-Add-Member -InputObject $FormMousePack -Name ToolStripMenuItem4 -Value $ToolStripMenuItem4 -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name TrackBarMouseSensitivity -Value $TrackBarMouseSensitivity -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name CheckBoxMouseAccelerationFix -Value $CheckBoxMouseAccelerationFix -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name PanelMouseSpeed -Value $PanelMouseSpeed -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name Label2 -Value $Label2 -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name Label1 -Value $Label1 -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name LabelMouseSpeed -Value $LabelMouseSpeed -MemberType NoteProperty
 }
 . InitializeComponent
