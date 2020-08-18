@@ -21,9 +21,17 @@ $FormMousePack = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.Button]$ButtonMouseAccelerationFix = $null
 [System.Windows.Forms.Button]$ButtonGerman = $null
 [System.Windows.Forms.Button]$ButtonEnglish = $null
+[System.Windows.Forms.TrackBar]$TrackBar1 = $null
+[System.Windows.Forms.ContextMenuStrip]$ContextMenuStrip1 = $null
+[System.ComponentModel.IContainer]$components = $null
+[System.Windows.Forms.ToolStripMenuItem]$ToolStripMenuItem1 = $null
+[System.Windows.Forms.ToolStripMenuItem]$ToolStripMenuItem2 = $null
+[System.Windows.Forms.ToolStripMenuItem]$ToolStripMenuItem3 = $null
+[System.Windows.Forms.ToolStripMenuItem]$ToolStripMenuItem4 = $null
 function InitializeComponent
 {
 $resources = . (Join-Path $PSScriptRoot 'GUI.resources.ps1')
+$components = (New-Object -TypeName System.ComponentModel.Container)
 $RadioButton100 = (New-Object -TypeName System.Windows.Forms.RadioButton)
 $LabelMain = (New-Object -TypeName System.Windows.Forms.Label)
 $LabelCreator = (New-Object -TypeName System.Windows.Forms.Label)
@@ -46,8 +54,16 @@ $CheckBoxRegBackup = (New-Object -TypeName System.Windows.Forms.CheckBox)
 $ButtonMouseAccelerationFix = (New-Object -TypeName System.Windows.Forms.Button)
 $ButtonGerman = (New-Object -TypeName System.Windows.Forms.Button)
 $ButtonEnglish = (New-Object -TypeName System.Windows.Forms.Button)
+$TrackBar1 = (New-Object -TypeName System.Windows.Forms.TrackBar)
+$ContextMenuStrip1 = (New-Object -TypeName System.Windows.Forms.ContextMenuStrip -ArgumentList @($components))
+$ToolStripMenuItem1 = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$ToolStripMenuItem2 = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$ToolStripMenuItem3 = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
+$ToolStripMenuItem4 = (New-Object -TypeName System.Windows.Forms.ToolStripMenuItem)
 $PanelScale.SuspendLayout()
 ([System.ComponentModel.ISupportInitialize]$PictureBox1).BeginInit()
+([System.ComponentModel.ISupportInitialize]$TrackBar1).BeginInit()
+$ContextMenuStrip1.SuspendLayout()
 $FormMousePack.SuspendLayout()
 #
 #RadioButton100
@@ -292,9 +308,49 @@ $ButtonEnglish.Text = [System.String]'English'
 $ButtonEnglish.UseCompatibleTextRendering = $true
 $ButtonEnglish.UseVisualStyleBackColor = $true
 #
+#TrackBar1
+#
+$TrackBar1.ContextMenuStrip = $ContextMenuStrip1
+$TrackBar1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]123))
+$TrackBar1.Maximum = [System.Int32]20
+$TrackBar1.Name = [System.String]'TrackBar1'
+$TrackBar1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]519,[System.Int32]45))
+$TrackBar1.TabIndex = [System.Int32]12
+#
+#ContextMenuStrip1
+#
+$ContextMenuStrip1.Items.AddRange([System.Windows.Forms.ToolStripItem[]]@($ToolStripMenuItem1,$ToolStripMenuItem2,$ToolStripMenuItem3,$ToolStripMenuItem4))
+$ContextMenuStrip1.Name = [System.String]'ContextMenuStrip1'
+$ContextMenuStrip1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]182,[System.Int32]70))
+#
+#ToolStripMenuItem1
+#
+$ToolStripMenuItem1.Name = [System.String]'ToolStripMenuItem1'
+$ToolStripMenuItem1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]181,[System.Int32]22))
+$ToolStripMenuItem1.Text = [System.String]'ToolStripMenuItem1'
+#
+#ToolStripMenuItem2
+#
+$ToolStripMenuItem2.Name = [System.String]'ToolStripMenuItem2'
+$ToolStripMenuItem2.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]181,[System.Int32]22))
+$ToolStripMenuItem2.Text = [System.String]'ToolStripMenuItem2'
+#
+#ToolStripMenuItem3
+#
+$ToolStripMenuItem3.Name = [System.String]'ToolStripMenuItem3'
+$ToolStripMenuItem3.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]181,[System.Int32]22))
+$ToolStripMenuItem3.Text = [System.String]'ToolStripMenuItem3'
+#
+#ToolStripMenuItem4
+#
+$ToolStripMenuItem4.Name = [System.String]'ToolStripMenuItem4'
+$ToolStripMenuItem4.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]32,[System.Int32]19))
+$ToolStripMenuItem4.Text = [System.String]'ToolStripMenuItem4'
+#
 #FormMousePack
 #
 $FormMousePack.ClientSize = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]682,[System.Int32]526))
+$FormMousePack.Controls.Add($TrackBar1)
 $FormMousePack.Controls.Add($ButtonEnglish)
 $FormMousePack.Controls.Add($ButtonGerman)
 $FormMousePack.Controls.Add($ButtonMouseAccelerationFix)
@@ -310,7 +366,10 @@ $FormMousePack.Text = [System.String]'TGF Mouse Tuning Pack 2.0'
 $FormMousePack.add_Load($FormMousePack_Load)
 $PanelScale.ResumeLayout($false)
 ([System.ComponentModel.ISupportInitialize]$PictureBox1).EndInit()
+([System.ComponentModel.ISupportInitialize]$TrackBar1).EndInit()
+$ContextMenuStrip1.ResumeLayout($false)
 $FormMousePack.ResumeLayout($false)
+$FormMousePack.PerformLayout()
 Add-Member -InputObject $FormMousePack -Name base -Value $base -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name RadioButton100 -Value $RadioButton100 -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name LabelMain -Value $LabelMain -MemberType NoteProperty
@@ -334,5 +393,12 @@ Add-Member -InputObject $FormMousePack -Name CheckBoxRegBackup -Value $CheckBoxR
 Add-Member -InputObject $FormMousePack -Name ButtonMouseAccelerationFix -Value $ButtonMouseAccelerationFix -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name ButtonGerman -Value $ButtonGerman -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name ButtonEnglish -Value $ButtonEnglish -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name TrackBar1 -Value $TrackBar1 -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name ContextMenuStrip1 -Value $ContextMenuStrip1 -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name components -Value $components -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name ToolStripMenuItem1 -Value $ToolStripMenuItem1 -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name ToolStripMenuItem2 -Value $ToolStripMenuItem2 -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name ToolStripMenuItem3 -Value $ToolStripMenuItem3 -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name ToolStripMenuItem4 -Value $ToolStripMenuItem4 -MemberType NoteProperty
 }
 . InitializeComponent
