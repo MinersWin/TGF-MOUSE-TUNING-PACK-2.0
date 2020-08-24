@@ -27,7 +27,7 @@ Add-Type @'
   }
 '@ -ReferencedAssemblies 'System.Drawing.dll'
 }
-
+$FormMousePack.Cursor = 'WaitCursor'
 ###################################################################################
 #Set Global Variables
 $LabelMain.Text = "TGF Mouse Tuning Pack 2.0"
@@ -87,6 +87,31 @@ $LabelMain.Add_Click{
 
 #Make Tweaks
 $ButtonLetsGo.Add_Click{
+
+  Checkpoint-Computer -Description "TGF_Mouse_Tuning_Pack_2.0-$(Get-Date)"
+    #Create RecoveryPoint
+    if ($CheckBoxRestorePoint.Checked){
+        wmic /namespace:\\root\default path SystemRestore call Enable C:\
+        Write-Host "Die erstellung von Wiederherstellungspunkten wurde aktiviert"
+        Checkpoint-Computer -Description "TGF_Mouse_Tuning_Pack_2.0-$(Get-Date)"
+        $Date = Get-Date
+        Write-Host "Der Wiederherstellungspunkt wurde erstellt. Er trägt den Namen: TGF_Mouse_Tuning_Pack_2.0-$(Get-Date)" -ForegroundColor Green
+    }
+    if ($CheckBoxRegBackup.Checked){
+        if ($Language -eq "de-DE"){
+            $Backup = [System.Windows.Forms.MessageBox]::Show("Ein Backup der Registry wird ausgeführt. Eine Normale Windows Registry ist im Normalfall ca. 500mb Groß. Das Backup wird unter C:\RegBack\ Gespeichert.","TGF Mouse Tuning Pack 2.0 by MinersWin",'OK','Info')
+        } else {
+            $Backup = [System.Windows.Forms.MessageBox]::Show("The registry is backed up. A normal Windows registry is usually about 500mb in size. The backup is saved under C:\RegBack\.","TGF Mouse Tuning Pack 2.0 by MinersWin",'OK','Info')
+        }
+        mkdir C:\RegBack\        
+        Write-Host "Ein Backup der Registry wird ausgeführt.... Eine Normale Windows Registry ist im Normalfall ca. 500mb Groß. Das Backup wird unter C:\RegBack\ Gespeichert." -ForegroundColor Green
+        reg export HKCR C:\RegBack\HKLM.Reg /y
+        reg export HKCU C:\RegBack\HKCU.Reg /y
+        reg export HKLM C:\RegBack\HKCR.Reg /y
+        reg export HKU C:\RegBack\HKU.Reg /y
+        reg export HKCC C:\RegBackHKCC.Reg /y
+    }
+
   if ($CheckBoxMouseAccelerationFix.Checked){
 
     if ($RadioButton100.Checked){$Scale = 100}elseif($RadioButton125.Checked){$Scale = 125}elseif($RadioButton150.Checked){$Scale = 150}elseif($RadioButton175.Checked){$Scale = 175}elseif($RadioButton200.Checked){$Scale = 200}elseif($RadioButton225.Checked){$Scale = 225}elseif($RadioButton250.Checked){$Scale = 250}elseif($RadioButton300.Checked){$Scale = 300}elseif($RadioButton350.Checked){$Scale = 350}else{$Scale = 100}
@@ -173,6 +198,7 @@ function German{
   $CheckBoxRestorePoint.Text = "Wiederherstellungspunkt"
   $CheckBoxRegBackup.Text = "Registry Backup"
   [System.Windows.Forms.MessageBox]::Show("Deutsches Sprachpacket ausgewält.","TGF Maus Tuning Pack 2.0","OK","Info")
+  $Language = "de-DE"
 }
 
 #English
@@ -187,6 +213,7 @@ function English{
   $CheckBoxRestorePoint.Text = "System Restore Point"
   $CheckBoxRegBackup.Text = "Registry Backup"
   [System.Windows.Forms.MessageBox]::Show("English Languagepack has been applied.","TGF Mouse Tuning Pack 2.0","OK","Info")
+  $Language = "en-EN"
 }
 
 ################################################################################################
