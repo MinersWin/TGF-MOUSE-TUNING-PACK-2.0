@@ -6,6 +6,8 @@ $FormAdvanced = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.Label]$LabelAdvancedDoubleClickSpeed = $null
 [System.Windows.Forms.TextBox]$TextBoxAdvancedDoubleClickSpeed = $null
 [System.Windows.Forms.Panel]$Panel1 = $null
+[System.Windows.Forms.TextBox]$TextBoxAdvancedMouseThreshold1 = $null
+[System.Windows.Forms.Label]$LabelAdvancedMouseThreshold1 = $null
 [System.Windows.Forms.Button]$ButtonAdvancedApply = $null
 [System.Windows.Forms.TextBox]$TextBoxAdvancedMouseSpeed = $null
 [System.Windows.Forms.Label]$LabelAdvancedMouseSpeed = $null
@@ -46,6 +48,8 @@ $LabelAdvancedDoubleClickWidth = (New-Object -TypeName System.Windows.Forms.Labe
 $LabelAdvancedMouseSpeed = (New-Object -TypeName System.Windows.Forms.Label)
 $TextBoxAdvancedMouseSpeed = (New-Object -TypeName System.Windows.Forms.TextBox)
 $ButtonAdvancedApply = (New-Object -TypeName System.Windows.Forms.Button)
+$LabelAdvancedMouseThreshold1 = (New-Object -TypeName System.Windows.Forms.Label)
+$TextBoxAdvancedMouseThreshold1 = (New-Object -TypeName System.Windows.Forms.TextBox)
 $Panel1.SuspendLayout()
 $FormAdvanced.SuspendLayout()
 #
@@ -102,6 +106,8 @@ $TextBoxAdvancedDoubleClickSpeed.TabIndex = [System.Int32]5
 #
 $Panel1.AutoScroll = $true
 $Panel1.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
+$Panel1.Controls.Add($TextBoxAdvancedMouseThreshold1)
+$Panel1.Controls.Add($LabelAdvancedMouseThreshold1)
 $Panel1.Controls.Add($ButtonAdvancedApply)
 $Panel1.Controls.Add($TextBoxAdvancedMouseSpeed)
 $Panel1.Controls.Add($LabelAdvancedMouseSpeed)
@@ -250,6 +256,22 @@ $ButtonAdvancedApply.Text = [System.String]'Apply'
 $ButtonAdvancedApply.UseCompatibleTextRendering = $true
 $ButtonAdvancedApply.UseVisualStyleBackColor = $true
 #
+#LabelAdvancedMouseThreshold1
+#
+$LabelAdvancedMouseThreshold1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]433))
+$LabelAdvancedMouseThreshold1.Name = [System.String]'LabelAdvancedMouseThreshold1'
+$LabelAdvancedMouseThreshold1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]192,[System.Int32]16))
+$LabelAdvancedMouseThreshold1.TabIndex = [System.Int32]23
+$LabelAdvancedMouseThreshold1.Text = [System.String]'MouseThreshold1'
+$LabelAdvancedMouseThreshold1.UseCompatibleTextRendering = $true
+#
+#TextBoxAdvancedMouseThreshold1
+#
+$TextBoxAdvancedMouseThreshold1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]452))
+$TextBoxAdvancedMouseThreshold1.Name = [System.String]'TextBoxAdvancedMouseThreshold1'
+$TextBoxAdvancedMouseThreshold1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]195,[System.Int32]21))
+$TextBoxAdvancedMouseThreshold1.TabIndex = [System.Int32]7
+#
 #FormAdvanced
 #
 $FormAdvanced.ClientSize = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]235,[System.Int32]481))
@@ -268,6 +290,8 @@ Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedDoubleClickHeight -Va
 Add-Member -InputObject $FormAdvanced -Name LabelAdvancedDoubleClickSpeed -Value $LabelAdvancedDoubleClickSpeed -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedDoubleClickSpeed -Value $TextBoxAdvancedDoubleClickSpeed -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name Panel1 -Value $Panel1 -MemberType NoteProperty
+Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedMouseThreshold1 -Value $TextBoxAdvancedMouseThreshold1 -MemberType NoteProperty
+Add-Member -InputObject $FormAdvanced -Name LabelAdvancedMouseThreshold1 -Value $LabelAdvancedMouseThreshold1 -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name ButtonAdvancedApply -Value $ButtonAdvancedApply -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedMouseSpeed -Value $TextBoxAdvancedMouseSpeed -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name LabelAdvancedMouseSpeed -Value $LabelAdvancedMouseSpeed -MemberType NoteProperty
