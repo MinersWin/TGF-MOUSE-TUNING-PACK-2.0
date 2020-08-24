@@ -6,6 +6,7 @@ $FormAdvanced = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.Label]$LabelAdvancedDoubleClickSpeed = $null
 [System.Windows.Forms.TextBox]$TextBoxAdvancedDoubleClickSpeed = $null
 [System.Windows.Forms.Panel]$Panel1 = $null
+[System.Windows.Forms.Button]$ButtonAdvancedApply = $null
 [System.Windows.Forms.TextBox]$TextBoxAdvancedMouseSpeed = $null
 [System.Windows.Forms.Label]$LabelAdvancedMouseSpeed = $null
 [System.Windows.Forms.TextBox]$TextBoxAdvancedMouseSensitivity = $null
@@ -44,6 +45,7 @@ $TextBoxAdvancedDoubleClickWidth = (New-Object -TypeName System.Windows.Forms.Te
 $LabelAdvancedDoubleClickWidth = (New-Object -TypeName System.Windows.Forms.Label)
 $LabelAdvancedMouseSpeed = (New-Object -TypeName System.Windows.Forms.Label)
 $TextBoxAdvancedMouseSpeed = (New-Object -TypeName System.Windows.Forms.TextBox)
+$ButtonAdvancedApply = (New-Object -TypeName System.Windows.Forms.Button)
 $Panel1.SuspendLayout()
 $FormAdvanced.SuspendLayout()
 #
@@ -100,6 +102,7 @@ $TextBoxAdvancedDoubleClickSpeed.TabIndex = [System.Int32]5
 #
 $Panel1.AutoScroll = $true
 $Panel1.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
+$Panel1.Controls.Add($ButtonAdvancedApply)
 $Panel1.Controls.Add($TextBoxAdvancedMouseSpeed)
 $Panel1.Controls.Add($LabelAdvancedMouseSpeed)
 $Panel1.Controls.Add($TextBoxAdvancedMouseSensitivity)
@@ -237,6 +240,16 @@ $TextBoxAdvancedMouseSpeed.Name = [System.String]'TextBoxAdvancedMouseSpeed'
 $TextBoxAdvancedMouseSpeed.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]195,[System.Int32]21))
 $TextBoxAdvancedMouseSpeed.TabIndex = [System.Int32]19
 #
+#ButtonAdvancedApply
+#
+$ButtonAdvancedApply.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]8,[System.Int32]719))
+$ButtonAdvancedApply.Name = [System.String]'ButtonAdvancedApply'
+$ButtonAdvancedApply.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]187,[System.Int32]23))
+$ButtonAdvancedApply.TabIndex = [System.Int32]22
+$ButtonAdvancedApply.Text = [System.String]'Apply'
+$ButtonAdvancedApply.UseCompatibleTextRendering = $true
+$ButtonAdvancedApply.UseVisualStyleBackColor = $true
+#
 #FormAdvanced
 #
 $FormAdvanced.ClientSize = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]235,[System.Int32]481))
@@ -255,6 +268,7 @@ Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedDoubleClickHeight -Va
 Add-Member -InputObject $FormAdvanced -Name LabelAdvancedDoubleClickSpeed -Value $LabelAdvancedDoubleClickSpeed -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedDoubleClickSpeed -Value $TextBoxAdvancedDoubleClickSpeed -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name Panel1 -Value $Panel1 -MemberType NoteProperty
+Add-Member -InputObject $FormAdvanced -Name ButtonAdvancedApply -Value $ButtonAdvancedApply -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedMouseSpeed -Value $TextBoxAdvancedMouseSpeed -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name LabelAdvancedMouseSpeed -Value $LabelAdvancedMouseSpeed -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedMouseSensitivity -Value $TextBoxAdvancedMouseSensitivity -MemberType NoteProperty
