@@ -6,6 +6,8 @@ $FormAdvanced = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.Label]$LabelAdvancedDoubleClickSpeed = $null
 [System.Windows.Forms.TextBox]$TextBoxAdvancedDoubleClickSpeed = $null
 [System.Windows.Forms.Panel]$Panel1 = $null
+[System.Windows.Forms.TextBox]$TextBoxAdvancedMouseTrails = $null
+[System.Windows.Forms.Label]$LabelAdvancedMouseTrails = $null
 [System.Windows.Forms.TextBox]$TextBoxAdvancedMouseThreshold2 = $null
 [System.Windows.Forms.Label]$LabelAdvancedMouseThreshold2 = $null
 [System.Windows.Forms.TextBox]$TextBoxAdvancedMouseThreshold1 = $null
@@ -54,6 +56,8 @@ $TextBoxAdvancedDoubleClickWidth = (New-Object -TypeName System.Windows.Forms.Te
 $LabelAdvancedDoubleClickWidth = (New-Object -TypeName System.Windows.Forms.Label)
 $LabelAdvancedMouseThreshold2 = (New-Object -TypeName System.Windows.Forms.Label)
 $TextBoxAdvancedMouseThreshold2 = (New-Object -TypeName System.Windows.Forms.TextBox)
+$LabelAdvancedMouseTrails = (New-Object -TypeName System.Windows.Forms.Label)
+$TextBoxAdvancedMouseTrails = (New-Object -TypeName System.Windows.Forms.TextBox)
 $Panel1.SuspendLayout()
 $FormAdvanced.SuspendLayout()
 #
@@ -110,6 +114,8 @@ $TextBoxAdvancedDoubleClickSpeed.TabIndex = [System.Int32]5
 #
 $Panel1.AutoScroll = $true
 $Panel1.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
+$Panel1.Controls.Add($TextBoxAdvancedMouseTrails)
+$Panel1.Controls.Add($LabelAdvancedMouseTrails)
 $Panel1.Controls.Add($TextBoxAdvancedMouseThreshold2)
 $Panel1.Controls.Add($LabelAdvancedMouseThreshold2)
 $Panel1.Controls.Add($TextBoxAdvancedMouseThreshold1)
@@ -294,6 +300,22 @@ $TextBoxAdvancedMouseThreshold2.Name = [System.String]'TextBoxAdvancedMouseThres
 $TextBoxAdvancedMouseThreshold2.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]192,[System.Int32]21))
 $TextBoxAdvancedMouseThreshold2.TabIndex = [System.Int32]25
 #
+#LabelAdvancedMouseTrails
+#
+$LabelAdvancedMouseTrails.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]518))
+$LabelAdvancedMouseTrails.Name = [System.String]'LabelAdvancedMouseTrails'
+$LabelAdvancedMouseTrails.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]195,[System.Int32]16))
+$LabelAdvancedMouseTrails.TabIndex = [System.Int32]26
+$LabelAdvancedMouseTrails.Text = [System.String]'MouseTrails'
+$LabelAdvancedMouseTrails.UseCompatibleTextRendering = $true
+#
+#TextBoxAdvancedMouseTrails
+#
+$TextBoxAdvancedMouseTrails.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]537))
+$TextBoxAdvancedMouseTrails.Name = [System.String]'TextBoxAdvancedMouseTrails'
+$TextBoxAdvancedMouseTrails.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]195,[System.Int32]21))
+$TextBoxAdvancedMouseTrails.TabIndex = [System.Int32]27
+#
 #FormAdvanced
 #
 $FormAdvanced.ClientSize = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]235,[System.Int32]481))
@@ -312,6 +334,8 @@ Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedDoubleClickHeight -Va
 Add-Member -InputObject $FormAdvanced -Name LabelAdvancedDoubleClickSpeed -Value $LabelAdvancedDoubleClickSpeed -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedDoubleClickSpeed -Value $TextBoxAdvancedDoubleClickSpeed -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name Panel1 -Value $Panel1 -MemberType NoteProperty
+Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedMouseTrails -Value $TextBoxAdvancedMouseTrails -MemberType NoteProperty
+Add-Member -InputObject $FormAdvanced -Name LabelAdvancedMouseTrails -Value $LabelAdvancedMouseTrails -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedMouseThreshold2 -Value $TextBoxAdvancedMouseThreshold2 -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name LabelAdvancedMouseThreshold2 -Value $LabelAdvancedMouseThreshold2 -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedMouseThreshold1 -Value $TextBoxAdvancedMouseThreshold1 -MemberType NoteProperty
