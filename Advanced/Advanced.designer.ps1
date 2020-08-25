@@ -134,6 +134,48 @@ $Panel1.Name = [System.String]'Panel1'
 $Panel1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]208,[System.Int32]457))
 $Panel1.TabIndex = [System.Int32]6
 #
+#TextBoxAdvancedMouseThreshold1
+#
+$TextBoxAdvancedMouseThreshold1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]452))
+$TextBoxAdvancedMouseThreshold1.Name = [System.String]'TextBoxAdvancedMouseThreshold1'
+$TextBoxAdvancedMouseThreshold1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]195,[System.Int32]21))
+$TextBoxAdvancedMouseThreshold1.TabIndex = [System.Int32]7
+#
+#LabelAdvancedMouseThreshold1
+#
+$LabelAdvancedMouseThreshold1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]433))
+$LabelAdvancedMouseThreshold1.Name = [System.String]'LabelAdvancedMouseThreshold1'
+$LabelAdvancedMouseThreshold1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]192,[System.Int32]16))
+$LabelAdvancedMouseThreshold1.TabIndex = [System.Int32]23
+$LabelAdvancedMouseThreshold1.Text = [System.String]'MouseThreshold1'
+$LabelAdvancedMouseThreshold1.UseCompatibleTextRendering = $true
+#
+#ButtonAdvancedApply
+#
+$ButtonAdvancedApply.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]8,[System.Int32]719))
+$ButtonAdvancedApply.Name = [System.String]'ButtonAdvancedApply'
+$ButtonAdvancedApply.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]187,[System.Int32]23))
+$ButtonAdvancedApply.TabIndex = [System.Int32]22
+$ButtonAdvancedApply.Text = [System.String]'Apply'
+$ButtonAdvancedApply.UseCompatibleTextRendering = $true
+$ButtonAdvancedApply.UseVisualStyleBackColor = $true
+#
+#TextBoxAdvancedMouseSpeed
+#
+$TextBoxAdvancedMouseSpeed.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]409))
+$TextBoxAdvancedMouseSpeed.Name = [System.String]'TextBoxAdvancedMouseSpeed'
+$TextBoxAdvancedMouseSpeed.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]195,[System.Int32]21))
+$TextBoxAdvancedMouseSpeed.TabIndex = [System.Int32]19
+#
+#LabelAdvancedMouseSpeed
+#
+$LabelAdvancedMouseSpeed.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]391))
+$LabelAdvancedMouseSpeed.Name = [System.String]'LabelAdvancedMouseSpeed'
+$LabelAdvancedMouseSpeed.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]100,[System.Int32]15))
+$LabelAdvancedMouseSpeed.TabIndex = [System.Int32]18
+$LabelAdvancedMouseSpeed.Text = [System.String]'MouseSpeed'
+$LabelAdvancedMouseSpeed.UseCompatibleTextRendering = $true
+#
 #TextBoxAdvancedMouseSensitivity
 #
 $TextBoxAdvancedMouseSensitivity.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]367))
