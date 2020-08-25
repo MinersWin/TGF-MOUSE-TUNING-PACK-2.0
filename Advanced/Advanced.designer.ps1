@@ -6,6 +6,8 @@ $FormAdvanced = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.Label]$LabelAdvancedDoubleClickSpeed = $null
 [System.Windows.Forms.TextBox]$TextBoxAdvancedDoubleClickSpeed = $null
 [System.Windows.Forms.Panel]$Panel1 = $null
+[System.Windows.Forms.TextBox]$TextBoxAdvancedMouseThreshold2 = $null
+[System.Windows.Forms.Label]$LabelAdvancedMouseThreshold2 = $null
 [System.Windows.Forms.TextBox]$TextBoxAdvancedMouseThreshold1 = $null
 [System.Windows.Forms.Label]$LabelAdvancedMouseThreshold1 = $null
 [System.Windows.Forms.Button]$ButtonAdvancedApply = $null
@@ -50,6 +52,8 @@ $TextBoxAdvancedExtendedSounds = (New-Object -TypeName System.Windows.Forms.Text
 $LabelAdvancedExtendedSounds = (New-Object -TypeName System.Windows.Forms.Label)
 $TextBoxAdvancedDoubleClickWidth = (New-Object -TypeName System.Windows.Forms.TextBox)
 $LabelAdvancedDoubleClickWidth = (New-Object -TypeName System.Windows.Forms.Label)
+$LabelAdvancedMouseThreshold2 = (New-Object -TypeName System.Windows.Forms.Label)
+$TextBoxAdvancedMouseThreshold2 = (New-Object -TypeName System.Windows.Forms.TextBox)
 $Panel1.SuspendLayout()
 $FormAdvanced.SuspendLayout()
 #
@@ -106,6 +110,8 @@ $TextBoxAdvancedDoubleClickSpeed.TabIndex = [System.Int32]5
 #
 $Panel1.AutoScroll = $true
 $Panel1.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
+$Panel1.Controls.Add($TextBoxAdvancedMouseThreshold2)
+$Panel1.Controls.Add($LabelAdvancedMouseThreshold2)
 $Panel1.Controls.Add($TextBoxAdvancedMouseThreshold1)
 $Panel1.Controls.Add($LabelAdvancedMouseThreshold1)
 $Panel1.Controls.Add($ButtonAdvancedApply)
@@ -272,6 +278,22 @@ $LabelAdvancedDoubleClickWidth.TabIndex = [System.Int32]6
 $LabelAdvancedDoubleClickWidth.Text = [System.String]'DoubleClickWidth'
 $LabelAdvancedDoubleClickWidth.UseCompatibleTextRendering = $true
 #
+#LabelAdvancedMouseThreshold2
+#
+$LabelAdvancedMouseThreshold2.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]476))
+$LabelAdvancedMouseThreshold2.Name = [System.String]'LabelAdvancedMouseThreshold2'
+$LabelAdvancedMouseThreshold2.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]192,[System.Int32]15))
+$LabelAdvancedMouseThreshold2.TabIndex = [System.Int32]24
+$LabelAdvancedMouseThreshold2.Text = [System.String]'MouseThreshold2'
+$LabelAdvancedMouseThreshold2.UseCompatibleTextRendering = $true
+#
+#TextBoxAdvancedMouseThreshold2
+#
+$TextBoxAdvancedMouseThreshold2.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]494))
+$TextBoxAdvancedMouseThreshold2.Name = [System.String]'TextBoxAdvancedMouseThreshold2'
+$TextBoxAdvancedMouseThreshold2.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]192,[System.Int32]21))
+$TextBoxAdvancedMouseThreshold2.TabIndex = [System.Int32]25
+#
 #FormAdvanced
 #
 $FormAdvanced.ClientSize = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]235,[System.Int32]481))
@@ -290,6 +312,8 @@ Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedDoubleClickHeight -Va
 Add-Member -InputObject $FormAdvanced -Name LabelAdvancedDoubleClickSpeed -Value $LabelAdvancedDoubleClickSpeed -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedDoubleClickSpeed -Value $TextBoxAdvancedDoubleClickSpeed -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name Panel1 -Value $Panel1 -MemberType NoteProperty
+Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedMouseThreshold2 -Value $TextBoxAdvancedMouseThreshold2 -MemberType NoteProperty
+Add-Member -InputObject $FormAdvanced -Name LabelAdvancedMouseThreshold2 -Value $LabelAdvancedMouseThreshold2 -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedMouseThreshold1 -Value $TextBoxAdvancedMouseThreshold1 -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name LabelAdvancedMouseThreshold1 -Value $LabelAdvancedMouseThreshold1 -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name ButtonAdvancedApply -Value $ButtonAdvancedApply -MemberType NoteProperty
