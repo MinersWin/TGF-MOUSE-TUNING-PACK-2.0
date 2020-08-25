@@ -6,6 +6,8 @@ $FormAdvanced = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.Label]$LabelAdvancedDoubleClickSpeed = $null
 [System.Windows.Forms.TextBox]$TextBoxAdvancedDoubleClickSpeed = $null
 [System.Windows.Forms.Panel]$Panel1 = $null
+[System.Windows.Forms.TextBox]$TextBoxAdvancedMouseYCurve = $null
+[System.Windows.Forms.Label]$LabelAdvancedSmoothMouseYCurve = $null
 [System.Windows.Forms.TextBox]$TextBoxAdvancedSmoothMouseXCurve = $null
 [System.Windows.Forms.Label]$LabelAdvancedSmoothMouseXCurve = $null
 [System.Windows.Forms.TextBox]$TextBoxAdvancedMouseTrails = $null
@@ -62,6 +64,8 @@ $LabelAdvancedMouseTrails = (New-Object -TypeName System.Windows.Forms.Label)
 $TextBoxAdvancedMouseTrails = (New-Object -TypeName System.Windows.Forms.TextBox)
 $LabelAdvancedSmoothMouseXCurve = (New-Object -TypeName System.Windows.Forms.Label)
 $TextBoxAdvancedSmoothMouseXCurve = (New-Object -TypeName System.Windows.Forms.TextBox)
+$LabelAdvancedSmoothMouseYCurve = (New-Object -TypeName System.Windows.Forms.Label)
+$TextBoxAdvancedMouseYCurve = (New-Object -TypeName System.Windows.Forms.TextBox)
 $Panel1.SuspendLayout()
 $FormAdvanced.SuspendLayout()
 #
@@ -118,6 +122,8 @@ $TextBoxAdvancedDoubleClickSpeed.TabIndex = [System.Int32]5
 #
 $Panel1.AutoScroll = $true
 $Panel1.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
+$Panel1.Controls.Add($TextBoxAdvancedMouseYCurve)
+$Panel1.Controls.Add($LabelAdvancedSmoothMouseYCurve)
 $Panel1.Controls.Add($TextBoxAdvancedSmoothMouseXCurve)
 $Panel1.Controls.Add($LabelAdvancedSmoothMouseXCurve)
 $Panel1.Controls.Add($TextBoxAdvancedMouseTrails)
@@ -338,6 +344,22 @@ $TextBoxAdvancedSmoothMouseXCurve.Name = [System.String]'TextBoxAdvancedSmoothMo
 $TextBoxAdvancedSmoothMouseXCurve.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]195,[System.Int32]21))
 $TextBoxAdvancedSmoothMouseXCurve.TabIndex = [System.Int32]29
 #
+#LabelAdvancedSmoothMouseYCurve
+#
+$LabelAdvancedSmoothMouseYCurve.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]604))
+$LabelAdvancedSmoothMouseYCurve.Name = [System.String]'LabelAdvancedSmoothMouseYCurve'
+$LabelAdvancedSmoothMouseYCurve.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]195,[System.Int32]15))
+$LabelAdvancedSmoothMouseYCurve.TabIndex = [System.Int32]30
+$LabelAdvancedSmoothMouseYCurve.Text = [System.String]'SmoothMouseYCurve'
+$LabelAdvancedSmoothMouseYCurve.UseCompatibleTextRendering = $true
+#
+#TextBoxAdvancedMouseYCurve
+#
+$TextBoxAdvancedMouseYCurve.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]622))
+$TextBoxAdvancedMouseYCurve.Name = [System.String]'TextBoxAdvancedMouseYCurve'
+$TextBoxAdvancedMouseYCurve.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]195,[System.Int32]21))
+$TextBoxAdvancedMouseYCurve.TabIndex = [System.Int32]31
+#
 #FormAdvanced
 #
 $FormAdvanced.ClientSize = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]235,[System.Int32]481))
@@ -356,6 +378,8 @@ Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedDoubleClickHeight -Va
 Add-Member -InputObject $FormAdvanced -Name LabelAdvancedDoubleClickSpeed -Value $LabelAdvancedDoubleClickSpeed -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedDoubleClickSpeed -Value $TextBoxAdvancedDoubleClickSpeed -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name Panel1 -Value $Panel1 -MemberType NoteProperty
+Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedMouseYCurve -Value $TextBoxAdvancedMouseYCurve -MemberType NoteProperty
+Add-Member -InputObject $FormAdvanced -Name LabelAdvancedSmoothMouseYCurve -Value $LabelAdvancedSmoothMouseYCurve -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedSmoothMouseXCurve -Value $TextBoxAdvancedSmoothMouseXCurve -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name LabelAdvancedSmoothMouseXCurve -Value $LabelAdvancedSmoothMouseXCurve -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedMouseTrails -Value $TextBoxAdvancedMouseTrails -MemberType NoteProperty
