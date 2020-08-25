@@ -5,7 +5,7 @@ $FormAdvanced = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.TextBox]$TextBoxAdvancedDoubleClickHeight = $null
 [System.Windows.Forms.Label]$LabelAdvancedDoubleClickSpeed = $null
 [System.Windows.Forms.TextBox]$TextBoxAdvancedDoubleClickSpeed = $null
-[System.Windows.Forms.Panel]$Panel1 = $null
+[System.Windows.Forms.Panel]$PanelAdvancedForm = $null
 [System.Windows.Forms.TextBox]$TextBoxAdvancedSwapMouseButtons = $null
 [System.Windows.Forms.Label]$LabelAdvancedSwapMouseButtons = $null
 [System.Windows.Forms.TextBox]$TextBoxAdvancedSnapToDefaultButton = $null
@@ -44,7 +44,7 @@ $LabelAdvancedDoubleClickHeigh = (New-Object -TypeName System.Windows.Forms.Labe
 $TextBoxAdvancedDoubleClickHeight = (New-Object -TypeName System.Windows.Forms.TextBox)
 $LabelAdvancedDoubleClickSpeed = (New-Object -TypeName System.Windows.Forms.Label)
 $TextBoxAdvancedDoubleClickSpeed = (New-Object -TypeName System.Windows.Forms.TextBox)
-$Panel1 = (New-Object -TypeName System.Windows.Forms.Panel)
+$PanelAdvancedForm = (New-Object -TypeName System.Windows.Forms.Panel)
 $TextBoxAdvancedMouseThreshold1 = (New-Object -TypeName System.Windows.Forms.TextBox)
 $LabelAdvancedMouseThreshold1 = (New-Object -TypeName System.Windows.Forms.Label)
 $ButtonAdvancedApply = (New-Object -TypeName System.Windows.Forms.Button)
@@ -74,7 +74,7 @@ $LabelAdvancedSnapToDefaultButton = (New-Object -TypeName System.Windows.Forms.L
 $TextBoxAdvancedSnapToDefaultButton = (New-Object -TypeName System.Windows.Forms.TextBox)
 $LabelAdvancedSwapMouseButtons = (New-Object -TypeName System.Windows.Forms.Label)
 $TextBoxAdvancedSwapMouseButtons = (New-Object -TypeName System.Windows.Forms.TextBox)
-$Panel1.SuspendLayout()
+$PanelAdvancedForm.SuspendLayout()
 $FormAdvanced.SuspendLayout()
 #
 #LabelAdvancedBeep
@@ -126,49 +126,49 @@ $TextBoxAdvancedDoubleClickSpeed.Name = [System.String]'TextBoxAdvancedDoubleCli
 $TextBoxAdvancedDoubleClickSpeed.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]195,[System.Int32]21))
 $TextBoxAdvancedDoubleClickSpeed.TabIndex = [System.Int32]5
 #
-#Panel1
+#PanelAdvancedForm
 #
-$Panel1.AutoScroll = $true
-$Panel1.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
-$Panel1.Controls.Add($TextBoxAdvancedSwapMouseButtons)
-$Panel1.Controls.Add($LabelAdvancedSwapMouseButtons)
-$Panel1.Controls.Add($TextBoxAdvancedSnapToDefaultButton)
-$Panel1.Controls.Add($LabelAdvancedSnapToDefaultButton)
-$Panel1.Controls.Add($TextBoxAdvancedMouseYCurve)
-$Panel1.Controls.Add($LabelAdvancedSmoothMouseYCurve)
-$Panel1.Controls.Add($TextBoxAdvancedSmoothMouseXCurve)
-$Panel1.Controls.Add($LabelAdvancedSmoothMouseXCurve)
-$Panel1.Controls.Add($TextBoxAdvancedMouseTrails)
-$Panel1.Controls.Add($LabelAdvancedMouseTrails)
-$Panel1.Controls.Add($TextBoxAdvancedMouseThreshold2)
-$Panel1.Controls.Add($LabelAdvancedMouseThreshold2)
-$Panel1.Controls.Add($TextBoxAdvancedMouseThreshold1)
-$Panel1.Controls.Add($LabelAdvancedMouseThreshold1)
-$Panel1.Controls.Add($ButtonAdvancedApply)
-$Panel1.Controls.Add($TextBoxAdvancedMouseSpeed)
-$Panel1.Controls.Add($LabelAdvancedMouseSpeed)
-$Panel1.Controls.Add($TextBoxAdvancedMouseSensitivity)
-$Panel1.Controls.Add($LabelAdvancedMouseSensitivity)
-$Panel1.Controls.Add($TextBoxAdvancedMouseHoverWidth)
-$Panel1.Controls.Add($LabelAdvancedMouseHoverWidth)
-$Panel1.Controls.Add($TextBoxAdvancedMouseHoverTime)
-$Panel1.Controls.Add($LabelAdvancedMouseHoverTime)
-$Panel1.Controls.Add($TextBoxAdvancedMouseHoverHeight)
-$Panel1.Controls.Add($LabelAdvancedMouseHoverHeight)
-$Panel1.Controls.Add($TextBoxAdvancedExtendedSounds)
-$Panel1.Controls.Add($LabelAdvancedExtendedSounds)
-$Panel1.Controls.Add($TextBoxAdvancedDoubleClickWidth)
-$Panel1.Controls.Add($LabelAdvancedDoubleClickWidth)
-$Panel1.Controls.Add($LabelAdvancedBeep)
-$Panel1.Controls.Add($TextBoxAdvancedDoubleClickSpeed)
-$Panel1.Controls.Add($ComboBoxAdvancedBeep)
-$Panel1.Controls.Add($LabelAdvancedDoubleClickSpeed)
-$Panel1.Controls.Add($LabelAdvancedDoubleClickHeigh)
-$Panel1.Controls.Add($TextBoxAdvancedDoubleClickHeight)
-$Panel1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]12))
-$Panel1.Name = [System.String]'Panel1'
-$Panel1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]208,[System.Int32]457))
-$Panel1.TabIndex = [System.Int32]6
+$PanelAdvancedForm.AutoScroll = $true
+$PanelAdvancedForm.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
+$PanelAdvancedForm.Controls.Add($TextBoxAdvancedSwapMouseButtons)
+$PanelAdvancedForm.Controls.Add($LabelAdvancedSwapMouseButtons)
+$PanelAdvancedForm.Controls.Add($TextBoxAdvancedSnapToDefaultButton)
+$PanelAdvancedForm.Controls.Add($LabelAdvancedSnapToDefaultButton)
+$PanelAdvancedForm.Controls.Add($TextBoxAdvancedMouseYCurve)
+$PanelAdvancedForm.Controls.Add($LabelAdvancedSmoothMouseYCurve)
+$PanelAdvancedForm.Controls.Add($TextBoxAdvancedSmoothMouseXCurve)
+$PanelAdvancedForm.Controls.Add($LabelAdvancedSmoothMouseXCurve)
+$PanelAdvancedForm.Controls.Add($TextBoxAdvancedMouseTrails)
+$PanelAdvancedForm.Controls.Add($LabelAdvancedMouseTrails)
+$PanelAdvancedForm.Controls.Add($TextBoxAdvancedMouseThreshold2)
+$PanelAdvancedForm.Controls.Add($LabelAdvancedMouseThreshold2)
+$PanelAdvancedForm.Controls.Add($TextBoxAdvancedMouseThreshold1)
+$PanelAdvancedForm.Controls.Add($LabelAdvancedMouseThreshold1)
+$PanelAdvancedForm.Controls.Add($ButtonAdvancedApply)
+$PanelAdvancedForm.Controls.Add($TextBoxAdvancedMouseSpeed)
+$PanelAdvancedForm.Controls.Add($LabelAdvancedMouseSpeed)
+$PanelAdvancedForm.Controls.Add($TextBoxAdvancedMouseSensitivity)
+$PanelAdvancedForm.Controls.Add($LabelAdvancedMouseSensitivity)
+$PanelAdvancedForm.Controls.Add($TextBoxAdvancedMouseHoverWidth)
+$PanelAdvancedForm.Controls.Add($LabelAdvancedMouseHoverWidth)
+$PanelAdvancedForm.Controls.Add($TextBoxAdvancedMouseHoverTime)
+$PanelAdvancedForm.Controls.Add($LabelAdvancedMouseHoverTime)
+$PanelAdvancedForm.Controls.Add($TextBoxAdvancedMouseHoverHeight)
+$PanelAdvancedForm.Controls.Add($LabelAdvancedMouseHoverHeight)
+$PanelAdvancedForm.Controls.Add($TextBoxAdvancedExtendedSounds)
+$PanelAdvancedForm.Controls.Add($LabelAdvancedExtendedSounds)
+$PanelAdvancedForm.Controls.Add($TextBoxAdvancedDoubleClickWidth)
+$PanelAdvancedForm.Controls.Add($LabelAdvancedDoubleClickWidth)
+$PanelAdvancedForm.Controls.Add($LabelAdvancedBeep)
+$PanelAdvancedForm.Controls.Add($TextBoxAdvancedDoubleClickSpeed)
+$PanelAdvancedForm.Controls.Add($ComboBoxAdvancedBeep)
+$PanelAdvancedForm.Controls.Add($LabelAdvancedDoubleClickSpeed)
+$PanelAdvancedForm.Controls.Add($LabelAdvancedDoubleClickHeigh)
+$PanelAdvancedForm.Controls.Add($TextBoxAdvancedDoubleClickHeight)
+$PanelAdvancedForm.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]12))
+$PanelAdvancedForm.Name = [System.String]'PanelAdvancedForm'
+$PanelAdvancedForm.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]208,[System.Int32]457))
+$PanelAdvancedForm.TabIndex = [System.Int32]6
 #
 #TextBoxAdvancedMouseThreshold1
 #
@@ -407,13 +407,13 @@ $TextBoxAdvancedSwapMouseButtons.TabIndex = [System.Int32]35
 #FormAdvanced
 #
 $FormAdvanced.ClientSize = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]235,[System.Int32]481))
-$FormAdvanced.Controls.Add($Panel1)
+$FormAdvanced.Controls.Add($PanelAdvancedForm)
 $FormAdvanced.HelpButton = $true
 $FormAdvanced.Icon = ([System.Drawing.Icon]$resources.'$this.Icon')
 $FormAdvanced.Text = [System.String]'Advanced Settings - TGF Mouse Tuning Pack 2.0'
 $FormAdvanced.add_Load($FormAdvanced_Load)
-$Panel1.ResumeLayout($false)
-$Panel1.PerformLayout()
+$PanelAdvancedForm.ResumeLayout($false)
+$PanelAdvancedForm.PerformLayout()
 $FormAdvanced.ResumeLayout($false)
 Add-Member -InputObject $FormAdvanced -Name base -Value $base -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name LabelAdvancedBeep -Value $LabelAdvancedBeep -MemberType NoteProperty
@@ -422,7 +422,7 @@ Add-Member -InputObject $FormAdvanced -Name LabelAdvancedDoubleClickHeigh -Value
 Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedDoubleClickHeight -Value $TextBoxAdvancedDoubleClickHeight -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name LabelAdvancedDoubleClickSpeed -Value $LabelAdvancedDoubleClickSpeed -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedDoubleClickSpeed -Value $TextBoxAdvancedDoubleClickSpeed -MemberType NoteProperty
-Add-Member -InputObject $FormAdvanced -Name Panel1 -Value $Panel1 -MemberType NoteProperty
+Add-Member -InputObject $FormAdvanced -Name PanelAdvancedForm -Value $PanelAdvancedForm -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedSwapMouseButtons -Value $TextBoxAdvancedSwapMouseButtons -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name LabelAdvancedSwapMouseButtons -Value $LabelAdvancedSwapMouseButtons -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedSnapToDefaultButton -Value $TextBoxAdvancedSnapToDefaultButton -MemberType NoteProperty
