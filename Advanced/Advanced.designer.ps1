@@ -6,6 +6,8 @@ $FormAdvanced = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.Label]$LabelAdvancedDoubleClickSpeed = $null
 [System.Windows.Forms.TextBox]$TextBoxAdvancedDoubleClickSpeed = $null
 [System.Windows.Forms.Panel]$Panel1 = $null
+[System.Windows.Forms.TextBox]$TextBoxAdvancedSnapToDefaultButton = $null
+[System.Windows.Forms.Label]$LabelAdvancedSnapToDefaultButton = $null
 [System.Windows.Forms.TextBox]$TextBoxAdvancedMouseYCurve = $null
 [System.Windows.Forms.Label]$LabelAdvancedSmoothMouseYCurve = $null
 [System.Windows.Forms.TextBox]$TextBoxAdvancedSmoothMouseXCurve = $null
@@ -66,6 +68,8 @@ $LabelAdvancedSmoothMouseXCurve = (New-Object -TypeName System.Windows.Forms.Lab
 $TextBoxAdvancedSmoothMouseXCurve = (New-Object -TypeName System.Windows.Forms.TextBox)
 $LabelAdvancedSmoothMouseYCurve = (New-Object -TypeName System.Windows.Forms.Label)
 $TextBoxAdvancedMouseYCurve = (New-Object -TypeName System.Windows.Forms.TextBox)
+$LabelAdvancedSnapToDefaultButton = (New-Object -TypeName System.Windows.Forms.Label)
+$TextBoxAdvancedSnapToDefaultButton = (New-Object -TypeName System.Windows.Forms.TextBox)
 $Panel1.SuspendLayout()
 $FormAdvanced.SuspendLayout()
 #
@@ -122,6 +126,8 @@ $TextBoxAdvancedDoubleClickSpeed.TabIndex = [System.Int32]5
 #
 $Panel1.AutoScroll = $true
 $Panel1.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
+$Panel1.Controls.Add($TextBoxAdvancedSnapToDefaultButton)
+$Panel1.Controls.Add($LabelAdvancedSnapToDefaultButton)
 $Panel1.Controls.Add($TextBoxAdvancedMouseYCurve)
 $Panel1.Controls.Add($LabelAdvancedSmoothMouseYCurve)
 $Panel1.Controls.Add($TextBoxAdvancedSmoothMouseXCurve)
@@ -360,6 +366,22 @@ $TextBoxAdvancedMouseYCurve.Name = [System.String]'TextBoxAdvancedMouseYCurve'
 $TextBoxAdvancedMouseYCurve.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]195,[System.Int32]21))
 $TextBoxAdvancedMouseYCurve.TabIndex = [System.Int32]31
 #
+#LabelAdvancedSnapToDefaultButton
+#
+$LabelAdvancedSnapToDefaultButton.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]646))
+$LabelAdvancedSnapToDefaultButton.Name = [System.String]'LabelAdvancedSnapToDefaultButton'
+$LabelAdvancedSnapToDefaultButton.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]195,[System.Int32]17))
+$LabelAdvancedSnapToDefaultButton.TabIndex = [System.Int32]32
+$LabelAdvancedSnapToDefaultButton.Text = [System.String]'SnapToDefaultButton'
+$LabelAdvancedSnapToDefaultButton.UseCompatibleTextRendering = $true
+#
+#TextBoxAdvancedSnapToDefaultButton
+#
+$TextBoxAdvancedSnapToDefaultButton.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]666))
+$TextBoxAdvancedSnapToDefaultButton.Name = [System.String]'TextBoxAdvancedSnapToDefaultButton'
+$TextBoxAdvancedSnapToDefaultButton.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]195,[System.Int32]21))
+$TextBoxAdvancedSnapToDefaultButton.TabIndex = [System.Int32]33
+#
 #FormAdvanced
 #
 $FormAdvanced.ClientSize = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]235,[System.Int32]481))
@@ -367,6 +389,7 @@ $FormAdvanced.Controls.Add($Panel1)
 $FormAdvanced.HelpButton = $true
 $FormAdvanced.Icon = ([System.Drawing.Icon]$resources.'$this.Icon')
 $FormAdvanced.Text = [System.String]'Advanced Settings - TGF Mouse Tuning Pack 2.0'
+$FormAdvanced.add_Load($FormAdvanced_Load)
 $Panel1.ResumeLayout($false)
 $Panel1.PerformLayout()
 $FormAdvanced.ResumeLayout($false)
@@ -378,6 +401,8 @@ Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedDoubleClickHeight -Va
 Add-Member -InputObject $FormAdvanced -Name LabelAdvancedDoubleClickSpeed -Value $LabelAdvancedDoubleClickSpeed -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedDoubleClickSpeed -Value $TextBoxAdvancedDoubleClickSpeed -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name Panel1 -Value $Panel1 -MemberType NoteProperty
+Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedSnapToDefaultButton -Value $TextBoxAdvancedSnapToDefaultButton -MemberType NoteProperty
+Add-Member -InputObject $FormAdvanced -Name LabelAdvancedSnapToDefaultButton -Value $LabelAdvancedSnapToDefaultButton -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedMouseYCurve -Value $TextBoxAdvancedMouseYCurve -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name LabelAdvancedSmoothMouseYCurve -Value $LabelAdvancedSmoothMouseYCurve -MemberType NoteProperty
 Add-Member -InputObject $FormAdvanced -Name TextBoxAdvancedSmoothMouseXCurve -Value $TextBoxAdvancedSmoothMouseXCurve -MemberType NoteProperty
