@@ -3,7 +3,7 @@ $FormMousePack = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.Label]$LabelMain = $null
 [System.Windows.Forms.Label]$LabelCreator = $null
 [System.Windows.Forms.Panel]$PanelScale = $null
-[System.Windows.Forms.Button]$Button? = $null
+[System.Windows.Forms.Button]$ButtonHelp = $null
 [System.Windows.Forms.Button]$ButtonDetect = $null
 [System.Windows.Forms.RadioButton]$RadioButton350 = $null
 [System.Windows.Forms.RadioButton]$RadioButton300 = $null
@@ -34,7 +34,7 @@ $RadioButton100 = (New-Object -TypeName System.Windows.Forms.RadioButton)
 $LabelMain = (New-Object -TypeName System.Windows.Forms.Label)
 $LabelCreator = (New-Object -TypeName System.Windows.Forms.Label)
 $PanelScale = (New-Object -TypeName System.Windows.Forms.Panel)
-$Button? = (New-Object -TypeName System.Windows.Forms.Button)
+$ButtonHelp = (New-Object -TypeName System.Windows.Forms.Button)
 $ButtonDetect = (New-Object -TypeName System.Windows.Forms.Button)
 $RadioButton350 = (New-Object -TypeName System.Windows.Forms.RadioButton)
 $RadioButton300 = (New-Object -TypeName System.Windows.Forms.RadioButton)
@@ -55,9 +55,9 @@ $ButtonEnglish = (New-Object -TypeName System.Windows.Forms.Button)
 $TrackBarMouseSensitivity = (New-Object -TypeName System.Windows.Forms.TrackBar)
 $CheckBoxMouseAccelerationFix = (New-Object -TypeName System.Windows.Forms.CheckBox)
 $PanelMouseSpeed = (New-Object -TypeName System.Windows.Forms.Panel)
-$LabelMouseSpeed = (New-Object -TypeName System.Windows.Forms.Label)
-$Label1 = (New-Object -TypeName System.Windows.Forms.Label)
 $Label2 = (New-Object -TypeName System.Windows.Forms.Label)
+$Label1 = (New-Object -TypeName System.Windows.Forms.Label)
+$LabelMouseSpeed = (New-Object -TypeName System.Windows.Forms.Label)
 $PanelScale.SuspendLayout()
 ([System.ComponentModel.ISupportInitialize]$PictureBox1).BeginInit()
 ([System.ComponentModel.ISupportInitialize]$TrackBarMouseSensitivity).BeginInit()
@@ -97,7 +97,7 @@ $LabelCreator.UseCompatibleTextRendering = $true
 #PanelScale
 #
 $PanelScale.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
-$PanelScale.Controls.Add($Button?)
+$PanelScale.Controls.Add($ButtonHelp)
 $PanelScale.Controls.Add($ButtonDetect)
 $PanelScale.Controls.Add($RadioButton350)
 $PanelScale.Controls.Add($RadioButton300)
@@ -114,15 +114,15 @@ $PanelScale.Name = [System.String]'PanelScale'
 $PanelScale.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]137,[System.Int32]332))
 $PanelScale.TabIndex = [System.Int32]3
 #
-#Button?
+#ButtonHelp
 #
-$Button?.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]104,[System.Int32]4))
-$Button?.Name = [System.String]'Button?'
-$Button?.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]25,[System.Int32]25))
-$Button?.TabIndex = [System.Int32]11
-$Button?.Text = [System.String]'?'
-$Button?.UseCompatibleTextRendering = $true
-$Button?.UseVisualStyleBackColor = $true
+$ButtonHelp.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]104,[System.Int32]4))
+$ButtonHelp.Name = [System.String]'ButtonHelp'
+$ButtonHelp.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]25,[System.Int32]25))
+$ButtonHelp.TabIndex = [System.Int32]11
+$ButtonHelp.Text = [System.String]'?'
+$ButtonHelp.UseCompatibleTextRendering = $true
+$ButtonHelp.UseVisualStyleBackColor = $true
 #
 #ButtonDetect
 #
@@ -234,12 +234,14 @@ $LabelScale.add_Click($Label2_Click)
 #
 #PictureBox1
 #
-$PictureBox1.Image = ([System.Drawing.Image]$resources.'PictureBox1.Image')
+$PictureBox1.BackgroundImage = ([System.Drawing.Image]$resources.'PictureBox1.BackgroundImage')
+$PictureBox1.BackgroundImageLayout = [System.Windows.Forms.ImageLayout]::Stretch
 $PictureBox1.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]396,[System.Int32]9))
 $PictureBox1.Name = [System.String]'PictureBox1'
 $PictureBox1.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]278,[System.Int32]72))
 $PictureBox1.TabIndex = [System.Int32]5
 $PictureBox1.TabStop = $false
+$PictureBox1.add_Click($PictureBox1_Click)
 #
 #ButtonExit
 #
@@ -282,7 +284,6 @@ $CheckBoxRegBackup.UseVisualStyleBackColor = $true
 $ButtonLetsGo.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]11.25,[System.Drawing.FontStyle]::Regular,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
 $ButtonLetsGo.ForeColor = [System.Drawing.Color]::FromArgb(([System.Int32]([System.Byte][System.Byte]0)),([System.Int32]([System.Byte][System.Byte]192)),([System.Int32]([System.Byte][System.Byte]0)))
 
-$ButtonLetsGo.Image = ([System.Drawing.Image]$resources.'ButtonLetsGo.Image')
 $ButtonLetsGo.ImageAlign = [System.Drawing.ContentAlignment]::MiddleLeft
 $ButtonLetsGo.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]438,[System.Int32]491))
 $ButtonLetsGo.Name = [System.String]'ButtonLetsGo'
@@ -318,7 +319,7 @@ $ButtonEnglish.UseVisualStyleBackColor = $true
 $TrackBarMouseSensitivity.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]4,[System.Int32]44))
 $TrackBarMouseSensitivity.Maximum = [System.Int32]20
 $TrackBarMouseSensitivity.Name = [System.String]'TrackBarMouseSensitivity'
-$TrackBarMouseSensitivity.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]513,[System.Int32]45))
+$TrackBarMouseSensitivity.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]513,[System.Int32]56))
 $TrackBarMouseSensitivity.TabIndex = [System.Int32]12
 #
 #CheckBoxMouseAccelerationFix
@@ -344,16 +345,15 @@ $PanelMouseSpeed.Name = [System.String]'PanelMouseSpeed'
 $PanelMouseSpeed.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]519,[System.Int32]84))
 $PanelMouseSpeed.TabIndex = [System.Int32]14
 #
-#LabelMouseSpeed
+#Label2
 #
-$LabelMouseSpeed.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]11.25,[System.Drawing.FontStyle]::Regular,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
-$LabelMouseSpeed.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]4))
-$LabelMouseSpeed.Name = [System.String]'LabelMouseSpeed'
-$LabelMouseSpeed.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]100,[System.Int32]23))
-$LabelMouseSpeed.TabIndex = [System.Int32]13
-$LabelMouseSpeed.Text = [System.String]'Mouse Speed'
-$LabelMouseSpeed.UseCompatibleTextRendering = $true
-$LabelMouseSpeed.add_Click($Label1_Click)
+$Label2.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]407,[System.Int32]27))
+$Label2.Name = [System.String]'Label2'
+$Label2.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]100,[System.Int32]23))
+$Label2.TabIndex = [System.Int32]15
+$Label2.Text = [System.String]'(Fast) 20'
+$Label2.TextAlign = [System.Drawing.ContentAlignment]::MiddleRight
+$Label2.UseCompatibleTextRendering = $true
 #
 #Label1
 #
@@ -365,15 +365,16 @@ $Label1.Text = [System.String]'1 (Slow)'
 $Label1.UseCompatibleTextRendering = $true
 $Label1.add_Click($Label1_Click)
 #
-#Label2
+#LabelMouseSpeed
 #
-$Label2.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]407,[System.Int32]27))
-$Label2.Name = [System.String]'Label2'
-$Label2.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]100,[System.Int32]23))
-$Label2.TabIndex = [System.Int32]15
-$Label2.Text = [System.String]'(Fast) 20'
-$Label2.TextAlign = [System.Drawing.ContentAlignment]::MiddleRight
-$Label2.UseCompatibleTextRendering = $true
+$LabelMouseSpeed.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]11.25,[System.Drawing.FontStyle]::Regular,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
+$LabelMouseSpeed.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]4))
+$LabelMouseSpeed.Name = [System.String]'LabelMouseSpeed'
+$LabelMouseSpeed.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]100,[System.Int32]23))
+$LabelMouseSpeed.TabIndex = [System.Int32]13
+$LabelMouseSpeed.Text = [System.String]'Mouse Speed'
+$LabelMouseSpeed.UseCompatibleTextRendering = $true
+$LabelMouseSpeed.add_Click($Label1_Click)
 #
 #FormMousePack
 #
@@ -404,7 +405,7 @@ Add-Member -InputObject $FormMousePack -Name RadioButton100 -Value $RadioButton1
 Add-Member -InputObject $FormMousePack -Name LabelMain -Value $LabelMain -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name LabelCreator -Value $LabelCreator -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name PanelScale -Value $PanelScale -MemberType NoteProperty
-Add-Member -InputObject $FormMousePack -Name Button? -Value $Button? -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name ButtonHelp -Value $ButtonHelp -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name ButtonDetect -Value $ButtonDetect -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name RadioButton350 -Value $RadioButton350 -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name RadioButton300 -Value $RadioButton300 -MemberType NoteProperty
