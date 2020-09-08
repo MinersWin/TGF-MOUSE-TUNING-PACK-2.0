@@ -27,6 +27,8 @@ $FormMousePack = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.Label]$Label2 = $null
 [System.Windows.Forms.Label]$Label1 = $null
 [System.Windows.Forms.Label]$LabelMouseSpeed = $null
+[System.Windows.Forms.CheckBox]$CheckBoxMouseSwap = $null
+[System.Windows.Forms.CheckBox]$CheckBoxSnap = $null
 function InitializeComponent
 {
 $resources = . (Join-Path $PSScriptRoot 'GUI.resources.ps1')
@@ -58,6 +60,8 @@ $PanelMouseSpeed = (New-Object -TypeName System.Windows.Forms.Panel)
 $Label2 = (New-Object -TypeName System.Windows.Forms.Label)
 $Label1 = (New-Object -TypeName System.Windows.Forms.Label)
 $LabelMouseSpeed = (New-Object -TypeName System.Windows.Forms.Label)
+$CheckBoxMouseSwap = (New-Object -TypeName System.Windows.Forms.CheckBox)
+$CheckBoxSnap = (New-Object -TypeName System.Windows.Forms.CheckBox)
 $PanelScale.SuspendLayout()
 ([System.ComponentModel.ISupportInitialize]$PictureBox1).BeginInit()
 ([System.ComponentModel.ISupportInitialize]$TrackBarMouseSensitivity).BeginInit()
@@ -319,7 +323,7 @@ $ButtonEnglish.UseVisualStyleBackColor = $true
 $TrackBarMouseSensitivity.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]4,[System.Int32]44))
 $TrackBarMouseSensitivity.Maximum = [System.Int32]20
 $TrackBarMouseSensitivity.Name = [System.String]'TrackBarMouseSensitivity'
-$TrackBarMouseSensitivity.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]513,[System.Int32]56))
+$TrackBarMouseSensitivity.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]513,[System.Int32]45))
 $TrackBarMouseSensitivity.TabIndex = [System.Int32]12
 #
 #CheckBoxMouseAccelerationFix
@@ -376,9 +380,31 @@ $LabelMouseSpeed.Text = [System.String]'Mouse Speed'
 $LabelMouseSpeed.UseCompatibleTextRendering = $true
 $LabelMouseSpeed.add_Click($Label1_Click)
 #
+#CheckBoxMouseSwap
+#
+$CheckBoxMouseSwap.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]188))
+$CheckBoxMouseSwap.Name = [System.String]'CheckBoxMouseSwap'
+$CheckBoxMouseSwap.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]509,[System.Int32]32))
+$CheckBoxMouseSwap.TabIndex = [System.Int32]15
+$CheckBoxMouseSwap.Text = [System.String]'Swap Mouse Buttons'
+$CheckBoxMouseSwap.UseCompatibleTextRendering = $true
+$CheckBoxMouseSwap.UseVisualStyleBackColor = $true
+#
+#CheckBoxSnap
+#
+$CheckBoxSnap.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]226))
+$CheckBoxSnap.Name = [System.String]'CheckBoxSnap'
+$CheckBoxSnap.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]509,[System.Int32]24))
+$CheckBoxSnap.TabIndex = [System.Int32]16
+$CheckBoxSnap.Text = [System.String]'Snap to Default Buttons'
+$CheckBoxSnap.UseCompatibleTextRendering = $true
+$CheckBoxSnap.UseVisualStyleBackColor = $true
+#
 #FormMousePack
 #
 $FormMousePack.ClientSize = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]682,[System.Int32]526))
+$FormMousePack.Controls.Add($CheckBoxSnap)
+$FormMousePack.Controls.Add($CheckBoxMouseSwap)
 $FormMousePack.Controls.Add($PanelMouseSpeed)
 $FormMousePack.Controls.Add($CheckBoxMouseAccelerationFix)
 $FormMousePack.Controls.Add($ButtonEnglish)
@@ -429,5 +455,7 @@ Add-Member -InputObject $FormMousePack -Name PanelMouseSpeed -Value $PanelMouseS
 Add-Member -InputObject $FormMousePack -Name Label2 -Value $Label2 -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name Label1 -Value $Label1 -MemberType NoteProperty
 Add-Member -InputObject $FormMousePack -Name LabelMouseSpeed -Value $LabelMouseSpeed -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name CheckBoxMouseSwap -Value $CheckBoxMouseSwap -MemberType NoteProperty
+Add-Member -InputObject $FormMousePack -Name CheckBoxSnap -Value $CheckBoxSnap -MemberType NoteProperty
 }
 . InitializeComponent
