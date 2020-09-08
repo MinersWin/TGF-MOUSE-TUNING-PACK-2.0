@@ -46,4 +46,45 @@ $TextBoxAdvancedSnapToDefaultButton.Text = $VariableAdvancedSnapToDefaultButton.
 $TextBoxAdvancedSwapMouseButtons.Text = $VariableAdvancedSwapMouseButtons.SwapMouseButtons
 
 
+function Set-AdvancedVariables{
+    $AcceptChanges = [System.Windows.Forms.MessageBox]::Show("Bist du dir sicher, dass du die Änderungen Übernehmen willst.","TGF Mouse Tuning Pack 2.0","YesNo")
+    $AcceptChanges
+    if ($AcceptChanges -eq "Yes"){
+        $SavedDoubleClickHeight = $TextBoxAdvancedDoubleClickHeight.Text
+        $SavedDoubleclickSpeed = $TextBoxAdvancedDoubleClickSpeed.Text
+        $SavedDoubleClickWidth = $TextBoxAdvancedDoubleClickWidth.Text
+        $SavedExtendedSounds = $TextBoxAdvancedExtendedSounds.Text
+        $SavedMouseHoverHeight = $TextBoxAdvancedMouseHoverHeight.Text
+        $SavedMouseHoverTime = $TextBoxAdvancedMouseHoverTime.Text
+        $SavedMouseHoverWidth = $TextBoxAdvancedMouseHoverWidth.Text
+        $SavedMouseSensitivity = $TextBoxAdvancedMouseSensitivity.Text
+        $SavedMouseSpeed = $TextBoxAdvancedMouseSpeed.Text
+        $SavedMouseThreshold1 = $TextBoxAdvancedMouseThreshold1.Text
+        $SavedMouseThreshold2 = $TextBoxAdvancedMouseThreshold2.Text
+        $SavedMouseTrails = $TextBoxAdvancedMouseTrails.Text 
+        $SavedSmoothMouseXCurve = $TextBoxAdvancedSmoothMouseXCurve.Text
+        $SavedSmoothMouseYCurve = $TextBoxAdvancedMouseYCurve.Text
+        $SavedSnapToDefaultButton = $TextBoxAdvancedSnapToDefaultButton.Text
+        $SavedSwapMouseButtons = $TextBoxAdvancedSwapMouseButtons.Text
+
+        Set-ItemProperty -Path "HKCU:\Control Panel\Mouse" -Name "DoubleClickHeight" -Value $SavedDoubleClickHeight -ErrorAction SilentlyContinue
+        Set-ItemProperty -Path "HKCU:\Control Panel\Mouse" -Name "DoubleClickSpeed" -Value $SavedDoubleClickSpeed -ErrorAction SilentlyContinue
+        Set-ItemProperty -Path "HKCU:\Control Panel\Mouse" -Name "DoubleClickWidth" -Value $SavedDoubleClickWidth -ErrorAction SilentlyContinue
+        Set-ItemProperty -Path "HKCU:\Control Panel\Mouse" -Name "ExtendedSounds" -Value $SavedExtendedSounds -ErrorAction SilentlyContinue
+        Set-ItemProperty -Path "HKCU:\Control Panel\Mouse" -Name "MouseHoverHeight" -Value $SavedMouseHoverHeight -ErrorAction SilentlyContinue
+        Set-ItemProperty -Path "HKCU:\Control Panel\Mouse" -Name "MouseHoverTime" -Value $SavedMouseHoverTime -ErrorAction SilentlyContinue
+        Set-ItemProperty -Path "HKCU:\Control Panel\Mouse" -Name "MouseHoverWidth" -Value $SavedMouseHoverWidth -ErrorAction SilentlyContinue
+        Set-ItemProperty -Path "HKCU:\Control Panel\Mouse" -Name "MouseSensitivity" -Value $SavedMouseSensitivity -ErrorAction SilentlyContinue
+        Set-ItemProperty -Path "HKCU:\Control Panel\Mouse" -Name "MouseSpeed" -Value $SavedMouseSpeed -ErrorAction SilentlyContinue
+        Set-ItemProperty -Path "HKCU:\Control Panel\Mouse" -Name "MouseThreshold1" -Value $SavedMouseThreshold1 -ErrorAction SilentlyContinue
+        Set-ItemProperty -Path "HKCU:\Control Panel\Mouse" -Name "MouseThreshold2" -Value $SavedMouseThreshold2 -ErrorAction SilentlyContinue
+        Set-ItemProperty -Path "HKCU:\Control Panel\Mouse" -Name "MouseTrails" -Value $SavedMouseTrails -ErrorAction SilentlyContinue
+        Set-ItemProperty -Path "HKCU:\Control Panel\Mouse" -Name "SmoothMouseXCurve" -Value $SavedSmoothMouseXCurve -ErrorAction SilentlyContinue
+        Set-ItemProperty -Path "HKCU:\Control Panel\Mouse" -Name "SmoothMouseYCurve" -Value $SavedSmoothMouseYCurve -ErrorAction SilentlyContinue
+        Set-ItemProperty -Path "HKCU:\Control Panel\Mouse" -Name "SnapToDefaultButtons" -Value $SavedSnapToDefaultButton -ErrorAction SilentlyContinue
+        Set-ItemProperty -Path "HKCU:\Control Panel\Mouse" -Name "SwapMouseButtons" -Value $SavedSwapMouseButtons
+    } else {}
+}
+$ButtonAdvancedApply.Add_Click{(Set-AdvancedVariables)}
+
 $FormAdvanced.ShowDialog()

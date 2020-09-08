@@ -1,7 +1,7 @@
 #Created by MinersWin
 #TGF Mouse Tuning Pack 2.0
 #https://tuning-pack.de
-#18.08.2020
+#04.09.2020
 Add-Type -AssemblyName System.Windows.Forms
 . (Join-Path $PSScriptRoot 'GUI.designer.ps1')
 
@@ -27,12 +27,15 @@ Add-Type @'
   }
 '@ -ReferencedAssemblies 'System.Drawing.dll'
 }
-$FormMousePack.Cursor = 'WaitCursor'
 ###################################################################################
 #Set Global Variables
 $LabelMain.Text = "TGF Mouse Tuning Pack 2.0"
 $LabelCreator.Text = "by MinersWin"
 $FormMousePack.Text = "TGF Mouse Tuning Pack 2.0"
+
+$CheckBoxRegBackup.Checked = $true
+$CheckBoxRestorePoint.Checked = $true
+$CheckBoxMouseAccelerationFix.Checked = $true
 
 #Detect Monitor Scale
 function Detect_Scale{
@@ -56,17 +59,10 @@ $MouseSpeed = Get-ItemProperty -Path "HKCU:\Control Panel\Mouse" -Name MouseSens
 $TrackBarMouseSensitivity.Value = $MouseSpeed.MouseSensitivity
 
 ###################################################################################
-#Images
-
-#Add Logo to PictureBox
-$Picture = ".\Images\Logo_v1.png"
-$img = [System.Drawing.Image]::Fromfile($Picture)
-$PictureBox1.BackgroundImage = $img
-$PictureBox1.BackgroundImageLayout = "Stretch"
-$PictureBox1.Add_Click({About})
-
-###################################################################################
 #Buttons
+
+#LogoButton
+$PictureBox1.Add_Click({About})
 
 #CloseButton
 $ButtonExit.Add_Click{($FormMousePack.Close())}
@@ -77,6 +73,11 @@ $ButtonDetect.Add_Click{(.\Detect_Scale.ps1)}
 #Language Buttons
 $ButtonGerman.Add_Click{(German)}
 $ButtonEnglish.Add_Click{(English)}
+
+#Help Button
+$ButtonHelp.Add_Click{
+  Write-Host ""
+}
 
 $LabelMain.Add_Click{
   $AdvancedYoN = [System.Windows.Forms.MessageBox]::Show("Go to Advanced Settings?","TGF Mouse Tuning Pack 2.0","YesNO")
@@ -191,7 +192,7 @@ function German{
   $LabelMain.Text = "TGF Maus Tuning Pack 2.0"
   $LabelCreator.Text = "von Minerswin"
 
-  $ButtonMouseAccelerationFix.Text = "Mausbeschleunigungs Fix"
+  $CheckBoxMouseAccelerationFix.Text = "Mausbeschleunigungs Fix"
   $ButtonExit.Text = "Beenden"
   $ButtonDetect.Text = "Erkennen"
 
@@ -206,7 +207,7 @@ function English{
   $LabelMain.Text = "TGF Mouse Tuning Pack 2.0"
   $LabelCreator.Text = "by MinersWin"
 
-  $ButtonMouseAccelerationFix.Text = "Mouse Acceleration Fix"
+  $CheckBoxMouseAccelerationFix.Text = "Mouse Acceleration Fix"
   $ButtonExit.Text = "Exit"
   $ButtonDetect.Text = "Detect"
 
