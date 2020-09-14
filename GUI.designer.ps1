@@ -288,6 +288,7 @@ $CheckBoxRegBackup.UseVisualStyleBackColor = $true
 $ButtonLetsGo.Font = (New-Object -TypeName System.Drawing.Font -ArgumentList @([System.String]'Tahoma',[System.Single]11.25,[System.Drawing.FontStyle]::Regular,[System.Drawing.GraphicsUnit]::Point,([System.Byte][System.Byte]0)))
 $ButtonLetsGo.ForeColor = [System.Drawing.Color]::FromArgb(([System.Int32]([System.Byte][System.Byte]0)),([System.Int32]([System.Byte][System.Byte]192)),([System.Int32]([System.Byte][System.Byte]0)))
 
+$ButtonLetsGo.Image = ([System.Drawing.Image]$resources.'ButtonLetsGo.Image')
 $ButtonLetsGo.ImageAlign = [System.Drawing.ContentAlignment]::MiddleLeft
 $ButtonLetsGo.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]438,[System.Int32]491))
 $ButtonLetsGo.Name = [System.String]'ButtonLetsGo'
@@ -320,7 +321,7 @@ $ButtonEnglish.UseVisualStyleBackColor = $true
 #
 #TrackBarMouseSensitivity
 #
-$TrackBarMouseSensitivity.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]4,[System.Int32]44))
+$TrackBarMouseSensitivity.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]3,[System.Int32]37))
 $TrackBarMouseSensitivity.Maximum = [System.Int32]20
 $TrackBarMouseSensitivity.Name = [System.String]'TrackBarMouseSensitivity'
 $TrackBarMouseSensitivity.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]513,[System.Int32]45))
