@@ -3,8 +3,6 @@
 Hier wird entwickelt: [TGF Git](https://git.minerswin.de/thegeekfreaks1/tuningpack/TGF-MOUSE-TUNING-PACK-2-0)
 Link zu GitHub: [GitHub](https://github.com/MinersWin/TGF-MOUSE-TUNING-PACK-2.0)
 
-## Release: August 2020
-
 ### WAS IST ES?
 
 DAS TGF MOUSE TUNING PACK ist ein Tool, welches die die Mauszeigerbeschleunigung von Windows 7, 8, 8.1 oder 10 entfernt.
@@ -16,13 +14,15 @@ Genau gesagt bedeutet 1-zu-1, dass während des Spiels keine Mauseingaben verwor
 ### WIE BENUTZT MAN ES?
 
 * Tool unter [Releases](https://github.com/MinersWin/TGF-MOUSE-TUNING-PACK-2.0/releases) herunterladen.
-* Zip-Archiv entpacken
-* MouseFix.exe ausführen
-* Einstellungen treffen, bzw. auf Express klicken
+* ```TGF Mouse Tuning Pack 2.exe``` ausführen
+* Einstellungen treffen, und auf ```Lets Go``` klicken
 * Fix anwenden
 * Windows Neu-Starten
 
 - Die 1:1 Reaktion der Maus genießen
+
+#### YT Videos
+[![Alex MTP Video](https://img.youtube.com/vi/jFnPgg8qLCc/0.jpg)](https://youtu.be/jFnPgg8qLCc "Windows 10 Mausbeschleunigung repariert! | TGF Maus Tuning Pack 2.0")[![Moritz MTP Video](https://img.youtube.com/vi/hRr6sEoUUd0/0.jpg)](https://youtu.be/hRr6sEoUUd0 "Besser zocken mit Jeder Maus! 🖱️ | Der Trick den ihr (noch) nicht kanntet!")
 
 ### WARUM BENÖTIGT MAN DEN FIX?
 
@@ -36,8 +36,6 @@ Wenn in diesen Spielen die Funktion aufgerufen wird (alle Bewegungen müssen bes
 Wenn die Option "Zeigergenauigkeit verbessern" aktiviert ist, wird der Zeiger durch langsamere Mausbewegungen besonders langsam und durch schnellere Mausbewegungen besonders schnell. Es ist nicht linear und nicht geradlinig.
 
 Das ist ärgerlich, denn wo man hinzielt, hängt davon ab, wie weit die Maus bewegt wird und wie schnell ie Maus zum Zielen bewegt wird.
-
-![](https://intranet.minerswin.de/serveimage.png)
 
 ### WIE FUNKTIONIERT DER FIX?
 
@@ -56,5 +54,3 @@ Der Mousefix kann mit einem Klick auf ```Auf Standartwerte zurücksetzen``` rese
 Nach einem Neustart sollte alles wieder wie gewohnt Funktionieren.
 
 ### WAS KANN ICH SONST NOCH MACHEN?
-
-.... #Updates
