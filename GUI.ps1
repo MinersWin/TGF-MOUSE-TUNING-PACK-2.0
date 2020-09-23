@@ -55,11 +55,7 @@ function Detect_Scale{
   }
 }
 
-#Path to Registry Key
-$RegUserPath = "HKCU:\Control Panel\Mouse"
-$RegUsersPath = "HKEY_USERS\.DEFAULT\Control Panel\Mouse"
-
-$MouseSpeed = Get-ItemProperty -Path $RegUserPath -Name MouseSensitivity
+$MouseSpeed = Get-ItemProperty -Path "HKCU:\Control Panel\Mouse" -Name MouseSensitivity
 $TrackBarMouseSensitivity.Value = $MouseSpeed.MouseSensitivity
 
 ###################################################################################
@@ -100,16 +96,16 @@ $ButtonLetsGo.Add_Click{
         Write-Host "Die erstellung von Wiederherstellungspunkten wurde aktiviert"
         Checkpoint-Computer -Description "TGF_Mouse_Tuning_Pack_2.0-$(Get-Date)"
         $Date = Get-Date
-        Write-Host "Der Wiederherstellungspunkt wurde erstellt. Er tr‰gt den Namen: TGF_Mouse_Tuning_Pack_2.0-$(Get-Date)" -ForegroundColor Green
+        Write-Host "Der Wiederherstellungspunkt wurde erstellt. Er tr√§gt den Namen: TGF_Mouse_Tuning_Pack_2.0-$(Get-Date)" -ForegroundColor Green
     }
     if ($CheckBoxRegBackup.Checked){
         if ($Language -eq "de-DE"){
-            $Backup = [System.Windows.Forms.MessageBox]::Show("Ein Backup der Registry wird ausgef¸hrt. Eine Normale Windows Registry ist im Normalfall ca. 500mb Groﬂ. Das Backup wird unter C:\RegBack\ Gespeichert.","TGF Mouse Tuning Pack 2.0 by MinersWin",'OK','Info')
+            $Backup = [System.Windows.Forms.MessageBox]::Show("Ein Backup der Registry wird ausgef√ºhrt. Eine Normale Windows Registry ist im Normalfall ca. 500mb Gro√ü. Das Backup wird unter C:\RegBack\ Gespeichert.","TGF Mouse Tuning Pack 2.0 by MinersWin",'OK','Info')
         } else {
             $Backup = [System.Windows.Forms.MessageBox]::Show("The registry is backed up. A normal Windows registry is usually about 500mb in size. The backup is saved under C:\RegBack\.","TGF Mouse Tuning Pack 2.0 by MinersWin",'OK','Info')
         }
         mkdir C:\RegBack\        
-        Write-Host "Ein Backup der Registry wird ausgef¸hrt.... Eine Normale Windows Registry ist im Normalfall ca. 500mb Groﬂ. Das Backup wird unter C:\RegBack\ Gespeichert." -ForegroundColor Green
+        Write-Host "Ein Backup der Registry wird ausgef√ºhrt.... Eine Normale Windows Registry ist im Normalfall ca. 500mb Gro√ü. Das Backup wird unter C:\RegBack\ Gespeichert." -ForegroundColor Green
         reg export HKCR C:\RegBack\HKLM.Reg /y
         reg export HKCU C:\RegBack\HKCU.Reg /y
         reg export HKLM C:\RegBack\HKCR.Reg /y
@@ -141,19 +137,7 @@ $ButtonLetsGo.Add_Click{
 "@
   $User32Set = Add-Type -MemberDefinition $MethodDefinition -Name "User32Set" -Namespace Win32Functions -PassThru
   $User32Set::SystemParametersInfo(0x0071,0,$Speed,0) | Out-Null
-  Set-ItemProperty -Path $RegUserPath -Name MouseSensitivity -Value $Speed
-  #SwapMouseButtons
-  if ($CheckBoxMouseSwap.Checked){
-    Set-ItemProperty -Path $RegUserPath -Name "SnapToDefaultButton" -Value 1 -ErrorAction SilentlyContinue
-  } else {
-    Set-ItemProperty -Path $RegUserPath -Name "SnapToDefaultButton" -Value 0 -ErrorAction SilentlyContinue
-  }
-  #SnaptoDefaultButtons
-  if ($CheckBoxSnap.Checked){
-    Set-ItemProperty -Path $RegUserPath -Name "SwapMouseButtons" -Value 1 -ErrorAction SilentlyContinue
-  } else {
-    Set-ItemProperty -Path $RegUserPath -Name "SwapMouseButtons" -Value 0 -ErrorAction SilentlyContinue
-  }
+  Set-ItemProperty -Path "HKCU:\Control Panel\Mouse" -Name MouseSensitivity -Value $Speed
 }
 
 
@@ -214,8 +198,6 @@ function German{
 
   $CheckBoxRestorePoint.Text = "Wiederherstellungspunkt"
   $CheckBoxRegBackup.Text = "Registry Backup"
-  $CheckBoxSnap.Text = "Snappe auf Standart Knˆpfe"
-  $CheckBoxMouseSwap.Text = "Mausbuttons tauschen"
   [System.Windows.Forms.MessageBox]::Show("Deutsches Sprachpacket ausgew√§lt.","TGF Maus Tuning Pack 2.0","OK","Info")
   $Language = "de-DE"
 }
@@ -231,8 +213,6 @@ function English{
 
   $CheckBoxRestorePoint.Text = "System Restore Point"
   $CheckBoxRegBackup.Text = "Registry Backup"
-  $CheckBoxSnap.Text = "Snap to Default Buttons"
-  $CheckBoxMouseSwap.Text = "Swap Mouse Buttons"
   [System.Windows.Forms.MessageBox]::Show("English Languagepack has been applied.","TGF Mouse Tuning Pack 2.0","OK","Info")
   $Language = "en-EN"
 }
@@ -240,89 +220,89 @@ function English{
 ################################################################################################
 #Actual Mouse Acceleration Fix
 function Acceleration_Default{
-  Set-ItemProperty -Path $RegUserPath -Name "SmoothMouseXCurve" -Value 00,00,00,00,00,00,00,00,15,6e,00,00,00,00,00,00,00,40,01,00,00,00,00,00,29,dc,03,00,00,00,00,00,00,00,28,00,00,00,00,00 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUserPath -Name "SmoothMouseYCurve" -Value 00,00,00,00,00,00,00,00,fd,11,01,00,00,00,00,00,00,24,04,00,00,00,00,00,00,fc,12,00,00,00,00,00,00,c0,bb,01,00,00,00,00 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "SmoothMouseXCurve" -Value 00,00,00,00,00,00,00,00,15,6e,00,00,00,00,00,00,00,40,01,00,00,00,00,00,29,dc,03,00,00,00,00,00,00,00,28,00,00,00,00,00 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "SmoothMouseYCurve" -Value 00,00,00,00,00,00,00,00,fd,11,01,00,00,00,00,00,00,24,04,00,00,00,00,00,00,fc,12,00,00,00,00,00,00,c0,bb,01,00,00,00,00 -ErrorAction SilentlyContinue
   Write-Host "Default Acceleration"
 }
 function Acceleration_100{
-  Set-ItemProperty -Path $RegUserPath -Name "MouseSensitivity" -Value 10 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUserPath -Name "SmoothMouseXCurve" -Value 00,00,00,00,00,00,00,00,C0,CC,0C,00,00,00,00,00,80,99,19,00,00,00,00,00,40,66,26,00,00,00,00,00,00,33,33,00,00,00,00,00 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUserPath -Name "SmoothMouseYCurve" -Value 00,00,00,00,00,00,00,00,00,00,38,00,00,00,00,00,00,00,70,00,00,00,00,00,00,00,A8,00,00,00,00,00,00,00,E0,00,00,00,00,00 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUsersPath -Name "MouseSpeed" -Value 0 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUsersPath -Name "MouseThreshold1" -Value 0 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUsersPath -Name "MouseThreshold2" -Value 0 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "MouseSensitivity" -Value 10 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "SmoothMouseXCurve" -Value 00,00,00,00,00,00,00,00,C0,CC,0C,00,00,00,00,00,80,99,19,00,00,00,00,00,40,66,26,00,00,00,00,00,00,33,33,00,00,00,00,00 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "SmoothMouseYCurve" -Value 00,00,00,00,00,00,00,00,00,00,38,00,00,00,00,00,00,00,70,00,00,00,00,00,00,00,A8,00,00,00,00,00,00,00,E0,00,00,00,00,00 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseSpeed" -Value 0 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseThreshold1" -Value 0 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseThreshold2" -Value 0 -ErrorAction SilentlyContinue
   Write-Host "100% Monitor Scale Acceleration"
 }
 function Acceleration_125{
-  Set-ItemProperty -Path $RegUserPath -Name "MouseSensitivity" -Value 10 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUserPath -Name "SmoothMouseXCurve" -Value 00,00,00,00,00,00,00,00,00,00,10,00,00,00,00,00,00,00,20,00,00,00,00,00,00,00,30,00,00,00,00,00,00,00,40,00,00,00,00,00 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUserPath -Name "SmoothMouseYCurve" -Value 00,00,00,00,00,00,00,00,00,00,38,00,00,00,00,00,00,00,70,00,00,00,00,00,00,00,A8,00,00,00,00,00,00,00,E0,00,00,00,00,00 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUsersPath -Name "MouseSpeed" -Value 0 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUsersPath -Name "MouseThreshold1" -Value 0 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUsersPath -Name "MouseThreshold2" -Value 0 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "MouseSensitivity" -Value 10 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "SmoothMouseXCurve" -Value 00,00,00,00,00,00,00,00,00,00,10,00,00,00,00,00,00,00,20,00,00,00,00,00,00,00,30,00,00,00,00,00,00,00,40,00,00,00,00,00 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "SmoothMouseYCurve" -Value 00,00,00,00,00,00,00,00,00,00,38,00,00,00,00,00,00,00,70,00,00,00,00,00,00,00,A8,00,00,00,00,00,00,00,E0,00,00,00,00,00 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseSpeed" -Value 0 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseThreshold1" -Value 0 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseThreshold2" -Value 0 -ErrorAction SilentlyContinue
   Write-Host "125% Monitor Scale Acceleration"
 }
 function Acceleration_150{
-  Set-ItemProperty -Path $RegUserPath -Name "MouseSensitivity" -Value 10 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUserPath -Name "SmoothMouseXCurve" -Value 00,00,00,00,00,00,00,00,30,33,13,00,00,00,00,00,60,66,26,00,00,00,00,00,90,99,39,00,00,00,00,00,C0,CC,4C,00,00,00,00,00 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUserPath -Name "SmoothMouseYCurve" -Value 00,00,00,00,00,00,00,00,00,00,38,00,00,00,00,00,00,00,70,00,00,00,00,00,00,00,A8,00,00,00,00,00,00,00,E0,00,00,00,00,00 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUsersPath -Name "MouseSpeed" -Value 0 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUsersPath -Name "MouseThreshold1" -Value 0 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUsersPath -Name "MouseThreshold2" -Value 0 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "MouseSensitivity" -Value 10 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "SmoothMouseXCurve" -Value 00,00,00,00,00,00,00,00,30,33,13,00,00,00,00,00,60,66,26,00,00,00,00,00,90,99,39,00,00,00,00,00,C0,CC,4C,00,00,00,00,00 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "SmoothMouseYCurve" -Value 00,00,00,00,00,00,00,00,00,00,38,00,00,00,00,00,00,00,70,00,00,00,00,00,00,00,A8,00,00,00,00,00,00,00,E0,00,00,00,00,00 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseSpeed" -Value 0 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseThreshold1" -Value 0 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseThreshold2" -Value 0 -ErrorAction SilentlyContinue
   Write-Host "150% Monitor Scale Acceleration"
 }
 function Acceleration_175{
-  Set-ItemProperty -Path $RegUserPath -Name "MouseSensitivity" -Value 10 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUserPath -Name "SmoothMouseXCurve" -Value 00,00,00,00,00,00,00,00,60,66,16,00,00,00,00,00,C0,CC,2C,00,00,00,00,00,20,33,43,00,00,00,00,00,80,99,59,00,00,00,00,00 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUserPath -Name "SmoothMouseYCurve" -Value 00,00,00,00,00,00,00,00,00,00,38,00,00,00,00,00,00,00,70,00,00,00,00,00,00,00,A8,00,00,00,00,00,00,00,E0,00,00,00,00,00 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUsersPath -Name "MouseSpeed" -Value 0 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUsersPath -Name "MouseThreshold1" -Value 0 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUsersPath -Name "MouseThreshold2" -Value 0 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "MouseSensitivity" -Value 10 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "SmoothMouseXCurve" -Value 00,00,00,00,00,00,00,00,60,66,16,00,00,00,00,00,C0,CC,2C,00,00,00,00,00,20,33,43,00,00,00,00,00,80,99,59,00,00,00,00,00 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "SmoothMouseYCurve" -Value 00,00,00,00,00,00,00,00,00,00,38,00,00,00,00,00,00,00,70,00,00,00,00,00,00,00,A8,00,00,00,00,00,00,00,E0,00,00,00,00,00 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseSpeed" -Value 0 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseThreshold1" -Value 0 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseThreshold2" -Value 0 -ErrorAction SilentlyContinue
   Write-Host "175% Monitor Scale Acceleration"
 }
 function Acceleration_200{
-  Set-ItemProperty -Path $RegUserPath -Name "MouseSensitivity" -Value 10 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUserPath -Name "SmoothMouseXCurve" -Value 00,00,00,00,00,00,00,00,90,99,19,00,00,00,00,00,20,33,33,00,00,00,00,00,B0,CC,4C,00,00,00,00,00,40,66,66,00,00,00,00,00 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUserPath -Name "SmoothMouseYCurve" -Value 00,00,00,00,00,00,00,00,00,00,38,00,00,00,00,00,00,00,70,00,00,00,00,00,00,00,A8,00,00,00,00,00,00,00,E0,00,00,00,00,00 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUsersPath -Name "MouseSpeed" -Value 0 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUsersPath -Name "MouseThreshold1" -Value 0 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUsersPath -Name "MouseThreshold2" -Value 0 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "MouseSensitivity" -Value 10 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "SmoothMouseXCurve" -Value 00,00,00,00,00,00,00,00,90,99,19,00,00,00,00,00,20,33,33,00,00,00,00,00,B0,CC,4C,00,00,00,00,00,40,66,66,00,00,00,00,00 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "SmoothMouseYCurve" -Value 00,00,00,00,00,00,00,00,00,00,38,00,00,00,00,00,00,00,70,00,00,00,00,00,00,00,A8,00,00,00,00,00,00,00,E0,00,00,00,00,00 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseSpeed" -Value 0 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseThreshold1" -Value 0 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseThreshold2" -Value 0 -ErrorAction SilentlyContinue
   Write-Host "200% Monitor Scale Acceleration"
 }
 function Acceleration_225{
-  Set-ItemProperty -Path $RegUserPath -Name "MouseSensitivity" -Value 10 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUserPath -Name "SmoothMouseXCurve" -Value 00,00,00,00,00,00,00,00,C0,CC,1C,00,00,00,00,00,80,99,39,00,00,00,00,00,40,66,56,00,00,00,00,00,00,33,73,00,00,00,00,00 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUserPath -Name "SmoothMouseYCurve" -Value 00,00,00,00,00,00,00,00,00,00,38,00,00,00,00,00,00,00,70,00,00,00,00,00,00,00,A8,00,00,00,00,00,00,00,E0,00,00,00,00,00 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUsersPath -Name "MouseSpeed" -Value 0 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUsersPath -Name "MouseThreshold1" -Value 0 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUsersPath -Name "MouseThreshold2" -Value 0 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "MouseSensitivity" -Value 10 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "SmoothMouseXCurve" -Value 00,00,00,00,00,00,00,00,C0,CC,1C,00,00,00,00,00,80,99,39,00,00,00,00,00,40,66,56,00,00,00,00,00,00,33,73,00,00,00,00,00 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "SmoothMouseYCurve" -Value 00,00,00,00,00,00,00,00,00,00,38,00,00,00,00,00,00,00,70,00,00,00,00,00,00,00,A8,00,00,00,00,00,00,00,E0,00,00,00,00,00 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseSpeed" -Value 0 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseThreshold1" -Value 0 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseThreshold2" -Value 0 -ErrorAction SilentlyContinue
   Write-Host "225% Monitor Scale Acceleration"
 }
 function Acceleration_250{
-  Set-ItemProperty -Path $RegUserPath -Name "MouseSensitivity" -Value 10 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUserPath -Name "SmoothMouseXCurve" -Value 00,00,00,00,00,00,00,00,00,00,20,00,00,00,00,00,00,00,40,00,00,00,00,00,00,00,60,00,00,00,00,00,00,00,80,00,00,00,00,00 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUserPath -Name "SmoothMouseYCurve" -Value 00,00,00,00,00,00,00,00,00,00,38,00,00,00,00,00,00,00,70,00,00,00,00,00,00,00,A8,00,00,00,00,00,00,00,E0,00,00,00,00,00 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUsersPath -Name "MouseSpeed" -Value 0 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUsersPath -Name "MouseThreshold1" -Value 0 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUsersPath -Name "MouseThreshold2" -Value 0 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "MouseSensitivity" -Value 10 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "SmoothMouseXCurve" -Value 00,00,00,00,00,00,00,00,00,00,20,00,00,00,00,00,00,00,40,00,00,00,00,00,00,00,60,00,00,00,00,00,00,00,80,00,00,00,00,00 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "SmoothMouseYCurve" -Value 00,00,00,00,00,00,00,00,00,00,38,00,00,00,00,00,00,00,70,00,00,00,00,00,00,00,A8,00,00,00,00,00,00,00,E0,00,00,00,00,00 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseSpeed" -Value 0 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseThreshold1" -Value 0 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseThreshold2" -Value 0 -ErrorAction SilentlyContinue
   Write-Host "250% Monitor Scale Acceleration"
 }
 function Acceleration_300{
-  Set-ItemProperty -Path $RegUserPath -Name "MouseSensitivity" -Value 10 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUserPath -Name "SmoothMouseXCurve" -Value 00,00,00,00,00,00,00,00,60,66,26,00,00,00,00,00,C0,CC,4C,00,00,00,00,00,20,33,73,00,00,00,00,00,80,99,99,00,00,00,00,00 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUserPath -Name "SmoothMouseYCurve" -Value 00,00,00,00,00,00,00,00,00,00,38,00,00,00,00,00,00,00,70,00,00,00,00,00,00,00,A8,00,00,00,00,00,00,00,E0,00,00,00,00,00 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUsersPath -Name "MouseSpeed" -Value 0 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUsersPath -Name "MouseThreshold1" -Value 0 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUsersPath -Name "MouseThreshold2" -Value 0 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "MouseSensitivity" -Value 10 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "SmoothMouseXCurve" -Value 00,00,00,00,00,00,00,00,60,66,26,00,00,00,00,00,C0,CC,4C,00,00,00,00,00,20,33,73,00,00,00,00,00,80,99,99,00,00,00,00,00 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "SmoothMouseYCurve" -Value 00,00,00,00,00,00,00,00,00,00,38,00,00,00,00,00,00,00,70,00,00,00,00,00,00,00,A8,00,00,00,00,00,00,00,E0,00,00,00,00,00 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseSpeed" -Value 0 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseThreshold1" -Value 0 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseThreshold2" -Value 0 -ErrorAction SilentlyContinue
   Write-Host "300% Monitor Scale Acceleration"
 }
 function Acceleration_350{
-  Set-ItemProperty -Path $RegUserPath -Name "MouseSensitivity" -Value 10 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUserPath -Name "SmoothMouseXCurve" -Value 00,00,00,00,00,00,00,00,C0,CC,2C,00,00,00,00,00,80,99,59,00,00,00,00,00,40,66,86,00,00,00,00,00,00,33,B3,00,00,00,00,00 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUserPath -Name "SmoothMouseYCurve"-Value  00,00,00,00,00,00,00,00,00,00,38,00,00,00,00,00,00,00,70,00,00,00,00,00,00,00,A8,00,00,00,00,00,00,00,E0,00,00,00,00,00 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUsersPath -Name "MouseSpeed" -Value 0 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUsersPath -Name "MouseThreshold1" -Value 0 -ErrorAction SilentlyContinue
-  Set-ItemProperty -Path $RegUsersPath -Name "MouseThreshold2" -Value 0 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "MouseSensitivity" -Value 10 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "SmoothMouseXCurve" -Value 00,00,00,00,00,00,00,00,C0,CC,2C,00,00,00,00,00,80,99,59,00,00,00,00,00,40,66,86,00,00,00,00,00,00,33,B3,00,00,00,00,00 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_CURRENT_USER\Control Panel\Mouse" -Name "SmoothMouseYCurve"-Value  00,00,00,00,00,00,00,00,00,00,38,00,00,00,00,00,00,00,70,00,00,00,00,00,00,00,A8,00,00,00,00,00,00,00,E0,00,00,00,00,00 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseSpeed" -Value 0 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseThreshold1" -Value 0 -ErrorAction SilentlyContinue
+  Set-ItemProperty -Path "HKEY_USERS\.DEFAULT\Control Panel\Mouse" -Name "MouseThreshold2" -Value 0 -ErrorAction SilentlyContinue
   Write-Host "350% Monitor Scale Acceleration"
 }
 
