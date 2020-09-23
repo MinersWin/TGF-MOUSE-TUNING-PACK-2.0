@@ -93,23 +93,22 @@ $LabelMain.Add_Click{
 #Make Tweaks
 $ButtonLetsGo.Add_Click{
 
-  Checkpoint-Computer -Description "TGF_Mouse_Tuning_Pack_2.0-$(Get-Date)"
     #Create RecoveryPoint
     if ($CheckBoxRestorePoint.Checked){
         wmic /namespace:\\root\default path SystemRestore call Enable C:\
         Write-Host "Die erstellung von Wiederherstellungspunkten wurde aktiviert"
         Checkpoint-Computer -Description "TGF_Mouse_Tuning_Pack_2.0-$(Get-Date)"
         $Date = Get-Date
-        Write-Host "Der Wiederherstellungspunkt wurde erstellt. Er tr‰gt den Namen: TGF_Mouse_Tuning_Pack_2.0-$(Get-Date)" -ForegroundColor Green
+        Write-Host "Der Wiederherstellungspunkt wurde erstellt. Er tr√§gt den Namen: TGF_Mouse_Tuning_Pack_2.0-$(Get-Date)" -ForegroundColor Green
     }
     if ($CheckBoxRegBackup.Checked){
         if ($Language -eq "de-DE"){
-            $Backup = [System.Windows.Forms.MessageBox]::Show("Ein Backup der Registry wird ausgef¸hrt. Eine Normale Windows Registry ist im Normalfall ca. 500mb Groﬂ. Das Backup wird unter C:\RegBack\ Gespeichert.","TGF Mouse Tuning Pack 2.0 by MinersWin",'OK','Info')
+            $Backup = [System.Windows.Forms.MessageBox]::Show("Ein Backup der Registry wird ausgef√ºhrt. Eine Normale Windows Registry ist im Normalfall ca. 500mb Gro√ü. Das Backup wird unter C:\RegBack\ Gespeichert.","TGF Mouse Tuning Pack 2.0 by MinersWin",'OK','Info')
         } else {
             $Backup = [System.Windows.Forms.MessageBox]::Show("The registry is backed up. A normal Windows registry is usually about 500mb in size. The backup is saved under C:\RegBack\.","TGF Mouse Tuning Pack 2.0 by MinersWin",'OK','Info')
         }
         mkdir C:\RegBack\        
-        Write-Host "Ein Backup der Registry wird ausgef¸hrt.... Eine Normale Windows Registry ist im Normalfall ca. 500mb Groﬂ. Das Backup wird unter C:\RegBack\ Gespeichert." -ForegroundColor Green
+        Write-Host "Ein Backup der Registry wird ausgef√ºhrt.... Eine Normale Windows Registry ist im Normalfall ca. 500mb Gro√ü. Das Backup wird unter C:\RegBack\ Gespeichert." -ForegroundColor Green
         reg export HKCR C:\RegBack\HKLM.Reg /y
         reg export HKCU C:\RegBack\HKCU.Reg /y
         reg export HKLM C:\RegBack\HKCR.Reg /y
@@ -214,9 +213,9 @@ function German{
 
   $CheckBoxRestorePoint.Text = "Wiederherstellungspunkt"
   $CheckBoxRegBackup.Text = "Registry Backup"
-  $CheckBoxSnap.Text = "Snappe auf Standart Knˆpfe"
+  $CheckBoxSnap.Text = "Snappe auf Standart Kn√∂pfe"
   $CheckBoxMouseSwap.Text = "Mausbuttons tauschen"
-  [System.Windows.Forms.MessageBox]::Show("Deutsches Sprachpacket ausgew√§lt.","TGF Maus Tuning Pack 2.0","OK","Info")
+  [System.Windows.Forms.MessageBox]::Show("Deutsches Sprachpacket ausgew√§hlt.","TGF Maus Tuning Pack 2.0","OK","Info")
   $Language = "de-DE"
 }
 
